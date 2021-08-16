@@ -1,6 +1,9 @@
 import { StackNavigationProp } from '@react-navigation/stack';
 import React from 'react';
-import { StyleSheet, ImageBackground, SafeAreaView, Image, Text, TouchableOpacity, View, ImageSourcePropType } from 'react-native';
+import { StyleSheet, ImageBackground, SafeAreaView, Image, Text, TouchableOpacity, View, ImageSourcePropType, Dimensions } from 'react-native';
+
+const { width, height } = Dimensions.get('window');
+
 
 import { TopNavigatorParamsList } from '../types'
 import { GeneralButton } from '../components/GeneralButton';
@@ -46,11 +49,11 @@ const styles = StyleSheet.create({
         resizeMode:'contain', 
         position: 'absolute',
         alignSelf: 'center',
-        width: 370,
-        top:80,
+        width: width/1.156,
+        top:height/11.575,
     },
     generalButton: {
-        top:300,
+        top:height/3.086,
         alignItems: 'center',
 
 

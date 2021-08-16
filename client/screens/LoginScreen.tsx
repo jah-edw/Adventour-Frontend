@@ -57,7 +57,7 @@ const styles = StyleSheet.create({
 
     },
     hiddenDiv : {
-        height:height/4.87,
+        height:height/4.873,
         justifyContent: 'center',
         flexDirection: 'column'
     }, 

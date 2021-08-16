@@ -1,11 +1,13 @@
 import { StackNavigationProp } from '@react-navigation/stack';
 import React from 'react';
-import { SafeAreaView, Image, ImageSourcePropType, ImageBackground, StyleSheet, View } from 'react-native';
+import { SafeAreaView, Image, ImageSourcePropType, ImageBackground, StyleSheet, View, Dimensions } from 'react-native';
 import { TopNavigatorParamsList } from '../types';
 
 import { InputButton } from  '../components/InputButton';
 import { GeneralButton } from '../components/GeneralButton';
 
+
+const { width, height } = Dimensions.get('window');
 
 
 export interface RegisterScreenProps {
@@ -17,9 +19,9 @@ const RegisterScreen: React.FC<RegisterScreenProps> = ({ navigation }) => {
 
     return (
         <ImageBackground style={styles.background} source={ require('../assets/wallpaper.png')}>
-        <Image style={styles.logo} source={require('../assets/logo.png')}/>
         <SafeAreaView>
         <View style={styles.hiddenDiv}>
+        <Image style={styles.logo} source={require('../assets/logo.png')}/>
                 </View>
 
             <View style={styles.whiteCard}>
@@ -50,14 +52,16 @@ const RegisterScreen: React.FC<RegisterScreenProps> = ({ navigation }) => {
 
 const styles = StyleSheet.create({
     whiteCard : {
-        height: 1000,
+        height: height,
         backgroundColor: '#fff',
         borderRadius: 55,
         alignItems: 'center',
 
     },
     hiddenDiv : {
-        height:190
+        height:height/4.873,
+        flexDirection: 'column',
+        justifyContent: 'center',
     }, 
     background: {
         flex: 1,
@@ -65,15 +69,13 @@ const styles = StyleSheet.create({
         position: 'relative',
     },
     logo: {
-        flex:0.3,
         resizeMode:'contain', 
         position: 'absolute',
         alignSelf: 'center',
-        width: 370,
-        top:80,
+        width: width/1.15,
     },
     loginButtons: {
-        marginTop: 70,
+        marginTop: height/13.228,
     }
 })
 
