@@ -1,24 +1,31 @@
 import { StackNavigationProp } from '@react-navigation/stack';
 import React from 'react';
-import { SafeAreaView, Image, ImageSourcePropType, Text, TouchableOpacity, View, StyleSheet, ImageBackground } from 'react-native';
+import { SafeAreaView, Image, ImageSourcePropType, Text, TouchableOpacity, View, StyleSheet, ImageBackground, Dimensions, useWindowDimensions } from 'react-native';
 import { TopNavigatorParamsList } from '../types';
+
 
 import { InputButton } from '../components/InputButton';
 import { GeneralButton } from '../components/GeneralButton';
 
+const { width, height } = Dimensions.get('window');
+
+
+
+
 export interface LoginScreenProps {
     navigation: StackNavigationProp<TopNavigatorParamsList, 'RegisterScreen'> 
     source: ImageSourcePropType
-
+    
 }
 
 const LoginScreen: React.FC<LoginScreenProps> = ({ navigation }) => {
-
+    
+    console.log(width, height)
     return (
         <ImageBackground style={styles.background} source={ require('../assets/wallpaper.png')}>
-        <Image style={styles.logo} source={require('../assets/logo.png')}/>
         <SafeAreaView>
             <View style={styles.hiddenDiv}>
+        <Image style={styles.logo} source={require('../assets/logo.png')}/>
                 </View>
 
             <View style={styles.whiteCard}>
@@ -44,14 +51,16 @@ const LoginScreen: React.FC<LoginScreenProps> = ({ navigation }) => {
 
 const styles = StyleSheet.create({
     whiteCard : {
-        height: 1000,
+        height: height,
         backgroundColor: '#fff',
         borderRadius: 55,
         alignItems: 'center',
 
     },
     hiddenDiv : {
-        height:190
+        height:height/4.87,
+        justifyContent: 'center',
+        flexDirection: 'column'
     }, 
     background: {
         flex: 1,
@@ -59,15 +68,14 @@ const styles = StyleSheet.create({
         position: 'relative',
     },
     logo: {
-        flex:0.3,
         resizeMode:'contain', 
         position: 'absolute',
         alignSelf: 'center',
-        width: 370,
-        top:80,
+        width: width/1.15,
+        // top:height/77.575,
     },
     loginButtons: {
-        marginTop: 70,
+        marginTop: height/13.228,
     }
 })
 
