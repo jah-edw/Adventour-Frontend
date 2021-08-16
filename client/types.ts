@@ -12,6 +12,7 @@ export type TopNavigatorParamsList = {
     HomeScreen: undefined
     RegisterScreen: undefined
     LoginScreen: undefined
+    ExploreScreen: undefined
 }
 
 export type ModalNavigatorParamsList = {
