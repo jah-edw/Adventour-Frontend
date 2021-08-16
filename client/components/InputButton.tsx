@@ -29,7 +29,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems:'center',
         shadowOffset: {width:5, height:7}, 
-        shadowOpacity: 0.2,
+        shadowOpacity: 0.4,
         
     },
     inputText: {
