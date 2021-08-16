@@ -12,7 +12,7 @@ const MainStack = createStackNavigator();
 const MainNavigator: React.FC = () => {
     const { Navigator, Screen } = MainStack
     return (
-        <Navigator initialRouteName="ExploreScreen">
+        <Navigator initialRouteName="HomeScreen">
             <Screen 
             name="HomeScreen" 
             component={HomeScreen}

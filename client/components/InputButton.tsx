@@ -21,6 +21,8 @@ const styles = StyleSheet.create({
         backgroundColor: '#116cae',
         opacity: 0.2,
         marginTop: 30,
+        flexDirection: 'column',
+        justifyContent: 'center',
         alignItems:'center',
         shadowOffset: {width:5, height:7}, 
         shadowOpacity: 0.2,
@@ -29,7 +31,6 @@ const styles = StyleSheet.create({
     inputText: {
         fontSize: 35, 
         alignSelf: 'center',
-        lineHeight: 55,
 },
 
 })

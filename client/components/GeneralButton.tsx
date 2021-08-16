@@ -20,11 +20,12 @@ const styles = StyleSheet.create({
         alignItems:'center',
         shadowOffset: {width:5, height:7}, 
         shadowOpacity: 0.6,
+        flexDirection: 'column',
+        justifyContent: 'center',
     },
     buttonText: {
         fontSize: 35, 
         alignSelf: 'center',
-        lineHeight: 55,
         color: '#fff',
     }
 

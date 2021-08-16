@@ -20,7 +20,6 @@ export interface LoginScreenProps {
 
 const LoginScreen: React.FC<LoginScreenProps> = ({ navigation }) => {
     
-    console.log(width, height)
     return (
         <ImageBackground style={styles.background} source={ require('../assets/wallpaper.png')}>
         <SafeAreaView>
@@ -32,7 +31,7 @@ const LoginScreen: React.FC<LoginScreenProps> = ({ navigation }) => {
 
 <View style={styles.loginButtons}>
 
-                <InputButton 
+                <InputButton
                 placeholder="Email / Username"/>
                 <InputButton 
                 placeholder="Password"/>
