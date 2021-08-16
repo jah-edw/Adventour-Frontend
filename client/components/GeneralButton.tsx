@@ -18,6 +18,8 @@ const styles = StyleSheet.create({
         backgroundColor: '#1C76B8',
         marginTop: 30,
         alignItems:'center',
+        shadowOffset: {width:5, height:7}, 
+        shadowOpacity: 0.6,
     },
     buttonText: {
         fontSize: 35, 
