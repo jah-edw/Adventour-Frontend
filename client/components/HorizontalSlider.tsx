@@ -7,8 +7,6 @@ import { ScrollView } from 'react-native-gesture-handler';
 
 export const HorizontalSlider = () => {
     return(
-        <View>
-
         <ScrollView horizontal>
             <View style={styles.container}></View>
             <View style={styles.container}></View>
@@ -25,10 +23,7 @@ export const HorizontalSlider = () => {
             <View style={styles.container}></View>
             <View style={styles.container}></View>
             <View style={styles.container}></View>
-
-
         </ScrollView>
-        </View>
     )
 
 }
@@ -44,5 +39,5 @@ const styles = StyleSheet.create({
         borderRadius:35,
         shadowOffset: {width:5, height:7}, 
         shadowOpacity: 0.2,
-    }
+    }, 
 }) 

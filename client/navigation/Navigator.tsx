@@ -1,11 +1,11 @@
 import React from 'react'
 import { createStackNavigator } from '@react-navigation/stack'
-import { NavigationContainer } from '@react-navigation/native'
 
 import HomeScreen from '../screens/HomeScreen';
 import LoginScreen from '../screens/LoginScreen';
 import RegisterScreen from '../screens/RegisterScreen';
 import ExploreScreen from '../screens/ExploreScreen';
+import IndividualTourScreen from '../screens/IndividualTourScreen'
 
 const MainStack = createStackNavigator();
 
@@ -29,6 +29,11 @@ const MainNavigator: React.FC = () => {
             name="ExploreScreen" 
             component={ExploreScreen} 
             options={{ headerShown: false }}/>
+                                  <Screen 
+            name="IndividualTourScreen" 
+            component={IndividualTourScreen} 
+            options={{ headerShown: false }}/>
+            
 
         </Navigator>
     )
