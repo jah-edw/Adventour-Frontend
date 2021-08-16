@@ -1,7 +1,12 @@
 import React from 'react';
-import { Text, TouchableOpacity, StyleSheet} from 'react-native';
+import { Text, TouchableOpacity, StyleSheet, Dimensions} from 'react-native';
+
+const { width, height } = Dimensions.get('window')
+
+const ratio = width * height /1000
 
 export const GeneralButton = ({ onPress, title}) => {
+    console.log(width, height, ratio)
     return(
     <TouchableOpacity onPress={onPress} style={styles.buttonContainer} >
         <Text style={styles.buttonText}>{title}</Text>
@@ -12,11 +17,11 @@ export const GeneralButton = ({ onPress, title}) => {
 
 const styles = StyleSheet.create({
     buttonContainer: {
-        width: 300,
-        height: 55,
+        width: width/1.426,
+        height: height/16.836,
         borderRadius:20, 
         backgroundColor: '#1C76B8',
-        marginTop: 30,
+        marginTop: height/30,
         alignItems:'center',
         shadowOffset: {width:5, height:7}, 
         shadowOpacity: 0.6,
@@ -24,7 +29,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
     },
     buttonText: {
-        fontSize: 35, 
+        fontSize: ratio / 12, 
         alignSelf: 'center',
         color: '#fff',
     }

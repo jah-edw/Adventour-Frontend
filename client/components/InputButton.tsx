@@ -1,5 +1,9 @@
 import React from 'react';
-import { TouchableOpacity, View, StyleSheet, TextInput, Text } from 'react-native';
+import { TouchableOpacity, View, StyleSheet, TextInput, Text, Dimensions, } from 'react-native';
+
+const { width, height } = Dimensions.get('window')
+
+const ratio = width * height /1000
 
 export const InputButton = ({ placeholder }) => {
     return(
@@ -15,12 +19,12 @@ export const InputButton = ({ placeholder }) => {
 
 const styles = StyleSheet.create({
     inputContainer: {
-        width: 300,
-        height: 55,
+        width: width/1.426,
+        height: height / 16.836,
         borderRadius:20, 
         backgroundColor: '#116cae',
         opacity: 0.2,
-        marginTop: 30,
+        marginTop: height/30.866,
         flexDirection: 'column',
         justifyContent: 'center',
         alignItems:'center',
@@ -29,7 +33,7 @@ const styles = StyleSheet.create({
         
     },
     inputText: {
-        fontSize: 35, 
+        fontSize: ratio/12, 
         alignSelf: 'center',
 },
 
