@@ -21,6 +21,9 @@ export const WhiteCard = () => {
             <View style={styles.slider}>
             <HorizontalSlider/>
             </View>
+            <View style={styles.slider}>
+            <HorizontalSlider/>
+            </View>
             </View>
         </SafeAreaView>
       

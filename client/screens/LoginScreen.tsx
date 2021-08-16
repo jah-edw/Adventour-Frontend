@@ -35,7 +35,8 @@ const LoginScreen: React.FC<LoginScreenProps> = ({ navigation }) => {
                 placeholder="Email / Username"/>
                 <InputButton 
                 placeholder="Password"/>
-                <GeneralButton // NEEDS ONPRESS
+                <GeneralButton
+                onPress={ ()=>{navigation.navigate('ExploreScreen')}}
                 title={'Login'} />
 </View>
                 </View>
