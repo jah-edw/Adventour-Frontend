@@ -3,6 +3,8 @@ import React from 'react';
 import { SafeAreaView, Image, ImageSourcePropType, Text, TouchableOpacity, View, StyleSheet, ImageBackground } from 'react-native';
 import { TopNavigatorParamsList } from '../types';
 
+import { InputButton } from '../components/InputButton';
+import { GeneralButton } from '../components/GeneralButton';
 
 export interface LoginScreenProps {
     navigation: StackNavigationProp<TopNavigatorParamsList, 'RegisterScreen'> 
@@ -16,14 +18,22 @@ const LoginScreen: React.FC<LoginScreenProps> = ({ navigation }) => {
         <ImageBackground style={styles.background} source={ require('../assets/wallpaper.png')}>
         <Image style={styles.logo} source={require('../assets/logo.png')}/>
         <SafeAreaView>
-            <View>
-                <Text>This is the Login Screen</Text>
-            </View>
             <View style={styles.hiddenDiv}>
                 </View>
 
             <View style={styles.whiteCard}>
+
+<View style={styles.loginButtons}>
+
+                <InputButton 
+                placeholder="Email / Username"/>
+                <InputButton 
+                placeholder="Password"/>
+                <GeneralButton // NEEDS ONPRESS
+                title={'Login'} />
+</View>
                 </View>
+
 
 
             </SafeAreaView>
@@ -37,6 +47,7 @@ const styles = StyleSheet.create({
         height: 1000,
         backgroundColor: '#fff',
         borderRadius: 55,
+        alignItems: 'center',
 
     },
     hiddenDiv : {
@@ -55,6 +66,9 @@ const styles = StyleSheet.create({
         width: 370,
         top:80,
     },
+    loginButtons: {
+        marginTop: 70,
+    }
 })
 
 export default LoginScreen
