@@ -1,5 +1,6 @@
 import React from 'react';
-import { SafeAreaView, Image, Dimensions, ImageSourcePropType, ImageBackground, StyleSheet, View, Text } from 'react-native';
+import { SafeAreaView, Image, Dimensions, ImageSourcePropType, StyleSheet, View } from 'react-native';
+import { HorizontalSlider } from './HorizontalSlider';
 
 
 export interface WhiteCardProps {
@@ -16,7 +17,11 @@ export const WhiteCard = () => {
             <View style={styles.hiddenDiv}>
             <Image style={styles.logo} source={require('../assets/logo.png')}/>
             </View>
-            <View style={styles.whiteCard}></View>
+            <View style={styles.whiteCard}>
+            <View style={styles.slider}>
+            <HorizontalSlider/>
+            </View>
+            </View>
         </SafeAreaView>
       
   )   
@@ -26,7 +31,6 @@ const styles = StyleSheet.create({
     background: {
         flex: 1,
         resizeMode: 'cover',
-        position: 'relative',
     },
     whiteCard : {
         height: 1000,
@@ -48,6 +52,9 @@ const styles = StyleSheet.create({
         position: 'absolute',
         alignSelf: 'center',
         width: width/1.119,
+    },
+    slider:{
+        marginTop: 100, 
     },
 
 })
