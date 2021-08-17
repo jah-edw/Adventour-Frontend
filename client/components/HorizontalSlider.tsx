@@ -8,11 +8,11 @@ const arrayOfTours = [{id: 1, title: 'Tour1', rating: 1, imgUrl: {uri:'https://m
 
 
 
-export const HorizontalSlider = () => {
+export const HorizontalSlider = ({navigation}) => {
 
     const displayTours = (tours) => {
         return tours.map((tour) => {
-            return <Tour title={tour.title} img={tour.imgUrl} key={tour.id}/>
+            return <Tour title={tour.title} img={tour.imgUrl} key={tour.id} navigation={navigation}/>
         })
     }
     // this will eventually map over array of tours stored in our database, and return a Tour component for each different tour.

@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import { Text, StyleSheet, View, Dimensions, ImageBackground, TouchableOpacity } from 'react-native';
+import {MoreInfoButton} from './MoreInfoButton'
 
 const { width, height} = Dimensions.get('window');
 const ratio = width * height /1000
@@ -9,7 +10,7 @@ const url = 'https://images.unsplash.com/photo-1533929736458-ca588d08c8be?ixid=M
 
 const image = { uri: "https://images.unsplash.com/photo-1533929736458-ca588d08c8be?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80" };
 
-export const Tour = ({title, img}) => {
+export const Tour = ({title, img, navigation}) => {
 
   const [titleHidden, setTitleHidden] = useState(true);
 
@@ -28,8 +29,10 @@ export const Tour = ({title, img}) => {
       console.log(`pressed ${title}: titleHidden => ${titleHidden}`)
       }}>
     <ImageBackground style={styles.background} source={img}>
+      <View style={styles.hiddenDiv}></View>
       <View style={styles.container}>
         <Text style={decideStyle()}>{title}</Text>
+        <MoreInfoButton onPress= { () => { navigation.navigate('IndividualTourScreen')}}/>
       </View>
     </ImageBackground>
     </TouchableOpacity>
@@ -38,8 +41,8 @@ export const Tour = ({title, img}) => {
 
 const styles = StyleSheet.create({
     container: {
-      flexDirection: 'column',
-      justifyContent: 'flex-end',
+      flexDirection: 'row',
+      justifyContent: 'space-between',
       height: height/4.63
     },
     background: {
@@ -58,6 +61,13 @@ const styles = StyleSheet.create({
     titleShown: {
       color: 'white',
       fontSize: ratio/19.8,
-      margin: ratio/39.6,
+      marginTop: height/40,
+      marginLeft: width/50
+    },
+    hidden: {
+      display: 'none'
+    },
+    hiddenDiv: {
+      height: height/7
     }
 }) 

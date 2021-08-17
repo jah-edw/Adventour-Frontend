@@ -28,10 +28,10 @@ const ExploreScreen: React.FC<ExploreScreenProps> = ({ navigation }) => {
             <View style={styles.whiteCard}>
                 <InputButton placeholder="Search by genre"/>
                 <View style={styles.slider}>
-                    <HorizontalSlider/>
+                    <HorizontalSlider navigation={navigation}/>
                 </View>
                 <View style={styles.slider}>
-                    <HorizontalSlider/>
+                    <HorizontalSlider navigation={navigation}/>
                 </View>
                 <GeneralButton
                 title="Join Tour"
