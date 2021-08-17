@@ -6,34 +6,24 @@ import { GeneralButton } from '../components/GeneralButton';
 
 const { height, width } = Dimensions.get('window')
 
-export interface IndividualTourScreenProps {
-    navigation: StackNavigationProp<TopNavigatorParamsList, 'IndividualTourScreen'>
+export interface PaymentScreenProps {
+    navigation: StackNavigationProp<TopNavigatorParamsList, 'PaymentScreen'>
     source: ImageSourcePropType
-
-
 }
 
-const IndividualTourScreen: React.FC<IndividualTourScreenProps> = ({ navigation }) => {
+const PaymentScreen: React.FC<PaymentScreenProps> = ({ navigation }) => {
     return(
         <ImageBackground style={styles.background} source={ require('../assets/wallpaper.png')}>
         <SafeAreaView>
-
-
-
-<View style={styles.hiddenDiv}>
+            <View style={styles.hiddenDiv}>
                 <Image style={styles.logo} source={require('../assets/logo.png')}/>
             </View>
             <View style={styles.whiteCard}>
-            <View style={styles.container}></View>
-            <View style={styles.mapContainer}></View>
 
-            <View style={styles.hiddenView}>
-                <Text> Hey this is some random text, hopefully this will eventually be replaced by some useful, game related information, but until then...</Text>
-            </View>
             <View style={styles.button}>
                 <GeneralButton
-                title="Book Tour"
-                onPress={ ()=>{navigation.navigate('BookingScreen')}}/>
+                title="Confirm Payment"
+                onPress={ ()=>{navigation.navigate('IndividualTourScreen')}}/>
                 </View>
             </View>
 
@@ -58,7 +48,7 @@ const styles = StyleSheet.create({
         hiddenDiv : {
             flexDirection:'column',
             justifyContent: 'center',
-            height:height/8.96
+            height:height/8.96,
         }, 
         
         logo: {
@@ -67,40 +57,24 @@ const styles = StyleSheet.create({
             position: 'absolute',
             alignSelf: 'center',
             width: width/1.119,
-        },
-        container: {
-            height: 200,
-            width:300,
-            backgroundColor:'green',
-            borderColor: 'black',
-            borderWidth:2,
-            borderRadius:35,
-            shadowOffset: {width:5, height:7}, 
-            shadowOpacity: 0.2,
-            marginTop: 30,
-            alignSelf:'center',
         }, 
         button: {
             flexDirection: 'column',
             justifyContent:'flex-end',
+            backgroundColor:'black'
         },
         hiddenView: {
-            height: 220,
+            height: 320,
             width: 290,
             paddingTop: 30,
+            backgroundColor: 'black',
+            
+            flexDirection: 'column',
+            justifyContent:'flex-end',
+
+
         }, 
-        mapContainer: {
-                height: 100,
-                width:300,
-                backgroundColor:'green',
-                borderColor: 'black',
-                borderWidth:2,
-                borderRadius:35,
-                shadowOffset: {width:5, height:7}, 
-                shadowOpacity: 0.2,
-                marginTop: 30,
-                alignSelf:'center',
-        }
+
 })
 
-export default IndividualTourScreen
+export default PaymentScreen

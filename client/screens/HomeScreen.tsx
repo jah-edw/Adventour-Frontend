@@ -1,6 +1,6 @@
 import { StackNavigationProp } from '@react-navigation/stack';
 import React from 'react';
-import { StyleSheet, ImageBackground, SafeAreaView, Image, Text, TouchableOpacity, View, ImageSourcePropType, Dimensions } from 'react-native';
+import { StyleSheet, ImageBackground, SafeAreaView, Image, View, ImageSourcePropType, Dimensions } from 'react-native';
 
 const { width, height } = Dimensions.get('window');
 

@@ -6,6 +6,8 @@ import LoginScreen from '../screens/LoginScreen';
 import RegisterScreen from '../screens/RegisterScreen';
 import ExploreScreen from '../screens/ExploreScreen';
 import IndividualTourScreen from '../screens/IndividualTourScreen'
+import BookingScreen from '../screens/BookingScreen';
+import PaymentScreen from '../screens/PaymentScreen';
 
 const MainStack = createStackNavigator();
 
@@ -25,13 +27,21 @@ const MainNavigator: React.FC = () => {
             name="RegisterScreen" 
             component={RegisterScreen} 
             options={{ headerShown: false }}/>
-                        <Screen 
+            <Screen 
             name="ExploreScreen" 
             component={ExploreScreen} 
             options={{ headerShown: false }}/>
-                                  <Screen 
+            <Screen 
             name="IndividualTourScreen" 
             component={IndividualTourScreen} 
+            options={{ headerShown: false }}/>
+            <Screen 
+            name="BookingScreen" 
+            component={BookingScreen} 
+            options={{ headerShown: false }}/>
+            <Screen 
+            name="PaymentScreen" 
+            component={PaymentScreen} 
             options={{ headerShown: false }}/>
             
 

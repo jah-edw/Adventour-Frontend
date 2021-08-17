@@ -5,7 +5,7 @@ import { NavigatorScreenParams } from '@react-navigation/native';
 
 export type RootNavigationParamsList = {
     Main: NavigatorScreenParams<TopNavigatorParamsList>
-    Modal: NavigatorScreenParams<ModalNavigatorParamsList>
+    // Modal: NavigatorScreenParams<ModalNavigatorParamsList>
 }
 
 export type TopNavigatorParamsList = {
@@ -14,16 +14,18 @@ export type TopNavigatorParamsList = {
     LoginScreen: undefined
     ExploreScreen: undefined
     IndividualTourScreen: undefined
+    BookingScreen: undefined
+    PaymentScreen: undefined
 }
 
-export type ModalNavigatorParamsList = {
-    BoatInformation: BoatParams
-    Definition: { word: string; definition: string }
+// export type ModalNavigatorParamsList = {
+//     BoatInformation: BoatParams
+//     Definition: { word: string; definition: string }
 
-}
+// }
 
-export type BoatParams = {
-    name: string
-    text: string
-    credit: string
-}
+// export type BoatParams = {
+//     name: string
+//     text: string
+//     credit: string
+// }
