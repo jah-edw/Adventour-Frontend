@@ -16,6 +16,8 @@ export type TopNavigatorParamsList = {
     IndividualTourScreen: undefined
     BookingScreen: undefined
     PaymentScreen: undefined
+    GameScreen: undefined
+    NotebookScreen: undefined
 }
 
 // export type ModalNavigatorParamsList = {

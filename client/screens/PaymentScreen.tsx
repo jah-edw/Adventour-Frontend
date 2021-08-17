@@ -23,7 +23,7 @@ const PaymentScreen: React.FC<PaymentScreenProps> = ({ navigation }) => {
             <View style={styles.button}>
                 <GeneralButton
                 title="Confirm Payment"
-                onPress={ ()=>{navigation.navigate('IndividualTourScreen')}}/>
+                onPress={ ()=>{navigation.navigate('GameScreen')}}/>
                 </View>
             </View>
 
