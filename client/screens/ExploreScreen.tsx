@@ -18,6 +18,7 @@ export interface ExploreScreenProps {
 } 
 
 const ExploreScreen: React.FC<ExploreScreenProps> = ({ navigation }) => {
+    console.log(height, width);
     return (
       <ImageBackground style={styles.background} source={ require('../assets/wallpaper.png')}>
       <SafeAreaView>
@@ -48,7 +49,7 @@ const styles = StyleSheet.create({
         resizeMode: 'cover',
     },
         whiteCard : {
-            height: 1000,
+            height: height,
             backgroundColor: '#fff',
             borderRadius: 55,
             alignItems: 'center',
@@ -69,8 +70,8 @@ const styles = StyleSheet.create({
             width: width/1.119,
         },
         slider:{
-            marginTop: 50, 
-            height:200,
+            marginTop: height/18.52, 
+            height:height/4.63,
         },
 
 })
