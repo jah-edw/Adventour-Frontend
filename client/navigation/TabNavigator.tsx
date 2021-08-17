@@ -1,3 +1,6 @@
+// not currently in use, tabNav moved to Navigator.tsx
+
+
 import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
