@@ -14,6 +14,16 @@ export const Tour = ({title, img, navigation}) => {
 
   const [titleHidden, setTitleHidden] = useState(true);
 
+  const [buttonHidden, setButtonHidden] = useState(true);
+
+  const decideButtonStyle = () => {
+    if (buttonHidden === true) {
+      return styles.hiddenButton;
+    } else {
+      return styles.shownButton;
+    }
+  }
+
   
 
   const decideStyle = () => {
@@ -26,13 +36,16 @@ export const Tour = ({title, img, navigation}) => {
   return (
     <TouchableOpacity onPress={() => {
       setTitleHidden(!titleHidden);
+      setButtonHidden(!buttonHidden);
       console.log(`pressed ${title}: titleHidden => ${titleHidden}`)
       }}>
     <ImageBackground style={styles.background} source={img}>
       <View style={styles.hiddenDiv}></View>
       <View style={styles.container}>
         <Text style={decideStyle()}>{title}</Text>
-        <MoreInfoButton onPress= { () => { navigation.navigate('IndividualTourScreen')}}/>
+        <MoreInfoButton 
+          onPress= { () => { navigation.navigate('IndividualTourScreen')}}
+          style={decideButtonStyle()}/>
       </View>
     </ImageBackground>
     </TouchableOpacity>
@@ -69,5 +82,30 @@ const styles = StyleSheet.create({
     },
     hiddenDiv: {
       height: height/7
+    },
+    shownButton: {
+    width: width/4.426,
+    height: height/22.836,
+    borderRadius:20, 
+    backgroundColor: '#1C76B8',
+    alignItems:'center',
+    margin: height/73,
+    shadowOffset: {width:5, height:7}, 
+    shadowOpacity: 0.6,
+    flexDirection: 'column',
+    justifyContent: 'center',
+    },
+    hiddenButton: {
+    width: width/4.426,
+    height: height/22.836,
+    borderRadius:20, 
+    backgroundColor: '#1C76B8',
+    alignItems:'center',
+    margin: height/73,
+    shadowOffset: {width:5, height:7}, 
+    shadowOpacity: 0.6,
+    flexDirection: 'column',
+    justifyContent: 'center',
+    display: 'none'
     }
 }) 
