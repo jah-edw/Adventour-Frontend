@@ -9,14 +9,16 @@ const arrayOfTours = [{title: 'Tour1', rating: 1, imgUrl: {uri:'https://media.is
 
 
 export const HorizontalSlider = () => {
+
+    const displayTours = (tours) => {
+        return tours.map((tour) => {
+            return <Tour title={tour.title} img={tour.imgUrl}/>
+        })
+    }
     // this will eventually map over array of tours stored in our database, and return a Tour component for each different tour.
     return(
         <ScrollView horizontal>
-            {/* These tours will take in props such as imgUrl and tourTitle */}
-            <Tour title={arrayOfTours[0].title} img={arrayOfTours[0].imgUrl}/>
-            <Tour title={arrayOfTours[1].title} img={arrayOfTours[1].imgUrl}/>
-            <Tour title={arrayOfTours[2].title} img={arrayOfTours[2].imgUrl}/>
-            <Tour title={arrayOfTours[3].title} img={arrayOfTours[3].imgUrl}/>
+            {displayTours(arrayOfTours)}
         </ScrollView>
     )
 
