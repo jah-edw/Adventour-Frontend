@@ -13,6 +13,7 @@ export interface IndividualTourScreenProps {
 
 }
 
+// needs to use global state determined in 'Tour' Component to render the correct information.
 const IndividualTourScreen: React.FC<IndividualTourScreenProps> = ({ navigation }) => {
     return(
         <ImageBackground style={styles.background} source={ require('../assets/wallpaper.png')}>

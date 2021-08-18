@@ -40,7 +40,7 @@ export const Tour = ({title, img, navigation}) => {
       <View style={styles.container}>
         <Text style={decideStyle()}>{title}</Text>
         <MoreInfoButton 
-          onPress= { () => { navigation.navigate('IndividualTourScreen')}}
+          onPress= { () => { navigation.navigate('IndividualTourScreen');console.log(`set global state to selected tour to ${title}`)}}
           style={decideButtonStyle()}/>
       </View>
     </ImageBackground>
