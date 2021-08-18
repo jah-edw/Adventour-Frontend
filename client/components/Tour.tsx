@@ -63,7 +63,8 @@ const styles = StyleSheet.create({
         resizeMode: 'cover',
         height: height/4.63,
         width: width/1.426,
-        marginLeft: width/14.266
+        marginLeft: width/28,
+        marginRight: width/28
     },
     titleHidden: {
       color: 'white',

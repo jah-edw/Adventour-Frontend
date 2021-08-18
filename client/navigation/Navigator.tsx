@@ -11,6 +11,25 @@ import PaymentScreen from '../screens/PaymentScreen';
 
 const MainStack = createStackNavigator();
 
+const verticalAnimation = {
+    headerShown: false,
+  gestureDirection: 'vertical',
+  cardStyleInterpolator: ({ current, layouts }) => {
+    return {
+      cardStyle: {
+        transform: [
+          {
+            translateY: current.progress.interpolate({
+              inputRange: [0, 1],
+              outputRange: [layouts.screen.height, 0],
+            }),
+          },
+        ],
+      },
+    };
+  },
+};
+
 const MainNavigator: React.FC = () => {
     const { Navigator, Screen } = MainStack
     return (
@@ -22,7 +41,7 @@ const MainNavigator: React.FC = () => {
             <Screen 
             name="LoginScreen" 
             component={LoginScreen}
-            options={{ headerShown: false }} />
+            options={verticalAnimation}/>
             <Screen 
             name="RegisterScreen" 
             component={RegisterScreen} 
