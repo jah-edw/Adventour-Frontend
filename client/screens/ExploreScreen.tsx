@@ -6,10 +6,10 @@ import { TopNavigatorParamsList } from '../types';
 import { HorizontalSlider } from '../components/HorizontalSlider';
 import { InputButton } from '../components/InputButton';
 import { GeneralButton } from '../components/GeneralButton';
+import { getWindow } from '../helpers/helper';
 
+const {height, width } = getWindow();
 
-
-const { height, width } = Dimensions.get('window')
 export interface ExploreScreenProps {
     navigation: StackNavigationProp<TopNavigatorParamsList, 'ExploreScreen'>
     source: ImageSourcePropType

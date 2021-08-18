@@ -3,8 +3,9 @@ import React from 'react';
 import { SafeAreaView, Dimensions, Image, StyleSheet, View, ImageSourcePropType, ImageBackground} from 'react-native';
 import { TopNavigatorParamsList } from '../types';
 import { GeneralButton } from '../components/GeneralButton';
+import { getWindow } from '../helpers/helper';
 
-const { height, width } = Dimensions.get('window')
+const {ratio, height, width } = getWindow();
 
 export interface PaymentScreenProps {
     navigation: StackNavigationProp<TopNavigatorParamsList, 'PaymentScreen'>

@@ -3,7 +3,12 @@ import { NavigationContainer } from '@react-navigation/native'
 
 import {MainNavigator} from './navigation/Navigator'
 
-const App: () => ReactNode = () => {
+export interface Props {
+  // not sure what's meant to go in here?
+} 
+
+
+const App: React.FC<Props> = () => {
   return (
   <NavigationContainer>
     <MainNavigator />

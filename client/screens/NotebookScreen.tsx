@@ -2,8 +2,10 @@ import { StackNavigationProp } from '@react-navigation/stack';
 import React from 'react';
 import {  ImageBackground, ScrollView, ImageSourcePropType, StyleSheet, SafeAreaView, Dimensions, Text, View} from 'react-native';
 import { CharacterClickable } from '../components/CharacterClickable';
+import { getWindow } from '../helpers/helper';
 
-const { width, height } = Dimensions.get('window');
+const {ratio, height, width } = getWindow();
+
 
 import { TopNavigatorParamsList } from '../types'
 

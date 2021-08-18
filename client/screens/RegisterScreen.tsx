@@ -5,9 +5,11 @@ import { TopNavigatorParamsList } from '../types';
 
 import { InputButton } from  '../components/InputButton';
 import { GeneralButton } from '../components/GeneralButton';
+import { getWindow } from '../helpers/helper';
 
 
-const { width, height } = Dimensions.get('window');
+const {ratio, height, width } = getWindow();
+
 
 
 export interface RegisterScreenProps {

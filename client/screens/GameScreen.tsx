@@ -2,8 +2,10 @@ import { StackNavigationProp } from '@react-navigation/stack';
 import React from 'react';
 import { StyleSheet, ImageBackground, Text, ImageSourcePropType, Dimensions, SafeAreaView, View } from 'react-native';
 import { CurrentGame } from '../components/CurrentGame';
+import { getWindow } from '../helpers/helper';
 
-const { width, height } = Dimensions.get('window');
+const {ratio, height, width } = getWindow();
+
 
 import { TopNavigatorParamsList } from '../types'
 
