@@ -1,20 +1,16 @@
-import React, { ReactNode} from 'react';
-import { NavigationContainer } from '@react-navigation/native'
+import React from "react";
+import { NavigationContainer } from "@react-navigation/native";
 
-import {MainNavigator} from './navigation/Navigator'
+import { MainNavigator } from "./navigation/Navigator";
 
-export interface Props {
-  // not sure what's meant to go in here?
-} 
-
+interface Props {}
 
 const App: React.FC<Props> = () => {
   return (
-  <NavigationContainer>
-    <MainNavigator />
-  </NavigationContainer>
-
+    <NavigationContainer>
+      <MainNavigator />
+    </NavigationContainer>
   );
-}
+};
 
-export default App
+export default App;
