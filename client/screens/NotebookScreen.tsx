@@ -1,6 +1,7 @@
 import { StackNavigationProp } from '@react-navigation/stack';
 import React from 'react';
-import {  ImageBackground, ImageSourcePropType, StyleSheet, SafeAreaView, Dimensions, Text, View} from 'react-native';
+import {  ImageBackground, ScrollView, ImageSourcePropType, StyleSheet, SafeAreaView, Dimensions, Text, View} from 'react-native';
+import { CharacterClickable } from '../components/CharacterClickable';
 
 const { width, height } = Dimensions.get('window');
 
@@ -16,7 +17,21 @@ const NotebookScreen: React.FC<NotebookScreenProps> = () => {
         <ImageBackground style={styles.background} source={ require('../assets/wallpaper.png')}>
             <SafeAreaView>
             <View style={styles.whiteCard}>
+                <ScrollView>
+                <View style={styles.clickables}>
+                <CharacterClickable/>
+                <CharacterClickable/>
+                <CharacterClickable/>
+                <CharacterClickable/>
+                <CharacterClickable/>
+                <CharacterClickable/>
+                <CharacterClickable/>
+                <CharacterClickable/>
+                <CharacterClickable/>
+                </View>
+
             <Text>THIS IS NOTEBOOKSCREEN</Text>
+            </ScrollView>
             </View>
             </SafeAreaView>
         </ImageBackground>
@@ -36,6 +51,12 @@ const styles = StyleSheet.create({
         marginTop: height/89.6,
         
     },
+    clickables: {
+        justifyContent: 'space-around',
+        alignItems: 'center',
+        flexDirection: 'row',
+        flexWrap: 'wrap',
+    }
 })
 
 export default NotebookScreen;

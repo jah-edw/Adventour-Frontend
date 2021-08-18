@@ -1,26 +1,29 @@
 import React from 'react';
-import { Text, TouchableOpacity, StyleSheet, Dimensions} from 'react-native';
+import {TouchableOpacity, StyleSheet, Dimensions, SafeAreaView} from 'react-native';
 
 const { width, height } = Dimensions.get('window')
 
 const ratio = width * height /1000
 
-export const CharacterClickable = ({ onPress }) => {
+export const CharacterClickable = () => {
     console.log(width, height, ratio)
     return(
-    <TouchableOpacity onPress={onPress} style={styles.buttonContainer} >
+        <SafeAreaView>
+
+    <TouchableOpacity style={styles.buttonContainer} >
 
     </TouchableOpacity>
+        </SafeAreaView>
     )
 }
 
 const styles = StyleSheet.create({
     buttonContainer: {
-        width: width/1.426,
-        height: height/16.836,
+        width: width/3.1,
+        height: height/5.836,
         borderRadius:20, 
         backgroundColor: '#1C76B8',
-        marginTop: height/30,
+        marginTop: height/120,
         alignItems:'center',
         shadowOffset: {width:5, height:7}, 
         shadowOpacity: 0.6,
