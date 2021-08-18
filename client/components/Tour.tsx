@@ -25,21 +25,11 @@ export const Tour: React.FC<Props> = ({ title, img, navigation }) => {
   const [titleHidden, setTitleHidden] = useState(true);
   const [buttonHidden, setButtonHidden] = useState(true);
 
-  const decideButtonStyle = () => {
-    if (buttonHidden === true) {
-      return styles.hiddenButton;
-    } else {
-      return styles.shownButton;
-    }
-  };
+  const decideButtonStyle = () =>
+    buttonHidden === true ? styles.hiddenButton : styles.shownButton;
+  const decideStyle = () =>
+    titleHidden === true ? styles.titleHidden : styles.titleShown;
 
-  const decideStyle = () => {
-    if (titleHidden === true) {
-      return styles.titleHidden;
-    } else {
-      return styles.titleShown;
-    }
-  };
   return (
     <TouchableOpacity
       onPress={() => {
