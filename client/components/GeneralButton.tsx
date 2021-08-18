@@ -1,12 +1,11 @@
 import React from 'react';
-import { Text, TouchableOpacity, StyleSheet, Dimensions} from 'react-native';
+import { Text, TouchableOpacity, StyleSheet} from 'react-native';
+import { getWindow } from '../helpers/helper';
 
-const { width, height } = Dimensions.get('window')
+const {ratio, height, width } = getWindow();
 
-const ratio = width * height /1000
 
 export const GeneralButton = ({ onPress, title}) => {
-    console.log(width, height, ratio)
     return(
     <TouchableOpacity onPress={onPress} style={styles.buttonContainer} >
         <Text style={styles.buttonText}>{title}</Text>

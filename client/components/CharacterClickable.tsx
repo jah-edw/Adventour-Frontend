@@ -1,7 +1,8 @@
 import React from 'react';
-import {TouchableOpacity, StyleSheet, Dimensions} from 'react-native';
+import {TouchableOpacity, StyleSheet} from 'react-native';
+import { getWindow } from '../helpers/helper';
 
-const { width, height } = Dimensions.get('window')
+const {height, width } = getWindow();
 
 
 export const CharacterClickable = () => {

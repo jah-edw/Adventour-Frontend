@@ -1,6 +1,6 @@
 import { StackNavigationProp } from '@react-navigation/stack';
 import React from 'react';
-import { SafeAreaView, Image, ImageSourcePropType, ImageBackground, StyleSheet, View, Dimensions } from 'react-native';
+import { SafeAreaView, Image, ImageSourcePropType, ImageBackground, StyleSheet, View} from 'react-native';
 import { TopNavigatorParamsList } from '../types';
 
 import { InputButton } from  '../components/InputButton';
@@ -8,7 +8,7 @@ import { GeneralButton } from '../components/GeneralButton';
 import { getWindow } from '../helpers/helper';
 
 
-const {ratio, height, width } = getWindow();
+const {height, width } = getWindow();
 
 
 

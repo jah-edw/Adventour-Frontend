@@ -1,9 +1,8 @@
 import React from 'react';
-import { TouchableOpacity, View, StyleSheet, TextInput, Text, Dimensions, } from 'react-native';
+import { View, StyleSheet, TextInput, Dimensions, } from 'react-native';
+import { getWindow } from '../helpers/helper';
 
-const { width, height } = Dimensions.get('window')
-
-const ratio = width * height /1000
+const {ratio, height, width } = getWindow();
 
 export const InputButton = ({ placeholder }) => {
     return(

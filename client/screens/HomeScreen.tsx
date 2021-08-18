@@ -1,9 +1,9 @@
 import { StackNavigationProp } from '@react-navigation/stack';
 import React from 'react';
-import { StyleSheet, ImageBackground, SafeAreaView, Image, View, ImageSourcePropType, Dimensions } from 'react-native';
+import { StyleSheet, ImageBackground, SafeAreaView, Image, View, ImageSourcePropType } from 'react-native';
 import { getWindow } from '../helpers/helper';
 
-const {ratio, height, width } = getWindow();
+const {height, width } = getWindow();
 
 
 

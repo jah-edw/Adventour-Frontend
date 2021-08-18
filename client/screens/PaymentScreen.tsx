@@ -5,7 +5,7 @@ import { TopNavigatorParamsList } from '../types';
 import { GeneralButton } from '../components/GeneralButton';
 import { getWindow } from '../helpers/helper';
 
-const {ratio, height, width } = getWindow();
+const {height, width } = getWindow();
 
 export interface PaymentScreenProps {
     navigation: StackNavigationProp<TopNavigatorParamsList, 'PaymentScreen'>

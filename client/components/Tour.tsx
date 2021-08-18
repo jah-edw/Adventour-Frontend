@@ -1,15 +1,13 @@
 import React, {useState} from 'react';
-import { Text, StyleSheet, View, Dimensions, ImageBackground, TouchableOpacity } from 'react-native';
+import { Text, StyleSheet, View, ImageBackground, TouchableOpacity } from 'react-native';
 import {MoreInfoButton} from './MoreInfoButton'
+import { getWindow } from '../helpers/helper';
 
-const { width, height} = Dimensions.get('window');
-const ratio = width * height /1000
-
+const { ratio, width, height } = getWindow();
 
 export const Tour = ({title, img, navigation}) => {
 
   const [titleHidden, setTitleHidden] = useState(true);
-
   const [buttonHidden, setButtonHidden] = useState(true);
 
   const decideButtonStyle = () => {
@@ -19,8 +17,6 @@ export const Tour = ({title, img, navigation}) => {
       return styles.shownButton;
     }
   }
-
-  
 
   const decideStyle = () => {
     if (titleHidden === true) {

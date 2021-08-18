@@ -1,7 +1,7 @@
 import { StackNavigationProp } from '@react-navigation/stack';
 import React from 'react';
 
-import { SafeAreaView, Image, Dimensions,  StyleSheet, View, ImageBackground, ImageSourcePropType} from 'react-native';
+import { SafeAreaView, Image, StyleSheet, View, ImageBackground, ImageSourcePropType} from 'react-native';
 import { TopNavigatorParamsList } from '../types';
 import { HorizontalSlider } from '../components/HorizontalSlider';
 import { InputButton } from '../components/InputButton';

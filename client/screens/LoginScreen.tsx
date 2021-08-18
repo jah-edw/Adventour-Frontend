@@ -1,24 +1,19 @@
 import React from 'react';
 import { StackNavigationProp } from '@react-navigation/stack';
-import { SafeAreaView, Image, ImageSourcePropType, View, StyleSheet, ImageBackground, Dimensions} from 'react-native';
+import { SafeAreaView, Image, ImageSourcePropType, View, StyleSheet, ImageBackground} from 'react-native';
 import { TopNavigatorParamsList } from '../types';
 import { InputButton } from '../components/InputButton';
 import { GeneralButton } from '../components/GeneralButton';
 import { getWindow } from '../helpers/helper';
 
-const {ratio, height, width } = getWindow();
-
-
-
+const {height, width } = getWindow();
 
 export interface LoginScreenProps {
     navigation: StackNavigationProp<TopNavigatorParamsList, 'RegisterScreen'> 
-    source: ImageSourcePropType
-    
+    source: ImageSourcePropType    
 }
 
 const LoginScreen: React.FC<LoginScreenProps> = ({ navigation }) => {
-    
     return (
         <ImageBackground style={styles.background} source={ require('../assets/wallpaper.png')}>
         <SafeAreaView>
