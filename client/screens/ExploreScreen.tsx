@@ -8,7 +8,7 @@ import {
   ImageBackground,
   ImageSourcePropType,
 } from "react-native";
-import { TopNavigatorParamsList } from "../types";
+import { TopNavigatorParamsList } from "../types/types";
 import { HorizontalSlider } from "../components/HorizontalSlider";
 import { InputButton } from "../components/InputButton";
 import { GeneralButton } from "../components/GeneralButton";

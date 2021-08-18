@@ -11,7 +11,7 @@ import {
 } from "react-native";
 import { CharacterClickable } from "../components/CharacterClickable";
 import { getWindow } from "../helpers/helper";
-import { TopNavigatorParamsList } from "../types";
+import { TopNavigatorParamsList } from "../types/types";
 
 interface NotebookScreenProps {
   navigation: StackNavigationProp<TopNavigatorParamsList, "NotebookScreen">;

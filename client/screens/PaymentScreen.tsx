@@ -8,7 +8,7 @@ import {
   ImageSourcePropType,
   ImageBackground,
 } from "react-native";
-import { TopNavigatorParamsList } from "../types";
+import { TopNavigatorParamsList } from "../types/types";
 import { GeneralButton } from "../components/GeneralButton";
 import { getWindow } from "../helpers/helper";
 

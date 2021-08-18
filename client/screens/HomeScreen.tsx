@@ -9,7 +9,7 @@ import {
   ImageSourcePropType,
 } from "react-native";
 import { getWindow } from "../helpers/helper";
-import { TopNavigatorParamsList } from "../types";
+import { TopNavigatorParamsList } from "../types/types";
 import { GeneralButton } from "../components/GeneralButton";
 
 interface HomeScreenProps {

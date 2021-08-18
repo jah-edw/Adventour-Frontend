@@ -9,7 +9,7 @@ import {
 } from "react-native";
 import { CurrentGame } from "../components/CurrentGame";
 import { getWindow } from "../helpers/helper";
-import { TopNavigatorParamsList } from "../types";
+import { TopNavigatorParamsList } from "../types/types";
 
 interface GameScreenProps {
   navigation: StackNavigationProp<TopNavigatorParamsList, "GameScreen">;

@@ -8,7 +8,7 @@ import {
   StyleSheet,
   View,
 } from "react-native";
-import { TopNavigatorParamsList } from "../types";
+import { TopNavigatorParamsList } from "../types/types";
 
 import { InputButton } from "../components/InputButton";
 import { GeneralButton } from "../components/GeneralButton";
