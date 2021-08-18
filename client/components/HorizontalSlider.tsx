@@ -1,6 +1,5 @@
 import React from 'react';
 
-import { View, StyleSheet, Text, Dimensions } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
 import {Tour} from './Tour'
 

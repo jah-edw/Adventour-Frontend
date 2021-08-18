@@ -6,10 +6,6 @@ const { width, height} = Dimensions.get('window');
 const ratio = width * height /1000
 
 
-const url = 'https://images.unsplash.com/photo-1533929736458-ca588d08c8be?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80'
-
-const image = { uri: "https://images.unsplash.com/photo-1533929736458-ca588d08c8be?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80" };
-
 export const Tour = ({title, img, navigation}) => {
 
   const [titleHidden, setTitleHidden] = useState(true);

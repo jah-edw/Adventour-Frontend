@@ -1,6 +1,6 @@
 import { StackNavigationProp } from '@react-navigation/stack';
 import React from 'react';
-import { SafeAreaView, Image, ImageSourcePropType, View, StyleSheet, ImageBackground, Dimensions, useWindowDimensions } from 'react-native';
+import { SafeAreaView, Image, ImageSourcePropType, View, StyleSheet, ImageBackground, Dimensions} from 'react-native';
 import { TopNavigatorParamsList } from '../types';
 
 
@@ -72,7 +72,6 @@ const styles = StyleSheet.create({
         position: 'absolute',
         alignSelf: 'center',
         width: width/1.15,
-        // top:height/77.575,
     },
     loginButtons: {
         marginTop: height/13.228,
