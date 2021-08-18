@@ -1,10 +1,11 @@
 import React from 'react';
-import { View, StyleSheet, TextInput, Dimensions, } from 'react-native';
+import { View, StyleSheet, TextInput, } from 'react-native';
 import { getWindow } from '../helpers/helper';
 
-const {ratio, height, width } = getWindow();
 
-export const InputButton = ({ placeholder }) => {
+interface Props {placeholder:string}
+
+export const InputButton: React.FC<Props> = ({ placeholder }) => {
     return(
         <View style={styles.inputContainer}>
             <TextInput
@@ -16,6 +17,7 @@ export const InputButton = ({ placeholder }) => {
 }
 
 
+const {ratio, height, width } = getWindow();
 const styles = StyleSheet.create({
     inputContainer: {
         width: width/1.426,

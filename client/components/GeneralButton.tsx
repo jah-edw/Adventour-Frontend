@@ -1,19 +1,22 @@
 import React from 'react';
-import { Text, TouchableOpacity, StyleSheet} from 'react-native';
+import { Text, TouchableOpacity, StyleSheet, GestureResponderEvent} from 'react-native';
 import { getWindow } from '../helpers/helper';
 
-const {ratio, height, width } = getWindow();
+interface Props {
+    onPress: (event: GestureResponderEvent) => void
+    title: string  
+}
 
-
-export const GeneralButton = ({ onPress, title}) => {
+export const GeneralButton: React.FC<Props> = ({ onPress, title}) => {
     return(
-    <TouchableOpacity onPress={onPress} style={styles.buttonContainer} >
-        <Text style={styles.buttonText}>{title}</Text>
+        <TouchableOpacity onPress={onPress} style={styles.buttonContainer} >
+            <Text style={styles.buttonText}>{title}</Text>
 
     </TouchableOpacity>
     )
 }
 
+const {ratio, height, width } = getWindow();
 const styles = StyleSheet.create({
     buttonContainer: {
         width: width/1.426,
