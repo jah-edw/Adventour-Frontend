@@ -15,7 +15,7 @@ export interface GameScreenProps {
 // TODO: add better background, resize notebook, 
 
 
-const GameScreen: React.FC<GameScreenProps> = ({navigation}) => {
+const GameScreen: React.FC<GameScreenProps> = () => {
     return (
 
         <ImageBackground style={styles.background} source={ require('../assets/wallpaper.png')}>
