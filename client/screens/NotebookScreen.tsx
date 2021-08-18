@@ -4,7 +4,6 @@ import {  ImageBackground, ImageSourcePropType, StyleSheet, SafeAreaView, Dimens
 
 const { width, height } = Dimensions.get('window');
 
-
 import { TopNavigatorParamsList } from '../types'
 
 export interface NotebookScreenProps {

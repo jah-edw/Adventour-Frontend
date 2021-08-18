@@ -1,6 +1,6 @@
 import { StackNavigationProp } from '@react-navigation/stack';
 import React from 'react';
-import { SafeAreaView, Dimensions, Text, Image, StyleSheet, View, ImageSourcePropType, ImageBackground} from 'react-native';
+import { SafeAreaView, Dimensions, Image, StyleSheet, View, ImageSourcePropType, ImageBackground} from 'react-native';
 import { TopNavigatorParamsList } from '../types';
 import { GeneralButton } from '../components/GeneralButton';
 
