@@ -5,7 +5,7 @@ const { width, height } = Dimensions.get('window')
 
 const ratio = width * height /1000
 
-export const CharacterClickable = () => {
+export const CurrentGame = () => {
 return(
     <TouchableOpacity style={styles.buttonContainer} >
 
@@ -15,16 +15,16 @@ return(
 
 const styles = StyleSheet.create({
     buttonContainer: {
-        width: width/2.4,
-        height: height/5.836,
+        width: width/1.1,
+        height: height/1.35,
         borderRadius:20, 
         backgroundColor: '#1C76B8',
-        marginTop: height/40,
         alignItems:'center',
         shadowOffset: {width:5, height:7}, 
         shadowOpacity: 0.6,
         flexDirection: 'column',
         justifyContent: 'center',
     },
+
 
 })

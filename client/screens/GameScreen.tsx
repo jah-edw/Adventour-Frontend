@@ -1,6 +1,7 @@
 import { StackNavigationProp } from '@react-navigation/stack';
 import React from 'react';
 import { StyleSheet, ImageBackground, Text, ImageSourcePropType, Dimensions, SafeAreaView, View } from 'react-native';
+import { CurrentGame } from '../components/CurrentGame';
 
 const { width, height } = Dimensions.get('window');
 
@@ -21,6 +22,7 @@ const GameScreen: React.FC<GameScreenProps> = () => {
         <ImageBackground style={styles.background} source={ require('../assets/wallpaper.png')}>
             <SafeAreaView>
             <View style={styles.whiteCard}>
+                <CurrentGame/>
             <Text>THIS IS GAMESCREEN</Text>
             </View>
             </SafeAreaView>
@@ -38,7 +40,8 @@ const styles = StyleSheet.create({
         backgroundColor: '#fff',
         borderRadius: 55,
         alignItems: 'center',
-        marginTop: height/89.6,
+        marginTop: height/15,
+        paddingTop: 50,
         
     },
 })

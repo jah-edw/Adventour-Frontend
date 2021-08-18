@@ -12,10 +12,16 @@ export interface NotebookScreenProps {
     source: ImageSourcePropType
 }
 
+
+//TODO: instead of repeated CharacterClickables, use a mapping function to 
+//TODO: render them based on weapons/ character arrays
+
+
 const NotebookScreen: React.FC<NotebookScreenProps> = () => {
     return (
         <ImageBackground style={styles.background} source={ require('../assets/wallpaper.png')}>
             <SafeAreaView>
+                <View>
             <View style={styles.whiteCard}>
                 <ScrollView>
                 <View style={styles.clickables}>
@@ -28,10 +34,14 @@ const NotebookScreen: React.FC<NotebookScreenProps> = () => {
                 <CharacterClickable/>
                 <CharacterClickable/>
                 <CharacterClickable/>
+                <CharacterClickable/>
+
                 </View>
+
 
             <Text>THIS IS NOTEBOOKSCREEN</Text>
             </ScrollView>
+            </View>
             </View>
             </SafeAreaView>
         </ImageBackground>
@@ -48,11 +58,12 @@ const styles = StyleSheet.create({
         backgroundColor: '#fff',
         borderRadius: 55,
         alignItems: 'center',
-        marginTop: height/89.6,
+        marginTop: height/15,
+        paddingTop: 50,
         
     },
     clickables: {
-        justifyContent: 'space-around',
+        justifyContent: 'space-evenly',
         alignItems: 'center',
         flexDirection: 'row',
         flexWrap: 'wrap',
