@@ -1,6 +1,6 @@
 import React from 'react'
 import { createStackNavigator } from '@react-navigation/stack'
-
+import {Game} from '../navigation/TabNavigator'
 import HomeScreen from '../screens/HomeScreen';
 import LoginScreen from '../screens/LoginScreen';
 import RegisterScreen from '../screens/RegisterScreen';
@@ -8,6 +8,7 @@ import ExploreScreen from '../screens/ExploreScreen';
 import IndividualTourScreen from '../screens/IndividualTourScreen'
 import BookingScreen from '../screens/BookingScreen';
 import PaymentScreen from '../screens/PaymentScreen';
+
 
 const MainStack = createStackNavigator();
 
@@ -30,7 +31,7 @@ const verticalAnimation = {
   },
 };
 
-const MainNavigator: React.FC = () => {
+export const MainNavigator: React.FC = () => {
     const { Navigator, Screen } = MainStack
     return (
         <Navigator initialRouteName="HomeScreen">
@@ -62,10 +63,13 @@ const MainNavigator: React.FC = () => {
             name="PaymentScreen" 
             component={PaymentScreen} 
             options={{ headerShown: false }}/>
+                     <Screen 
+            name="GameScreen" 
+            component={Game} 
+            options={{ headerShown: false }}/>
             
 
         </Navigator>
     )
 }
 
-export default MainNavigator
