@@ -20,7 +20,6 @@ interface ExploreScreenProps {
 }
 
 const ExploreScreen: React.FC<ExploreScreenProps> = ({ navigation }) => {
-  console.log(height, width);
   return (
     <ImageBackground
       style={styles.background}

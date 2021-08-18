@@ -35,7 +35,6 @@ export const Tour: React.FC<Props> = ({ title, img, navigation }) => {
       onPress={() => {
         setTitleHidden(!titleHidden);
         setButtonHidden(!buttonHidden);
-        console.log(`pressed ${title}: titleHidden => ${titleHidden}`);
       }}
     >
       <ImageBackground style={styles.background} source={img}>
