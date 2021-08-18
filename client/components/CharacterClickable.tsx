@@ -3,7 +3,6 @@ import {TouchableOpacity, StyleSheet, Dimensions} from 'react-native';
 
 const { width, height } = Dimensions.get('window')
 
-const ratio = width * height /1000
 
 export const CharacterClickable = () => {
 return(
