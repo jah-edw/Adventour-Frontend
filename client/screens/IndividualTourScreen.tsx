@@ -1,5 +1,6 @@
 import { StackNavigationProp } from "@react-navigation/stack";
-import React from "react";
+import { useSelector } from "react-redux";
+import React, { useState, useEffect } from "react";
 import {
   SafeAreaView,
   Text,
@@ -24,6 +25,23 @@ interface IndividualTourScreenProps {
 const IndividualTourScreen: React.FC<IndividualTourScreenProps> = ({
   navigation,
 }) => {
+  const title: any = useSelector((state) => state.tourReducer);
+  const [individualTour, setIndividualTour] = useState({});
+
+  const getIndividualTour = (): any => {
+    fetch("http://10.10.22.219:3001/getIndividualTour", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ title: title}),
+    }).then((response) => {
+      return response.json().then((data) => setIndividualTour(data));
+    });
+  };
+
+  useEffect(() => {
+    getIndividualTour();
+  }, []);
+
   return (
     <ImageBackground
       style={styles.background}
@@ -34,15 +52,12 @@ const IndividualTourScreen: React.FC<IndividualTourScreenProps> = ({
           <Image style={styles.logo} source={require("../assets/logo.png")} />
         </View>
         <View style={styles.whiteCard}>
-          <View style={styles.container}></View>
+          <Image source={ {uri: individualTour.images} } style={styles.container}/>
           <View style={styles.mapContainer}></View>
 
           <View style={styles.hiddenView}>
-            <Text>
-              Hey this is some random text, hopefully this will eventually be
-              replaced by some useful, game related information, but until
-              then...
-            </Text>
+            <Text>{individualTour.description || title}</Text> 
+
           </View>
           <View style={styles.button}>
             <GeneralButton
@@ -87,14 +102,14 @@ const styles = StyleSheet.create({
   container: {
     height: 200,
     width: 300,
-    backgroundColor: "green",
-    borderColor: "black",
-    borderWidth: 2,
-    borderRadius: 35,
-    shadowOffset: { width: 5, height: 7 },
-    shadowOpacity: 0.2,
-    marginTop: 30,
-    alignSelf: "center",
+  //   backgroundColor: "green",
+  //   borderColor: "black",
+  //   borderWidth: 2,
+  //   borderRadius: 35,
+  //   shadowOffset: { width: 5, height: 7 },
+  //   shadowOpacity: 0.2,
+  //   marginTop: 30,
+  //   alignSelf: "center",
   },
   button: {
     flexDirection: "column",
