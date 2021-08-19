@@ -21,15 +21,6 @@ interface IndividualTourScreenProps {
   source: ImageSourcePropType;
 }
 
-<<<<<<< HEAD
-// needs to use global state determined in 'Tour' Component to render the correct information.
-const IndividualTourScreen: React.FC<IndividualTourScreenProps> = ({ navigation }) => {
-    return(
-        <ImageBackground style={styles.background} source={ require('../assets/wallpaper.png')}>
-        <SafeAreaView>
-
-
-=======
 const IndividualTourScreen: React.FC<IndividualTourScreenProps> = ({
   navigation,
 }) => {
@@ -45,7 +36,6 @@ const IndividualTourScreen: React.FC<IndividualTourScreenProps> = ({
         <View style={styles.whiteCard}>
           <View style={styles.container}></View>
           <View style={styles.mapContainer}></View>
->>>>>>> jess-dev
 
           <View style={styles.hiddenView}>
             <Text>

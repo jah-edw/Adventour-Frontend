@@ -2,6 +2,9 @@ import React from "react";
 import { ScrollView } from "react-native-gesture-handler";
 import { Tour } from "./Tour";
 
+    // fetch('what link do we need nidal?').then((response) => {
+    //   return response.json().then((data) => {set arrayOfTours State}
+
 const arrayOfTours = [
   {
     id: 1,
