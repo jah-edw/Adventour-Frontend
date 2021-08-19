@@ -11,6 +11,8 @@ import { CurrentGame } from "../components/CurrentGame";
 import { getWindow } from "../helpers/helper";
 import { TopNavigatorParamsList } from "../types/types";
 
+import {store} from '../store/store'
+
 interface GameScreenProps {
   navigation: StackNavigationProp<TopNavigatorParamsList, "GameScreen">;
   source: ImageSourcePropType;

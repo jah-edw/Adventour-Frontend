@@ -11,8 +11,7 @@ import {
 } from "react-native";
 import { MoreInfoButton } from "./MoreInfoButton";
 import { getWindow } from "../helpers/helper";
-import { store } from "../store/store";
-import { getTourTitle } from "../store/actions/actions";
+import { getTour } from "../store/actions/actions";
 import { useDispatch } from "react-redux";
 
 interface Props {
@@ -49,7 +48,7 @@ export const Tour: React.FC<Props> = ({ title, img, id, navigation }) => {
           <Text style={decideStyle()}>{title}</Text>
           <MoreInfoButton
             onPress={() => {
-              dispatch(getTourTitle(title));
+              dispatch(getTour(id, title));
               navigation.navigate("IndividualTourScreen");
             }}
             style={decideButtonStyle()}

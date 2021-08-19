@@ -38,7 +38,7 @@ const BookingScreen: React.FC<BookingScreenProps> = ({ navigation }) => {
           </View>
           <View style={styles.button}>
             <GeneralButton
-              title="Confirm Booking"
+              title="Confirm Payment"
               onPress={() => {
                 navigation.navigate("PaymentScreen");
               }}

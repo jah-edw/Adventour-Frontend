@@ -1,6 +1,7 @@
-export const getTourTitle = (title) => ({
+export const getTour = (id, title) => ({
     type: 'GET_TOUR',
-    payload: title
+    payload: { id, title }
 
 })
 
+// thunk goes here 

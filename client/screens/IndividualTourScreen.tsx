@@ -25,7 +25,7 @@ interface IndividualTourScreenProps {
 const IndividualTourScreen: React.FC<IndividualTourScreenProps> = ({
   navigation,
 }) => {
-  const title: any = useSelector((state) => state.tourReducer);
+  const title: any = useSelector((state) => state.tourReducer.title);
   const [individualTour, setIndividualTour] = useState({});
 
   const getIndividualTour = (): any => {
@@ -61,7 +61,7 @@ const IndividualTourScreen: React.FC<IndividualTourScreenProps> = ({
           </View>
           <View style={styles.button}>
             <GeneralButton
-              title="Book Tour"
+              title="Buy Tour"
               onPress={() => {
                 navigation.navigate("BookingScreen");
               }}

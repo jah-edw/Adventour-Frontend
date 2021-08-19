@@ -40,7 +40,7 @@ const ExploreScreen: React.FC<ExploreScreenProps> = ({ navigation }) => {
           <GeneralButton
             title="Join Tour"
             onPress={() => {
-              navigation.navigate("IndividualTourScreen");
+              navigation.navigate("GameScreen"); // THIS ROUTE IS WRONG
             }}
           />
         </View>

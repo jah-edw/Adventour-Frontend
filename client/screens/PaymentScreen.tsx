@@ -1,5 +1,5 @@
 import { StackNavigationProp } from "@react-navigation/stack";
-import React from "react";
+import React, {useState} from "react";
 import {
   SafeAreaView,
   Image,
@@ -30,7 +30,7 @@ const PaymentScreen: React.FC<PaymentScreenProps> = ({ navigation }) => {
         <View style={styles.whiteCard}>
           <View style={styles.button}>
             <GeneralButton
-              title="Confirm Payment"
+              title="Start Tour"
               onPress={() => {
                 navigation.navigate("GameScreen");
               }}

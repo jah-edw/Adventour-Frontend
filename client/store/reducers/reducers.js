@@ -1,15 +1,17 @@
 import { combineReducers } from 'redux';
 
-const initialTourTitle = ''
-function tourReducer(state = initialTourTitle, action) {
+const initialTourState = { id: 0, title: 'Initial Title' }
+function tourReducer(state = initialTourState, action) {
     switch (action.type) {
         case "GET_TOUR": {
-            return state = action.payload
+            return state = { id: action.payload.id, title: action.payload.title }
         }
         default:
             return state;
     }
 }
+
+
 
 
 
