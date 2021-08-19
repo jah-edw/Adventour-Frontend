@@ -28,6 +28,7 @@ export const HorizontalSlider: React.FC<Props> = ({ navigation }) => {
           title={tour.title}
           img={{ uri: tour.images }}
           key={tour.id}
+          id={tour.id}
           navigation={navigation}
         />
       );
