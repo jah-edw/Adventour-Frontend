@@ -1,6 +1,6 @@
 import { StackNavigationProp } from "@react-navigation/stack";
 import { useSelector } from "react-redux";
-import React, {useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import {
   ImageBackground,
   ScrollView,
@@ -14,7 +14,6 @@ import { CharacterClickable } from "../components/CharacterClickable";
 import { getWindow } from "../helpers/helper";
 import { TopNavigatorParamsList } from "../types/types";
 
-
 interface NotebookScreenProps {
   navigation: StackNavigationProp<TopNavigatorParamsList, "NotebookScreen">;
   source: ImageSourcePropType;
@@ -24,7 +23,6 @@ interface NotebookScreenProps {
 //TODO: render them based on weapons/ character arrays
 
 const NotebookScreen: React.FC<NotebookScreenProps> = () => {
-
   const id: any = useSelector((state) => state.tourReducer.id);
   const [tourInfo, setTourInfo] = useState({});
 
@@ -32,21 +30,41 @@ const NotebookScreen: React.FC<NotebookScreenProps> = () => {
     fetch("http://10.10.22.219:3001/addInfo", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ tourId: id}),
-    }).then((response) => {
-      return response.json()
+      body: JSON.stringify({ tourId: id }),
     })
-    .then((data) => setTourInfo(data));
+      .then((response) => {
+        return response.json();
+      })
+      .then((data) => setTourInfo(data));
   };
 
   useEffect(() => {
     getTourInfo();
-    console.log(`getTourInfo`, tourInfo)
   }, []);
 
+  const displayWeapons = () => {
+    return tourInfo.weapons? tourInfo.weapons.map((weapon: any) => {
+      return (
+        <CharacterClickable
+          title={weapon.weapon}
+          img={weapon.image}
+          key={weapon.weapon}
+        />
+      );
+    }) :  <Text>'ehhhhhh'</Text>
+  };
 
-
-
+  const displayCharacters = () => {
+    return tourInfo.characters? tourInfo.characters.map((character: any) => {
+      return (
+        <CharacterClickable
+          title={character.name}
+          img={character.image}
+          key={character.name}
+        />
+      );
+    }) :  <Text>'ehhhhhh'</Text>
+  };
 
   return (
     <ImageBackground
@@ -58,12 +76,8 @@ const NotebookScreen: React.FC<NotebookScreenProps> = () => {
           <View style={styles.whiteCard}>
             <ScrollView>
               <View style={styles.clickables}>
-                {console.log(`tourInfo in notebook:`, tourInfo)}
-                <Text> {tourInfo.weapons? tourInfo.weapons[1].weapon : 'no'}</Text>
-                <CharacterClickable />
- 
+              {displayWeapons()}
               </View>
-
             </ScrollView>
           </View>
         </View>

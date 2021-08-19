@@ -1,16 +1,15 @@
 import React from "react";
-import { TouchableOpacity, StyleSheet } from "react-native";
+import { TouchableOpacity, StyleSheet, ImageSourcePropType, Image, Text, ImageBackground} from "react-native";
 import { getWindow } from "../helpers/helper";
 
 interface Props {
-  // type props here if you need to pass them in line 12
-  // eg:
-  // onPress: (event: GestureResponderEvent) => void
-  // title: string
+title:string
+img: ImageSourcePropType;
+
 }
 
-export const CharacterClickable: React.FC<Props> = () => {
-  return <TouchableOpacity style={styles.buttonContainer}></TouchableOpacity>;
+export const CharacterClickable: React.FC<Props> = ({title, img}) => {
+  return <Image source={{uri: img}} style={styles.buttonContainer}></Image>
 };
 
 const { height, width } = getWindow();
@@ -18,13 +17,5 @@ const styles = StyleSheet.create({
   buttonContainer: {
     width: width / 2.4,
     height: height / 5.836,
-    borderRadius: 20,
-    backgroundColor: "#1C76B8",
-    marginTop: height / 40,
-    alignItems: "center",
-    shadowOffset: { width: 5, height: 7 },
-    shadowOpacity: 0.6,
-    flexDirection: "column",
-    justifyContent: "center",
   },
 });
