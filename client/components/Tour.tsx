@@ -11,18 +11,17 @@ import {
 } from "react-native";
 import { MoreInfoButton } from "./MoreInfoButton";
 import { getWindow } from "../helpers/helper";
+import { NavigationContainer } from "@react-navigation/native";
 
 interface Props {
   title: string;
   img: ImageSourcePropType;
-  navigation: StackNavigationProp<
-    TopNavigatorParamsList,
-    "IndividualTourScreen"
-  >
+  navigation: StackNavigationProp<TopNavigatorParamsList, "IndividualTourScreen">;
+
   id: number
 }
 
-export const Tour: React.FC<Props> = ({ title, img, navigation, id }) => {
+export const Tour: React.FC<Props> = ({ title, img, id, navigation}) => {
   const [titleHidden, setTitleHidden] = useState(true);
   const [buttonHidden, setButtonHidden] = useState(true);
 
@@ -43,9 +42,7 @@ export const Tour: React.FC<Props> = ({ title, img, navigation, id }) => {
         <View style={styles.container}>
           <Text style={decideStyle()}>{title}</Text>
           <MoreInfoButton
-            onPress={() => {
-              navigation.navigate("IndividualTourScreen");
-            }}
+          onPress={()=> navigation.navigate('IndividualTourScreen')}
             style={decideButtonStyle()}
           />
         </View>

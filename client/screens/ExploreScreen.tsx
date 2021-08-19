@@ -1,4 +1,3 @@
-import { StackNavigationProp } from "@react-navigation/stack";
 import React from "react";
 import {
   SafeAreaView,
@@ -9,13 +8,14 @@ import {
   ImageSourcePropType,
 } from "react-native";
 import { TopNavigatorParamsList } from "../types/types";
+import { StackNavigationProp } from "@react-navigation/stack";
 import { HorizontalSlider } from "../components/HorizontalSlider";
 import { InputButton } from "../components/InputButton";
 import { GeneralButton } from "../components/GeneralButton";
 import { getWindow } from "../helpers/helper";
 
 interface ExploreScreenProps {
-  navigation: StackNavigationProp<TopNavigatorParamsList, "ExploreScreen">;
+  navigation: StackNavigationProp<TopNavigatorParamsList, "IndividualTourScreen">;
   source: ImageSourcePropType;
 }
 
@@ -32,10 +32,10 @@ const ExploreScreen: React.FC<ExploreScreenProps> = ({ navigation }) => {
         <View style={styles.whiteCard}>
           <InputButton placeholder="Search by genre" />
           <View style={styles.slider}>
-            <HorizontalSlider navigation={navigation} />
+            <HorizontalSlider navigation={navigation}/>
           </View>
           <View style={styles.slider}>
-            <HorizontalSlider navigation={navigation} />
+            <HorizontalSlider navigation={navigation}/>
           </View>
           <GeneralButton
             title="Join Tour"

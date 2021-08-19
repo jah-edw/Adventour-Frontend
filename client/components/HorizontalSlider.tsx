@@ -5,13 +5,11 @@ import { ScrollView } from "react-native-gesture-handler";
 import { Tour } from "./Tour";
 
 interface Props {
-  navigation: StackNavigationProp<
-    TopNavigatorParamsList,
-    "IndividualTourScreen"
-  >;
+  navigation: StackNavigationProp<TopNavigatorParamsList, "IndividualTourScreen">;
+
 }
 
-export const HorizontalSlider: React.FC<Props> = ({ navigation }) => {
+export const HorizontalSlider: React.FC<Props> = ({navigation}) => {
   const [tours, setTours] = useState<Array<any>>([]);
   const getTours = (): any => {
     fetch("http://10.10.22.219:3001/getTours").then((response) => {
