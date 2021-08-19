@@ -39,7 +39,6 @@ const IndividualTourScreen: React.FC<IndividualTourScreenProps> = ({
 
           <View style={styles.hiddenView}>
             <Text>
-              {" "}
               Hey this is some random text, hopefully this will eventually be
               replaced by some useful, game related information, but until
               then...
