@@ -18,10 +18,11 @@ interface Props {
   navigation: StackNavigationProp<
     TopNavigatorParamsList,
     "IndividualTourScreen"
-  >;
+  >
+  id: number
 }
 
-export const Tour: React.FC<Props> = ({ title, img, navigation }) => {
+export const Tour: React.FC<Props> = ({ title, img, navigation, id }) => {
   const [titleHidden, setTitleHidden] = useState(true);
   const [buttonHidden, setButtonHidden] = useState(true);
 
