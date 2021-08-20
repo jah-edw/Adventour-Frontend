@@ -6,6 +6,7 @@ import {
   View,
   ImageBackground,
   ImageSourcePropType,
+  Text
 } from "react-native";
 import { TopNavigatorParamsList } from "../types/types";
 import { StackNavigationProp } from "@react-navigation/stack";

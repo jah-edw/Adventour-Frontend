@@ -28,25 +28,30 @@ interface Props {
 export const Tour: React.FC<Props> = ({ title, img, id, navigation }) => {
   const [titleHidden, setTitleHidden] = useState(true);
   const [buttonHidden, setButtonHidden] = useState(true);
+  const [opacity, setOpacity] = useState(true);
   const dispatch = useDispatch();
 
   const decideButtonStyle = () =>
     buttonHidden === true ? styles.hiddenButton : styles.shownButton;
   const decideStyle = () =>
     titleHidden === true ? styles.titleHidden : styles.titleShown;
+    const decideOpacity = () =>
+    opacity === true ? styles.moreOpacity : styles.lessOpacity;
+
 
   return (
     <TouchableOpacity
       onPress={() => {
         setTitleHidden(!titleHidden);
         setButtonHidden(!buttonHidden);
+        setOpacity(!opacity);
+
       }}
     >
-      <ImageBackground style={styles.background} source={img}>
-        <View style={styles.hiddenDiv}></View>
-        <View style={styles.container}>
-          <Text style={decideStyle()}>{title}</Text>
-          <MoreInfoButton
+      <View style={styles.blackBack}>
+      <ImageBackground style={decideOpacity()} source={img}>
+        <View style={styles.hiddenDiv}>
+        <MoreInfoButton
             onPress={() => {
               dispatch(getTour(id, title));
               navigation.navigate("IndividualTourScreen");
@@ -54,7 +59,12 @@ export const Tour: React.FC<Props> = ({ title, img, id, navigation }) => {
             style={decideButtonStyle()}
           />
         </View>
+        <View style={styles.container}>
+          <Text style={decideStyle()}>{title}</Text>
+
+        </View>
       </ImageBackground>
+      </View>
     </TouchableOpacity>
   );
 };
@@ -64,21 +74,21 @@ const styles = StyleSheet.create({
   container: {
     flexDirection: "row",
     justifyContent: "space-between",
-    height: height / 4.63,
+    maxHeight: height / 4.63,
     borderRadius: 35,
+    maxWidth: width / 1.426,
+    flexWrap: 'wrap',
+
   },
-  background: {
+  moreOpacity: {
     flex: 1,
     resizeMode: "cover",
     height: height / 4.63,
     width: width / 1.426,
-    marginLeft: width / 28,
-    marginRight: width / 28,
+    // marginLeft: width / 28,
+    // marginRight: width / 28,
   },
   titleHidden: {
-    color: "white",
-    fontSize: ratio / 19.8,
-    margin: ratio / 39.6,
     display: "none",
   },
   titleShown: {
@@ -86,36 +96,50 @@ const styles = StyleSheet.create({
     fontSize: ratio / 19.8,
     marginTop: height / 40,
     marginLeft: width / 50,
+    fontWeight: 'bold',
+    textShadowOffset: { width: -10, height: 1 },
+    textShadowColor: 'black',
+    textShadowRadius: 10,
+
   },
   hidden: {
     display: "none",
   },
   hiddenDiv: {
     height: height / 7,
+    flexDirection: 'row',
+    justifyContent: 'flex-end',
   },
   shownButton: {
-    width: width / 4.426,
-    height: height / 22.836,
-    borderRadius: 20,
-    backgroundColor: "#1C76B8",
+    height: ratio /6,
+    paddingRight: 10,
     alignItems: "center",
-    margin: height / 73,
     shadowOffset: { width: 5, height: 7 },
     shadowOpacity: 0.6,
     flexDirection: "column",
     justifyContent: "center",
   },
   hiddenButton: {
-    width: width / 4.426,
-    height: height / 22.836,
-    borderRadius: 20,
-    backgroundColor: "#1C76B8",
-    alignItems: "center",
-    margin: height / 73,
-    shadowOffset: { width: 5, height: 7 },
-    shadowOpacity: 0.6,
-    flexDirection: "column",
-    justifyContent: "center",
     display: "none",
   },
+  lessOpacity:{
+    flex: 1,
+    resizeMode: "cover",
+    height: height / 4.63,
+    width: width / 1.426,
+    // marginLeft: width / 28,
+    // marginRight: width / 28,
+    opacity: 0.7
+  },
+  blackBack:{
+    flex: 1,
+    resizeMode: "cover",
+    height: height / 4.63,
+    width: width / 1.426,
+    marginLeft: width / 28,
+    marginRight: width / 28,
+    backgroundColor: 'black',
+    
+
+  }
 });

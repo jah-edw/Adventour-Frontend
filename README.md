@@ -20,3 +20,7 @@ Nice article on app structure:
 https://cheesecakelabs.com/blog/efficient-way-structure-react-native-projects/
 
 https://www.youtube.com/watch?v=nQVCkqvU1uE
+
+                <Text>
+                  {tourInfo.weapons ? tourInfo.weapons[1].weapon : "no"}
+                </Text>
