@@ -1,5 +1,9 @@
+//Booking confirmed screen
+
 import { StackNavigationProp } from "@react-navigation/stack";
-import React, {useState} from "react";
+import React from "react";
+import { useSelector } from "react-redux";
+
 import {
   SafeAreaView,
   Image,
@@ -7,17 +11,27 @@ import {
   View,
   ImageSourcePropType,
   ImageBackground,
+  Text
 } from "react-native";
 import { TopNavigatorParamsList } from "../types/types";
 import { GeneralButton } from "../components/GeneralButton";
 import { getWindow } from "../helpers/helper";
+
+
 
 interface BeginTourProps {
   navigation: StackNavigationProp<TopNavigatorParamsList, "BeginTourScreen">;
   source: ImageSourcePropType;
 }
 
+// TODO: input field for password => when password has been entered & validated, "Start tour" appears
+
 const BeginTourScreen: React.FC<BeginTourProps> = ({ navigation }) => {
+
+  const booking: any = useSelector((state) => state.bookingReducer);
+  console.log(`booking: `, booking)
+
+
   return (
     <ImageBackground
       style={styles.background}
@@ -28,11 +42,12 @@ const BeginTourScreen: React.FC<BeginTourProps> = ({ navigation }) => {
           <Image style={styles.logo} source={require("../assets/logo.png")} />
         </View>
         <View style={styles.whiteCard}>
+          <Text>booking confirmed SCREEN</Text>
           <View style={styles.button}>
             <GeneralButton
-              title="Start Tour"
+              title="Join Tour"
               onPress={() => {
-                navigation.navigate("GameScreen");
+                navigation.navigate("JoinTourScreen");
               }}
             />
           </View>
@@ -49,7 +64,7 @@ const styles = StyleSheet.create({
     resizeMode: "cover",
   },
   whiteCard: {
-    height: 1000,
+    height: height,
     backgroundColor: "#fff",
     borderRadius: 55,
     alignItems: "center",

@@ -87,14 +87,6 @@ const styles = StyleSheet.create({
   container: {
     height: 200,
     width: 300,
-    //   backgroundColor: "green",
-    //   borderColor: "black",
-    //   borderWidth: 2,
-    //   borderRadius: 35,
-    //   shadowOffset: { width: 5, height: 7 },
-    //   shadowOpacity: 0.2,
-    //   marginTop: 30,
-    //   alignSelf: "center",
   },
   button: {
     flexDirection: "column",

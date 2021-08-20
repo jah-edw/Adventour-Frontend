@@ -18,6 +18,7 @@ export type TopNavigatorParamsList = {
     PaymentScreen: undefined
     GameScreen: undefined
     NotebookScreen: undefined
+    JoinTourScreen: undefined
 }
 
 // export type ModalNavigatorParamsList = {

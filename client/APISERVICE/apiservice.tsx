@@ -15,7 +15,7 @@ export const getIndividualTour = (title: string): any => {
 export const getTours = ():any => {
     return fetch(`${BASE_URL}${PORT}/getTours`)
     .then((response) => response.json())
-    .catch(error => console.log(`error api: `, error))
+    .catch(error => console.log(`getTours Error: `, error))
 }
 
 export const getTourInfo = (id: number):any => {
@@ -25,5 +25,16 @@ export const getTourInfo = (id: number):any => {
         body: JSON.stringify({ tourId: id }),
     })
     .then((response) => response.json())
-    .catch(error => console.log(`myerror: `,error))
+    .catch(error => console.log(`getTourInfo Error: `,error))
+}
+
+
+export const createBooking = (id:number, partySize:number, UserId=1): any => {
+    return fetch(`${BASE_URL}${PORT}/newBooking`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json"},
+        body: JSON.stringify({TourId: id, partySize:partySize, UserId: UserId}),
+    })
+    .then((response)=> response.json())
+    .catch(error => console.log(`Create Booking Error, see PaymentScreen: `, error))
 }

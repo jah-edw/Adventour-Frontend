@@ -1,4 +1,4 @@
-import { getIndividualTour, getTourInfo } from "../../APISERVICE/apiservice";
+import { createBooking, getIndividualTour, getTourInfo } from "../../APISERVICE/apiservice";
 
 export const setIndividualTour = (title) => {
     return (dispatch) => {
@@ -10,6 +10,18 @@ export const setIndividualTour = (title) => {
         });
     };
 };
+
+
+export const setCreateBooking = (TourId, partySize, UserId = 1) => {
+    return (dispatch) => {
+        createBooking(TourId, partySize, UserId).then((data) => {
+            dispatch({
+                type: "CREATE_BOOKING_INFO",
+                payload: data
+            })
+        })
+    }
+}
 
 
 // export const setTourInfo = (id) => {
