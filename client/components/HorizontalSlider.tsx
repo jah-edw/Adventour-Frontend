@@ -16,7 +16,7 @@ export const HorizontalSlider: React.FC<Props> = ({navigation}) => {
 
   useEffect(() => {
     getTours()
-    .then((tours) => setTours(tours) )
+    .then((tours:any) => setTours(tours) )
   }, []);
 
   const displayTours = (tours: any) => {

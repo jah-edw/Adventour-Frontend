@@ -1,15 +1,23 @@
 import React from "react";
-import { TouchableOpacity, StyleSheet, ImageSourcePropType, Image, Text, ImageBackground} from "react-native";
+import {
+  TouchableOpacity,
+  StyleSheet,
+  ImageSourcePropType,
+  Image,
+} from "react-native";
 import { getWindow } from "../helpers/helper";
 
 interface Props {
-title:string
-img: ImageSourcePropType;
-
+  title: string;
+  img: ImageSourcePropType;
 }
 
-export const CharacterClickable: React.FC<Props> = ({title, img}) => {
-  return <Image source={{uri: img}} style={styles.buttonContainer}></Image>
+export const CharacterClickable: React.FC<Props> = ({ title, img }) => {
+  return (
+    <TouchableOpacity>
+      <Image source={{ uri: img }} style={styles.buttonContainer}></Image>
+    </TouchableOpacity>
+  );
 };
 
 const { height, width } = getWindow();

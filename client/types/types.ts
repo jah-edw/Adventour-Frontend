@@ -14,7 +14,7 @@ export type TopNavigatorParamsList = {
     LoginScreen: undefined
     ExploreScreen: undefined
     IndividualTourScreen: undefined
-    BookingScreen: undefined
+    BeginTourScreen: undefined
     PaymentScreen: undefined
     GameScreen: undefined
     NotebookScreen: undefined

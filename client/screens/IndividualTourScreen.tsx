@@ -13,7 +13,7 @@ import {
 import { TopNavigatorParamsList } from "../types/types";
 import { GeneralButton } from "../components/GeneralButton";
 import { getWindow } from "../helpers/helper";
-import {getIndividualTour} from '../APISERVICE/apiservice' 
+import { getIndividualTour } from "../APISERVICE/apiservice";
 
 interface IndividualTourScreenProps {
   navigation: StackNavigationProp<
@@ -28,15 +28,6 @@ const IndividualTourScreen: React.FC<IndividualTourScreenProps> = ({
 }) => {
   const tour: any = useSelector((state) => state.tourReducer);
 
-
-
-  // useEffect(() => {
-  //   getIndividualTour(title)
-  //   .then((data) => {
-  //     setIndividualTour(data)
-  //   });
-  // }, []);
-
   return (
     <ImageBackground
       style={styles.background}
@@ -47,18 +38,17 @@ const IndividualTourScreen: React.FC<IndividualTourScreenProps> = ({
           <Image style={styles.logo} source={require("../assets/logo.png")} />
         </View>
         <View style={styles.whiteCard}>
-          <Image source={ {uri: tour.images} } style={styles.container}/>
+          <Image source={{ uri: tour.images }} style={styles.container} />
           <View style={styles.mapContainer}></View>
 
           <View style={styles.hiddenView}>
-            <Text>{tour.description || 'no'}</Text> 
-
+            <Text>{tour.description || "no"}</Text>
           </View>
           <View style={styles.button}>
             <GeneralButton
               title="Buy Tour"
               onPress={() => {
-                navigation.navigate("BookingScreen");
+                navigation.navigate("PaymentScreen");
               }}
             />
           </View>
@@ -97,14 +87,14 @@ const styles = StyleSheet.create({
   container: {
     height: 200,
     width: 300,
-  //   backgroundColor: "green",
-  //   borderColor: "black",
-  //   borderWidth: 2,
-  //   borderRadius: 35,
-  //   shadowOffset: { width: 5, height: 7 },
-  //   shadowOpacity: 0.2,
-  //   marginTop: 30,
-  //   alignSelf: "center",
+    //   backgroundColor: "green",
+    //   borderColor: "black",
+    //   borderWidth: 2,
+    //   borderRadius: 35,
+    //   shadowOffset: { width: 5, height: 7 },
+    //   shadowOpacity: 0.2,
+    //   marginTop: 30,
+    //   alignSelf: "center",
   },
   button: {
     flexDirection: "column",

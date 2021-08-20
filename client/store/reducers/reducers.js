@@ -14,9 +14,16 @@ function tourReducer(state = initialTourState, action) {
     }
 }
 
-
-
-
+// const initialInfoState = {}
+// function infoReducer(state = initialInfoState, action) {
+//     switch (action.type) {
+//         case "SET_TOUR_INFO": {
+//             return action.payload
+//         }
+//         default:
+//             return state;
+//     }
+// }
 
 
 export default combineReducers({ tourReducer })

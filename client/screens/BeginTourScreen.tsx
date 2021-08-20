@@ -1,9 +1,7 @@
-//TODO: add scrollable thing for number of players
 import { StackNavigationProp } from "@react-navigation/stack";
-import React from "react";
+import React, {useState} from "react";
 import {
   SafeAreaView,
-  Text,
   Image,
   StyleSheet,
   View,
@@ -14,12 +12,12 @@ import { TopNavigatorParamsList } from "../types/types";
 import { GeneralButton } from "../components/GeneralButton";
 import { getWindow } from "../helpers/helper";
 
-interface BookingScreenProps {
-  navigation: StackNavigationProp<TopNavigatorParamsList, "BookingScreen">;
+interface BeginTourProps {
+  navigation: StackNavigationProp<TopNavigatorParamsList, "BeginTourScreen">;
   source: ImageSourcePropType;
 }
 
-const BookingScreen: React.FC<BookingScreenProps> = ({ navigation }) => {
+const BeginTourScreen: React.FC<BeginTourProps> = ({ navigation }) => {
   return (
     <ImageBackground
       style={styles.background}
@@ -30,17 +28,11 @@ const BookingScreen: React.FC<BookingScreenProps> = ({ navigation }) => {
           <Image style={styles.logo} source={require("../assets/logo.png")} />
         </View>
         <View style={styles.whiteCard}>
-          <View style={styles.mapContainer}></View>
-          <View style={styles.datePicker}></View>
-
-          <View style={styles.hiddenView}>
-            <Text>Number of players: </Text>
-          </View>
           <View style={styles.button}>
             <GeneralButton
-              title="Confirm Payment"
+              title="Start Tour"
               onPress={() => {
-                navigation.navigate("PaymentScreen");
+                navigation.navigate("GameScreen");
               }}
             />
           </View>
@@ -76,39 +68,20 @@ const styles = StyleSheet.create({
     alignSelf: "center",
     width: width / 1.119,
   },
-  datePicker: {
-    height: 300,
-    width: 300,
-    backgroundColor: "green",
-    borderColor: "black",
-    borderWidth: 2,
-    borderRadius: 35,
-    shadowOffset: { width: 5, height: 7 },
-    shadowOpacity: 0.2,
-    marginTop: 30,
-    alignSelf: "center",
-  },
   button: {
     flexDirection: "column",
     justifyContent: "flex-end",
+    backgroundColor: "black",
   },
   hiddenView: {
-    height: 120,
+    height: 320,
     width: 290,
     paddingTop: 30,
-  },
-  mapContainer: {
-    height: 100,
-    width: 300,
-    backgroundColor: "green",
-    borderColor: "black",
-    borderWidth: 2,
-    borderRadius: 35,
-    shadowOffset: { width: 5, height: 7 },
-    shadowOpacity: 0.2,
-    marginTop: 30,
-    alignSelf: "center",
+    backgroundColor: "black",
+
+    flexDirection: "column",
+    justifyContent: "flex-end",
   },
 });
 
-export default BookingScreen;
+export default BeginTourScreen;

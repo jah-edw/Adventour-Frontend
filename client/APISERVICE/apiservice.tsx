@@ -18,3 +18,12 @@ export const getTours = ():any => {
     .catch(error => console.log(`error api: `, error))
 }
 
+export const getTourInfo = (id: number):any => {
+    return fetch(`${BASE_URL}${PORT}/addInfo`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ tourId: id }),
+    })
+    .then((response) => response.json())
+    .catch(error => console.log(`myerror: `,error))
+}

@@ -13,33 +13,23 @@ import {
 import { CharacterClickable } from "../components/CharacterClickable";
 import { getWindow } from "../helpers/helper";
 import { TopNavigatorParamsList } from "../types/types";
+import {getTourInfo} from '../APISERVICE/apiservice';
 
 interface NotebookScreenProps {
   navigation: StackNavigationProp<TopNavigatorParamsList, "NotebookScreen">;
   source: ImageSourcePropType;
 }
 
-//TODO: instead of repeated CharacterClickables, use a mapping function to
-//TODO: render them based on weapons/ character arrays
 
 const NotebookScreen: React.FC<NotebookScreenProps> = () => {
-  const id: any = useSelector((state) => state.tourReducer.id);
+  const tour: any = useSelector((state) => state.tourReducer);
   const [tourInfo, setTourInfo] = useState({});
 
-  const getTourInfo = (): any => {
-    fetch("http://10.10.22.219:3001/addInfo", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ tourId: id }),
-    })
-      .then((response) => {
-        return response.json();
-      })
-      .then((data) => setTourInfo(data));
-  };
+ 
 
   useEffect(() => {
-    getTourInfo();
+    getTourInfo(tour.id)
+    .then((info:any) => setTourInfo(info))
   }, []);
 
   const displayWeapons = () => {
@@ -51,7 +41,7 @@ const NotebookScreen: React.FC<NotebookScreenProps> = () => {
           key={weapon.weapon}
         />
       );
-    }) :  <Text>'ehhhhhh'</Text>
+    }) :  <Text></Text>
   };
 
   const displayCharacters = () => {

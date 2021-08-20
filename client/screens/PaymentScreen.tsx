@@ -1,7 +1,9 @@
+//TODO: add scrollable thing for number of players
 import { StackNavigationProp } from "@react-navigation/stack";
-import React, {useState} from "react";
+import React from "react";
 import {
   SafeAreaView,
+  Text,
   Image,
   StyleSheet,
   View,
@@ -28,11 +30,17 @@ const PaymentScreen: React.FC<PaymentScreenProps> = ({ navigation }) => {
           <Image style={styles.logo} source={require("../assets/logo.png")} />
         </View>
         <View style={styles.whiteCard}>
+          <View style={styles.mapContainer}></View>
+          <View style={styles.datePicker}></View>
+
+          <View style={styles.hiddenView}>
+            <Text>Number of players: </Text>
+          </View>
           <View style={styles.button}>
             <GeneralButton
-              title="Start Tour"
+              title="Confirm Payment"
               onPress={() => {
-                navigation.navigate("GameScreen");
+                navigation.navigate("BeginTourScreen");
               }}
             />
           </View>
@@ -68,19 +76,38 @@ const styles = StyleSheet.create({
     alignSelf: "center",
     width: width / 1.119,
   },
+  datePicker: {
+    height: 300,
+    width: 300,
+    backgroundColor: "green",
+    borderColor: "black",
+    borderWidth: 2,
+    borderRadius: 35,
+    shadowOffset: { width: 5, height: 7 },
+    shadowOpacity: 0.2,
+    marginTop: 30,
+    alignSelf: "center",
+  },
   button: {
     flexDirection: "column",
     justifyContent: "flex-end",
-    backgroundColor: "black",
   },
   hiddenView: {
-    height: 320,
+    height: 120,
     width: 290,
     paddingTop: 30,
-    backgroundColor: "black",
-
-    flexDirection: "column",
-    justifyContent: "flex-end",
+  },
+  mapContainer: {
+    height: 100,
+    width: 300,
+    backgroundColor: "green",
+    borderColor: "black",
+    borderWidth: 2,
+    borderRadius: 35,
+    shadowOffset: { width: 5, height: 7 },
+    shadowOpacity: 0.2,
+    marginTop: 30,
+    alignSelf: "center",
   },
 });
 
