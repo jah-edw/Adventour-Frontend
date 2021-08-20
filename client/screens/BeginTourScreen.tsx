@@ -1,5 +1,7 @@
 //Booking confirmed screen
 
+//TODO: import onClick functionality clipboard
+
 import { StackNavigationProp } from "@react-navigation/stack";
 import React from "react";
 import { useSelector } from "react-redux";
@@ -29,7 +31,7 @@ interface BeginTourProps {
 const BeginTourScreen: React.FC<BeginTourProps> = ({ navigation }) => {
 
   const booking: any = useSelector((state) => state.bookingReducer);
-  console.log(`booking: `, booking)
+  console.log(`password: `, booking.password)
 
 
   return (
@@ -42,7 +44,8 @@ const BeginTourScreen: React.FC<BeginTourProps> = ({ navigation }) => {
           <Image style={styles.logo} source={require("../assets/logo.png")} />
         </View>
         <View style={styles.whiteCard}>
-          <Text>booking confirmed SCREEN</Text>
+          <Text>Your booking has been confirmed! Please copy the password below & enter it somewhere later</Text>
+          <Text>{booking.password}</Text>
           <View style={styles.button}>
             <GeneralButton
               title="Join Tour"

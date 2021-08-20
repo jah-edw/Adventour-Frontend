@@ -40,7 +40,7 @@ const JoinTourScreen: React.FC<JoinTourProps> = ({ navigation }) => {
           <Image style={styles.logo} source={require("../assets/logo.png")} />
         </View>
         <View style={styles.whiteCard}>
-            <Text> JOIN TOUR WOOP WOOP </Text>
+            <Text> input your code here to join a tour </Text>
           <View style={styles.button}>
             <GeneralButton
               title="Start Tour"
