@@ -13,6 +13,7 @@ import {
 import { TopNavigatorParamsList } from "../types/types";
 import { GeneralButton } from "../components/GeneralButton";
 import { getWindow } from "../helpers/helper";
+import {getIndividualTour} from '../APISERVICE/apiservice' 
 
 interface IndividualTourScreenProps {
   navigation: StackNavigationProp<
@@ -25,22 +26,16 @@ interface IndividualTourScreenProps {
 const IndividualTourScreen: React.FC<IndividualTourScreenProps> = ({
   navigation,
 }) => {
-  const title: any = useSelector((state) => state.tourReducer.title);
-  const [individualTour, setIndividualTour] = useState({});
+  const tour: any = useSelector((state) => state.tourReducer);
 
-  const getIndividualTour = (): any => {
-    fetch("http://10.10.22.219:3001/getIndividualTour", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ title: title}),
-    }).then((response) => {
-      return response.json().then((data) => setIndividualTour(data));
-    });
-  };
 
-  useEffect(() => {
-    getIndividualTour();
-  }, []);
+
+  // useEffect(() => {
+  //   getIndividualTour(title)
+  //   .then((data) => {
+  //     setIndividualTour(data)
+  //   });
+  // }, []);
 
   return (
     <ImageBackground
@@ -52,11 +47,11 @@ const IndividualTourScreen: React.FC<IndividualTourScreenProps> = ({
           <Image style={styles.logo} source={require("../assets/logo.png")} />
         </View>
         <View style={styles.whiteCard}>
-          <Image source={ {uri: individualTour.images} } style={styles.container}/>
+          <Image source={ {uri: tour.images} } style={styles.container}/>
           <View style={styles.mapContainer}></View>
 
           <View style={styles.hiddenView}>
-            <Text>{individualTour.description || title}</Text> 
+            <Text>{tour.description || 'no'}</Text> 
 
           </View>
           <View style={styles.button}>

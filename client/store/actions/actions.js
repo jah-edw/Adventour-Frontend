@@ -1,7 +1,12 @@
-export const getTour = (id, title) => ({
-    type: 'GET_TOUR',
-    payload: { id, title }
+import { getIndividualTour } from "../../APISERVICE/apiservice";
 
-})
-
-// thunk goes here 
+export const setIndividualTour = (title) => {
+    return (dispatch) => {
+        getIndividualTour(title).then((data) => {
+            dispatch({
+                type: 'SET_CURRENT_TOUR',
+                payload: data
+            })
+        });
+    };
+};

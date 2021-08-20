@@ -1,30 +1,20 @@
-// import React, { useState } from "react";
-// const URL = "http://localhost:";
-// const PORT = 3001;
-
-// interface getToursProps {
-//     briefDescription: string
-//     genre: string
-//     id: number
-//     images: string
-//     location:string
-//     rating: number
-//     title: string
-// }
+const BASE_URL =  'http://10.10.22.219:'
+const PORT= 3001
 
 
-// export const getTours = (): any => {
-//     const [tours, setTours] = useState<Array<any>>([]);
-//   fetch("http://10.10.22.219:3001/getTours").then((response) => {
-//     return response.json().then((data) => setTours(data));
-//   });
-// };
+export const getIndividualTour = (title: string): any => {
+    return fetch(`${BASE_URL}${PORT}/getIndividualTour`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ title: title}),
+      })
+      .then((response) => response.json())
+      .catch(error => console.log(`myerror: `,error))
+}
 
-// useEffect(()=> {
-//     fetch('http://10.10.22.219:3001/getTours')
-//     .then((response)=> {
-//         return response.json()
-//         .then((data) =>
-//         setTours(data))
-//     })
-// })
+export const getTours = ():any => {
+    return fetch(`${BASE_URL}${PORT}/getTours`)
+    .then((response) => response.json())
+    .catch(error => console.log(`error api: `, error))
+}
+
