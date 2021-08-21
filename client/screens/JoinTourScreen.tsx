@@ -1,6 +1,7 @@
 import { StackNavigationProp } from "@react-navigation/stack";
-import React, {useState} from "react";
+import React, { useState } from "react";
 import { useSelector } from "react-redux";
+import { joinGame } from "../APISERVICE/apiservice";
 
 import {
   SafeAreaView,
@@ -26,7 +27,7 @@ interface JoinTourProps {
 const JoinTourScreen: React.FC<JoinTourProps> = ({ navigation }) => {
   const booking: any = useSelector((state) => state.bookingReducer);
 
-  const [passwordInput, setPasswordInput] = useState()
+  const [passwordInput, setPasswordInput] = useState();
   console.log(`booking in JoinTourScreen: `, booking);
 
   return (
@@ -39,17 +40,27 @@ const JoinTourScreen: React.FC<JoinTourProps> = ({ navigation }) => {
           <Image style={styles.logo} source={require("../assets/logo.png")} />
         </View>
         <View style={styles.whiteCard}>
-        <View style={styles.inputButton}>
-          <TextInput placeholderTextColor='#DEDEDE' 
-          onChangeText={(password)=>setPasswordInput(password)}
-          style={styles.inputText} placeholder="Paste your code here" keyboardType='numeric'/>
-        </View>
+          <View style={styles.inputButton}>
+            <TextInput
+              placeholderTextColor="#DEDEDE"
+              onChangeText={(password) => setPasswordInput(password)}
+              style={styles.inputText}
+              placeholder="Paste your code here"
+              keyboardType="numeric"
+            />
+          </View>
           <View style={styles.button}>
             <GeneralButton
               title="Start Tour"
-              onPress={() => {
-                passwordInput && passwordInput === booking.password.toString() ? navigation.navigate("GameScreen") : 
-                console.log(`booking password & password Input: `, booking.password.toString(), passwordInput)
+              onPress={async () => {
+                let passwordChecker = await joinGame(passwordInput, 1);
+                passwordChecker.joined
+                  ? navigation.navigate("GameScreen")
+                  : console.log(
+                      `booking password & password Input: `,
+                      passwordChecker.joined,
+                      passwordInput
+                    );
               }}
             />
           </View>
@@ -112,7 +123,7 @@ const styles = StyleSheet.create({
   inputText: {
     fontSize: ratio / 18,
     alignSelf: "center",
-    color: 'black'
+    color: "black",
   },
 });
 
