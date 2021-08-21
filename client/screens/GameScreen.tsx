@@ -8,6 +8,7 @@ import {
   ImageSourcePropType,
   SafeAreaView,
   View,
+  ScrollView
 } from "react-native";
 import { CurrentGame } from "../components/CurrentGame";
 import { getWindow } from "../helpers/helper";
@@ -26,7 +27,9 @@ const GameScreen: React.FC<GameScreenProps> = () => {
     >
       <SafeAreaView>
         <View style={styles.whiteCard}>
+          <ScrollView>
           <CurrentGame />
+          </ScrollView>
         </View>
       </SafeAreaView>
     </ImageBackground>

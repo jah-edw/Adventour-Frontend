@@ -1,4 +1,4 @@
-//CLUES 
+//CLUES
 
 import { StackNavigationProp } from "@react-navigation/stack";
 import React from "react";
@@ -8,11 +8,11 @@ import {
   ImageSourcePropType,
   SafeAreaView,
   View,
+  ScrollView,
 } from "react-native";
 import { CurrentGame } from "../components/CurrentGame";
 import { getWindow } from "../helpers/helper";
 import { TopNavigatorParamsList } from "../types/types";
-
 
 interface CluesScreenProps {
   navigation: StackNavigationProp<TopNavigatorParamsList, "GameScreen">;
@@ -27,7 +27,9 @@ const CluesScreen: React.FC<CluesScreenProps> = () => {
     >
       <SafeAreaView>
         <View style={styles.whiteCard}>
-          <CurrentGame />
+          <ScrollView>
+            <CurrentGame />
+          </ScrollView>
         </View>
       </SafeAreaView>
     </ImageBackground>

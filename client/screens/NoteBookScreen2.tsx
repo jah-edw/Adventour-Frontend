@@ -38,7 +38,7 @@ const NotebookScreen2: React.FC<NotebookScreen2Props> = ({ navigation }) => {
           <CharacterClickable
             title={character.name}
             img={character.image}
-            key={character.name}
+            key={Math.random()*10}
           />
         );
       })

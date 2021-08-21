@@ -1,3 +1,5 @@
+// WEAPONS
+
 import { StackNavigationProp } from "@react-navigation/stack";
 import { useSelector } from "react-redux";
 import React, { useState, useEffect } from "react";
@@ -34,9 +36,9 @@ const NotebookScreen: React.FC<NotebookScreenProps> = ({ navigation }) => {
       tourInfo.weapons.map((weapon: any) => {
         return (
           <CharacterClickable
-            title={weapon.weapon}
+            title={weapon.number}
             img={weapon.image}
-            key={weapon.weapon}
+            key={Math.random()*10}
           />
         );
       })
@@ -71,10 +73,6 @@ const NotebookScreen: React.FC<NotebookScreenProps> = ({ navigation }) => {
           <ScrollView>
             <View style={styles.whiteCard}>
               <View style={styles.clickables}>{displayWeapons()}</View>
-              <Button
-                title=">"
-                onPress={() => navigation.navigate("NotebookScreen2")}
-              ></Button>
             </View>
           </ScrollView>
         </View>
