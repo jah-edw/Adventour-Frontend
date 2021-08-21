@@ -1,4 +1,4 @@
-import { createBooking, getIndividualTour, getTourInfo } from "../../APISERVICE/apiservice";
+import { createBooking, getIndividualTour, getNextGameState, getTourInfo } from "../../APISERVICE/apiservice";
 
 export const setIndividualTour = (title) => {
     return (dispatch) => {
@@ -24,13 +24,15 @@ export const setCreateBooking = (TourId, partySize, UserId = 1) => {
 }
 
 
-// export const setTourInfo = (id) => {
-//     return (dispatch) => {
-//         getTourInfo(id).then((data) => {
-//             dispatch({
-//                 type: "SET_TOUR_INFO",
-//                 payload: data
-//             })
-//         });
-//     };
-// };
+export const getClue = (title, clueNumber) => {
+    return (dispatch) => {
+        getClue(title, clueNumber).then((data) => {
+            dispatch({
+                type: "GET_CLUE",
+                payload: data
+            })
+        })
+    }
+}
+
+

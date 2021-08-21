@@ -1,4 +1,4 @@
-// DIRECTIONS
+//CLUES 
 
 import { StackNavigationProp } from "@react-navigation/stack";
 import React from "react";
@@ -13,12 +13,13 @@ import { CurrentGame } from "../components/CurrentGame";
 import { getWindow } from "../helpers/helper";
 import { TopNavigatorParamsList } from "../types/types";
 
-interface GameScreenProps {
+
+interface CluesScreenProps {
   navigation: StackNavigationProp<TopNavigatorParamsList, "GameScreen">;
   source: ImageSourcePropType;
 }
 
-const GameScreen: React.FC<GameScreenProps> = () => {
+const CluesScreen: React.FC<CluesScreenProps> = () => {
   return (
     <ImageBackground
       style={styles.background}
@@ -49,4 +50,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default GameScreen;
+export default CluesScreen;

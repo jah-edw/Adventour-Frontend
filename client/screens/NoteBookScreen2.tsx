@@ -1,3 +1,5 @@
+// SUSPECTS
+
 import { StackNavigationProp } from "@react-navigation/stack";
 import { useSelector } from "react-redux";
 import React, { useState, useEffect } from "react";
@@ -16,34 +18,18 @@ import { getWindow } from "../helpers/helper";
 import { TopNavigatorParamsList } from "../types/types";
 import { getTourInfo } from "../APISERVICE/apiservice";
 
-interface NotebookScreenProps {
-  navigation: StackNavigationProp<TopNavigatorParamsList, "NotebookScreen">;
+interface NotebookScreen2Props {
+  navigation: StackNavigationProp<TopNavigatorParamsList, "NotebookScreen2">;
   source: ImageSourcePropType;
 }
 
-const NotebookScreen: React.FC<NotebookScreenProps> = ({ navigation }) => {
+const NotebookScreen2: React.FC<NotebookScreen2Props> = ({ navigation }) => {
   const tour: any = useSelector((state) => state.tourReducer);
   const [tourInfo, setTourInfo] = useState({});
 
   useEffect(() => {
     getTourInfo(tour.id).then((info: any) => setTourInfo(info));
   }, []);
-
-  const displayWeapons = () => {
-    return tourInfo.weapons ? (
-      tourInfo.weapons.map((weapon: any) => {
-        return (
-          <CharacterClickable
-            title={weapon.weapon}
-            img={weapon.image}
-            key={weapon.weapon}
-          />
-        );
-      })
-    ) : (
-      <Text></Text>
-    );
-  };
 
   const displayCharacters = () => {
     return tourInfo.characters ? (
@@ -70,11 +56,7 @@ const NotebookScreen: React.FC<NotebookScreenProps> = ({ navigation }) => {
         <View>
           <ScrollView>
             <View style={styles.whiteCard}>
-              <View style={styles.clickables}>{displayWeapons()}</View>
-              <Button
-                title=">"
-                onPress={() => navigation.navigate("NotebookScreen2")}
-              ></Button>
+              <View style={styles.clickables}>{displayCharacters()}</View>
             </View>
           </ScrollView>
         </View>
@@ -105,4 +87,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default NotebookScreen;
+export default NotebookScreen2;

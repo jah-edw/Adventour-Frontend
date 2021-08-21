@@ -8,7 +8,7 @@ import ExploreScreen from "../screens/ExploreScreen";
 import IndividualTourScreen from "../screens/IndividualTourScreen";
 import PaymentScreen from "../screens/PaymentScreen";
 import BeginTourScreen from "../screens/BeginTourScreen";
-import JoinTourScreen from "../screens/JoinTourScreen"
+import JoinTourScreen from "../screens/JoinTourScreen";
 
 const MainStack = createStackNavigator();
 
@@ -46,7 +46,7 @@ export const MainNavigator: React.FC<Props> = () => {
         <Screen name="PaymentScreen" component={PaymentScreen} />
         <Screen name="BeginTourScreen" component={BeginTourScreen} />
         <Screen name="GameScreen" component={Game} />
-        <Screen name="JoinTourScreen" component={JoinTourScreen}/>
+        <Screen name="JoinTourScreen" component={JoinTourScreen} />
       </Group>
     </Navigator>
   );

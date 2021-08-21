@@ -19,6 +19,7 @@ export type TopNavigatorParamsList = {
     GameScreen: undefined
     NotebookScreen: undefined
     JoinTourScreen: undefined
+    NotebookScreen2: undefined
 }
 
 // export type ModalNavigatorParamsList = {

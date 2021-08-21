@@ -25,4 +25,15 @@ function bookingReducer(state = initialBookingState, action) {
     }
 }
 
-export default combineReducers({ tourReducer, bookingReducer });
+const initialGameState = {};
+function gameReducer(state = initialGameState, action) {
+    switch (action.type) {
+        case "GET_CLUE": {
+            return action.payload
+        }
+        default:
+            return state;
+    }
+}
+
+export default combineReducers({ tourReducer, bookingReducer, gameReducer });

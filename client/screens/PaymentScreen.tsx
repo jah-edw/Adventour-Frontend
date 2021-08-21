@@ -26,7 +26,7 @@ interface PaymentScreenProps {
 
 const PaymentScreen: React.FC<PaymentScreenProps> = ({ navigation }) => {
   const tour = useSelector((state) => state.tourReducer);
-  const [partySize, setPartySize] = useState("not working");
+  const [partySize, setPartySize] = useState(1);
   const [value, setValue] = useState(1);
   const dispatch = useDispatch();
 
