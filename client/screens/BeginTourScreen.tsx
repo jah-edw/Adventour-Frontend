@@ -13,13 +13,14 @@ import {
   View,
   ImageSourcePropType,
   ImageBackground,
-  Text
+  Text,
+  Clipboard,
+  TouchableOpacity,
+  Alert,
 } from "react-native";
 import { TopNavigatorParamsList } from "../types/types";
 import { GeneralButton } from "../components/GeneralButton";
 import { getWindow } from "../helpers/helper";
-
-
 
 interface BeginTourProps {
   navigation: StackNavigationProp<TopNavigatorParamsList, "BeginTourScreen">;
@@ -29,10 +30,17 @@ interface BeginTourProps {
 // TODO: input field for password => when password has been entered & validated, "Start tour" appears
 
 const BeginTourScreen: React.FC<BeginTourProps> = ({ navigation }) => {
-
   const booking: any = useSelector((state) => state.bookingReducer);
-  console.log(`password: `, booking.password)
+  console.log(`password: `, booking.password);
 
+  const copyToClipboard = () => {
+    Clipboard.setString(booking.password.toString());
+  };
+
+  const handleOnPress = () => {
+    copyToClipboard();
+    Alert.alert("Code copied!");
+  };
 
   return (
     <ImageBackground
@@ -44,8 +52,15 @@ const BeginTourScreen: React.FC<BeginTourProps> = ({ navigation }) => {
           <Image style={styles.logo} source={require("../assets/logo.png")} />
         </View>
         <View style={styles.whiteCard}>
-          <Text>Your booking has been confirmed! Please copy the password below & enter it somewhere later</Text>
-          <Text>{booking.password}</Text>
+          <Text style={styles.booking}>
+            Your booking has been confirmed! Please copy the password below &
+            enter it somewhere later
+          </Text>
+
+          <TouchableOpacity onPress={handleOnPress}>
+            <Text style={styles.password}>{booking.password}</Text>
+          </TouchableOpacity>
+
           <View style={styles.button}>
             <GeneralButton
               title="Join Tour"
@@ -54,13 +69,14 @@ const BeginTourScreen: React.FC<BeginTourProps> = ({ navigation }) => {
               }}
             />
           </View>
+          <View style={styles.hiddenView}></View>
         </View>
       </SafeAreaView>
     </ImageBackground>
   );
 };
 
-const { height, width } = getWindow();
+const { ratio, height, width } = getWindow();
 const styles = StyleSheet.create({
   background: {
     flex: 1,
@@ -72,6 +88,7 @@ const styles = StyleSheet.create({
     borderRadius: 55,
     alignItems: "center",
     marginTop: height / 89.6,
+    justifyContent: "space-between",
   },
   hiddenDiv: {
     flexDirection: "column",
@@ -89,16 +106,21 @@ const styles = StyleSheet.create({
   button: {
     flexDirection: "column",
     justifyContent: "flex-end",
-    backgroundColor: "black",
   },
   hiddenView: {
-    height: 320,
-    width: 290,
-    paddingTop: 30,
-    backgroundColor: "black",
-
-    flexDirection: "column",
-    justifyContent: "flex-end",
+    height: height / 6,
+  },
+  booking: {
+    marginTop: height / 16,
+    fontSize: ratio / 20,
+    paddingLeft: width / 15,
+    paddingRight: width / 15,
+  },
+  password: {
+    fontWeight: "bold",
+    fontSize: ratio / 4,
+    shadowOffset: { width: 2, height: 2 },
+    shadowOpacity: 0.5,
   },
 });
 

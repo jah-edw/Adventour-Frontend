@@ -38,3 +38,13 @@ export const createBooking = (id:number, partySize:number, UserId=1): any => {
     .then((response)=> response.json())
     .catch(error => console.log(`Create Booking Error, see PaymentScreen: `, error))
 }
+
+export const joinGame = (password:number, userId=1): any => {
+    return fetch(`${BASE_URL}${PORT}/joinGame`, {
+        method: 'POST',
+        headers: { "Content-Type": "application/json"},
+        body: JSON.stringify({password: password, userId: userId}),
+    })
+    .then((response) => response.json())
+    .catch(error => console.log(`Error joining game`, error))
+}

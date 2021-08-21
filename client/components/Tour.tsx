@@ -12,7 +12,7 @@ import {
 import { MoreInfoButton } from "./MoreInfoButton";
 import { getWindow } from "../helpers/helper";
 import { useDispatch } from "react-redux";
-import {setIndividualTour} from '../store/actions/actions'
+import { setIndividualTour } from "../store/actions/actions";
 
 interface Props {
   title: string;
@@ -35,9 +35,8 @@ export const Tour: React.FC<Props> = ({ title, img, id, navigation }) => {
     buttonHidden === true ? styles.hiddenButton : styles.shownButton;
   const decideStyle = () =>
     titleHidden === true ? styles.titleHidden : styles.titleShown;
-    const decideOpacity = () =>
+  const decideOpacity = () =>
     opacity === true ? styles.moreOpacity : styles.lessOpacity;
-
 
   return (
     <TouchableOpacity
@@ -45,25 +44,23 @@ export const Tour: React.FC<Props> = ({ title, img, id, navigation }) => {
         setTitleHidden(!titleHidden);
         setButtonHidden(!buttonHidden);
         setOpacity(!opacity);
-
       }}
     >
       <View style={styles.blackBack}>
-      <ImageBackground style={decideOpacity()} source={img}>
-        <View style={styles.hiddenDiv}>
-        <MoreInfoButton
-            onPress={() => {
-              dispatch(setIndividualTour(title));
-              navigation.navigate("IndividualTourScreen");
-            }}
-            style={decideButtonStyle()}
-          />
-        </View>
-        <View style={styles.container}>
-          <Text style={decideStyle()}>{title}</Text>
-
-        </View>
-      </ImageBackground>
+        <ImageBackground style={decideOpacity()} source={img}>
+          <View style={styles.hiddenDiv}>
+            <MoreInfoButton
+              onPress={() => {
+                dispatch(setIndividualTour(title));
+                navigation.navigate("IndividualTourScreen");
+              }}
+              style={decideButtonStyle()}
+            />
+          </View>
+          <View style={styles.container}>
+            <Text style={decideStyle()}>{title}</Text>
+          </View>
+        </ImageBackground>
       </View>
     </TouchableOpacity>
   );
@@ -77,16 +74,13 @@ const styles = StyleSheet.create({
     maxHeight: height / 4.63,
     borderRadius: 35,
     maxWidth: width / 1.426,
-    flexWrap: 'wrap',
-
+    flexWrap: "wrap",
   },
   moreOpacity: {
     flex: 1,
     resizeMode: "cover",
     height: height / 4.63,
     width: width / 1.426,
-    // marginLeft: width / 28,
-    // marginRight: width / 28,
   },
   titleHidden: {
     display: "none",
@@ -96,22 +90,21 @@ const styles = StyleSheet.create({
     fontSize: ratio / 19.8,
     marginTop: height / 40,
     marginLeft: width / 50,
-    fontWeight: 'bold',
+    fontWeight: "bold",
     textShadowOffset: { width: -10, height: 1 },
-    textShadowColor: 'black',
+    textShadowColor: "black",
     textShadowRadius: 10,
-
   },
   hidden: {
     display: "none",
   },
   hiddenDiv: {
     height: height / 7,
-    flexDirection: 'row',
-    justifyContent: 'flex-end',
+    flexDirection: "row",
+    justifyContent: "flex-end",
   },
   shownButton: {
-    height: ratio /6,
+    height: ratio / 6,
     paddingRight: 10,
     alignItems: "center",
     shadowOffset: { width: 5, height: 7 },
@@ -122,24 +115,22 @@ const styles = StyleSheet.create({
   hiddenButton: {
     display: "none",
   },
-  lessOpacity:{
+  lessOpacity: {
     flex: 1,
     resizeMode: "cover",
     height: height / 4.63,
     width: width / 1.426,
     // marginLeft: width / 28,
     // marginRight: width / 28,
-    opacity: 0.7
+    opacity: 0.7,
   },
-  blackBack:{
+  blackBack: {
     flex: 1,
     resizeMode: "cover",
     height: height / 4.63,
     width: width / 1.426,
     marginLeft: width / 28,
     marginRight: width / 28,
-    backgroundColor: 'black',
-    
-
-  }
+    backgroundColor: "black",
+  },
 });
