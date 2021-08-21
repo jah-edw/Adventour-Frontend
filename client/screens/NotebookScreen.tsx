@@ -47,22 +47,6 @@ const NotebookScreen: React.FC<NotebookScreenProps> = ({ navigation }) => {
     );
   };
 
-  const displayCharacters = () => {
-    return tourInfo.characters ? (
-      tourInfo.characters.map((character: any) => {
-        return (
-          <CharacterClickable
-            title={character.name}
-            img={character.image}
-            key={character.name}
-          />
-        );
-      })
-    ) : (
-      <Text>'ehhhhhh'</Text>
-    );
-  };
-
   return (
     <ImageBackground
       style={styles.background}
