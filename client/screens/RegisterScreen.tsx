@@ -4,6 +4,8 @@ import { Formik } from 'formik';
 import { StatusBar } from 'expo-status-bar';
 import {getRegisterInfo} from '../APISERVICE/apiservice'
 import MyTextInput from '../components/MyTextInput'
+import {registerUser} from '../store/actions/actions'
+import {useDispatch, useSelector} from 'react-redux';
 
 import {
   SafeAreaView,
@@ -57,6 +59,7 @@ interface RegisterScreenProps {
 
 const RegisterScreen: React.FC<RegisterScreenProps> = ({ navigation }) => {
 
+  const dispatch = useDispatch();
   const [hidePassword, setHidePassword] = useState(true);
   const [show, setShow] = useState(false);
   const [date, setDate] = useState(new Date(2000, 0, 1));
@@ -97,9 +100,10 @@ const RegisterScreen: React.FC<RegisterScreenProps> = ({ navigation }) => {
             onSubmit={ async (values) => {
               values = { ...values };
               // console.log(values);
-              let newUser = await getRegisterInfo(values.fullName, values.confirmPassword, values.email, values.dateOfBirth
-                )
-                console.log(newUser);
+              dispatch(registerUser(values.fullName, values.confirmPassword, values.email, values.dateOfBirth))
+              const newUser = useSelector((state) => state.userReducer);
+              console.log(newUser);
+
               // navigation.navigate('ExploreScreen');
             }}
             >
