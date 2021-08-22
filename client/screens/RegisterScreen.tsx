@@ -4,7 +4,6 @@ import { Formik } from 'formik';
 import { StatusBar } from 'expo-status-bar';
 import {getRegisterInfo} from '../APISERVICE/apiservice'
 import MyTextInput from '../components/MyTextInput'
-import {registerUser} from '../store/actions/actions'
 import {useDispatch, useSelector} from 'react-redux';
 
 import {
@@ -100,7 +99,9 @@ const RegisterScreen: React.FC<RegisterScreenProps> = ({ navigation }) => {
             }}
             onSubmit={ async (values) => {
               values = { ...values };
-              dispatch(registerUser(values.username, values.confirmPassword, values.email, values.dateOfBirth))
+              const newUser = getRegisterInfo(values.username, values.confirmPassword, values.email, values.dateOfBirth)
+              console.log(newUser);
+
               navigation.navigate('ExploreScreen');
             }}
             >
