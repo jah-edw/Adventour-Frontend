@@ -72,7 +72,8 @@ const RegisterScreen: React.FC<RegisterScreenProps> = ({ navigation }) => {
     setDate(currentDate);
     setDob(currentDate);
   };
-
+  const newUser = useSelector((state) => state.userReducer);
+  console.log(newUser);
   return (
     <ImageBackground
       style={styles.background}
@@ -91,7 +92,7 @@ const RegisterScreen: React.FC<RegisterScreenProps> = ({ navigation }) => {
         <InnerContainer>
           <Formik
             initialValues={{
-              fullName: '',
+              username: '',
               email: '',
               dateOfBirth: '',
               password: '',
@@ -99,12 +100,8 @@ const RegisterScreen: React.FC<RegisterScreenProps> = ({ navigation }) => {
             }}
             onSubmit={ async (values) => {
               values = { ...values };
-              // console.log(values);
-              dispatch(registerUser(values.fullName, values.confirmPassword, values.email, values.dateOfBirth))
-              const newUser = useSelector((state) => state.userReducer);
-              console.log(newUser);
-
-              // navigation.navigate('ExploreScreen');
+              dispatch(registerUser(values.username, values.confirmPassword, values.email, values.dateOfBirth))
+              navigation.navigate('ExploreScreen');
             }}
             >
             {({ handleChange, handleBlur, handleSubmit, values }) => (
@@ -113,9 +110,9 @@ const RegisterScreen: React.FC<RegisterScreenProps> = ({ navigation }) => {
                   label='Full Name'
                   placeholder='Oliver Twist'
                   placeholderTextColor={darkLight}
-                  onChangeText={handleChange('fullName')}
-                  onBlur={handleBlur('fullName')}
-                  value={values.fullName}
+                  onChangeText={handleChange('username')}
+                  onBlur={handleBlur('username')}
+                  value={values.username}
                   icon='person'
                   />
                 <MyTextInput

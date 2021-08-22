@@ -39,11 +39,11 @@ export const getClue = (title, clueNumber) => {
   };
 };
 
-export const registerUser = (username, password, email, DOB) => {
+export const loginUser = (username, password) => {
   return (dispatch) => {
-    getRegisterInfo(username, password, email, DOB).then((data) => {
+    getLoginInfo(username, password).then((data) => {
       dispatch({
-        type: 'REGISTER_USER',
+        type: 'LOGIN_USER',
         payload: data
       });
     });

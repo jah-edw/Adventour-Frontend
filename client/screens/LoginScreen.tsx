@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import { StackNavigationProp } from "@react-navigation/stack";
 import {
   SafeAreaView,
@@ -8,10 +8,41 @@ import {
   StyleSheet,
   ImageBackground,
 } from "react-native";
+import {useDispatch, useSelector} from 'react-redux';
+import {registerUser} from '../store/actions/actions'
+import { StatusBar } from 'expo-status-bar';
+import MyTextInput from '../components/MyTextInput'
+import { Formik } from 'formik';
+
+import {
+  StyledContainer,
+  PageLogo,
+  PageTitle,
+  SubTitle,
+  StyledFormArea,
+  StyledButton,
+  InnerContainer,
+  ButtonText,
+  MsgBox,
+  Line,
+  ExtraView,
+  ExtraText,
+  TextLink,
+  TextLinkContent,
+  Colors
+} from '../helpers/styles';
+//colors
+const { darkLight, brand, primary } = Colors;
+// icon
+import { Octicons, Fontisto, Ionicons } from '@expo/vector-icons';
+import { NavigationContainer } from '@react-navigation/native';
+
 import { TopNavigatorParamsList } from "../types/types";
 import { InputButton } from "../components/InputButton";
 import { GeneralButton } from "../components/GeneralButton";
 import { getWindow } from "../helpers/helper";
+
+
 
 interface LoginScreenProps {
   navigation: StackNavigationProp<TopNavigatorParamsList, "RegisterScreen">;
@@ -19,6 +50,10 @@ interface LoginScreenProps {
 }
 
 const LoginScreen: React.FC<LoginScreenProps> = ({ navigation }) => {
+  const dispatch = useDispatch();
+  const [hidePassword, setHidePassword] = useState(true);
+  const loggedInUser = useSelector((state) => state.userReducer);
+  console.log(loggedInUser);
   return (
     <ImageBackground
       style={styles.background}
@@ -31,14 +66,65 @@ const LoginScreen: React.FC<LoginScreenProps> = ({ navigation }) => {
 
         <View style={styles.whiteCard}>
           <View style={styles.loginButtons}>
-            <InputButton placeholder="Email / Username" />
-            <InputButton placeholder="Password" />
-            <GeneralButton
-              onPress={() => {
-                navigation.navigate("ExploreScreen");
-              }}
-              title={"Login"}
-            />
+          <StyledContainer>
+      <StatusBar style='dark' />
+      <InnerContainer>
+        <PageLogo resizeMode='cover' source={require('../assets/logo.png')} />
+        <PageTitle>Adventour</PageTitle>
+        <SubTitle>Account Login</SubTitle>
+
+        <Formik
+          initialValues={{ username: '', password: '' }}
+          onSubmit={ async (values) => {
+            values = { ...values };
+            dispatch(loginUser(values.username, values.password))
+            // navigation.navigate('ExploreScreen');
+          }}
+        >
+          {({ handleChange, handleBlur, handleSubmit, values }) => (
+            <StyledFormArea>
+              <MyTextInput
+                label='username'
+                placeholder='username'
+                placeholderTextColor={darkLight}
+                onChangeText={handleChange('username')}
+                onBlur={handleBlur('username')}
+                value={values.username}
+                icon='mail'
+              />
+              <MyTextInput
+                label='Password'
+                placeholder='* * * * * * * *'
+                placeholderTextColor={darkLight}
+                onChangeText={handleChange('password')}
+                onBlur={handleBlur('password')}
+                value={values.password}
+                secureTextEntry={hidePassword}
+                icon='lock'
+                isPassword={true}
+                hidePassword={hidePassword}
+                setHidePassword={setHidePassword}
+              />
+              <MsgBox>...</MsgBox>
+              <StyledButton onPress={handleSubmit}>
+                <ButtonText>Login</ButtonText>
+              </StyledButton>
+              <Line />
+              <StyledButton google={true}>
+                <Fontisto name='google' size={25} color={primary} />
+                <ButtonText google={true}>Sign in with Google</ButtonText>
+              </StyledButton>
+              <ExtraView>
+                <ExtraText>Not having an accout yet? </ExtraText>
+                <TextLink onPress={() => navigation.navigate('Signup')}>
+                  <TextLinkContent>Signup</TextLinkContent>
+                </TextLink>
+              </ExtraView>
+            </StyledFormArea>
+          )}
+        </Formik>
+      </InnerContainer>
+    </StyledContainer>
           </View>
         </View>
       </SafeAreaView>

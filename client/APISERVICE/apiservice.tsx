@@ -71,3 +71,13 @@ export const getRegisterInfo = (username: string, password:string, email:string,
   .catch((error) => console.log(`Error Registering`, error)
   );
 }
+
+export const getLoginUser = (username: string, password: string) => {
+  return fetch(`${BASE_URL}${PORT}/loginUser`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ username: username, password: password}),
+  }).then((response) => response.json())
+  .catch((error) => console.log(`Error Log in`, error)
+  );
+}

@@ -39,7 +39,7 @@ function gameReducer(state = initialGameState, action) {
 const initialUserState = {};
 function userReducer(state = initialUserState, action) {
   switch (action.type) {
-    case 'REGISTER_USER': {
+    case 'LOGIN_USER': {
       return action.payload;
     }
     default:
