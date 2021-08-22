@@ -1,4 +1,4 @@
-const BASE_URL = "http://10.10.22.219:";
+const BASE_URL = "http://10.10.22.214:";
 const PORT = 3001;
 
 export const getIndividualTour = (title: string): any => {
@@ -61,3 +61,13 @@ export const getClue = (title: string, clueNumber: number): any => {
   }).then((response) => response.json())
   .catch((error) => console.log(`Error getting next game state: `, error));
 };
+
+export const getRegisterInfo = (username: string, password:string, email:string, DOB: string) => {
+  return fetch(`${BASE_URL}${PORT}/registerUser`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ username: username, password: password, email: email, DOB: DOB }),
+  }).then((response) => response.json())
+  .catch((error) => console.log(`Error Registering`, error)
+  );
+}
