@@ -70,7 +70,7 @@ const PaymentScreen: React.FC<PaymentScreenProps> = ({ navigation }) => {
               onPress={() => {
                 const partySizeNumber = Number(partySize);
                 dispatch(setCreateBooking(tour.id, partySizeNumber));
-                navigation.navigate("BeginTourScreen");
+                navigation.navigate("PayScreen");
                 console.log(`paymentscreen: `);
               }}
             />

@@ -1,4 +1,4 @@
-//Replace these with own types when necessary 
+//Replace these with own types when necessary
 
 
 import { NavigatorScreenParams } from '@react-navigation/native';
@@ -20,6 +20,7 @@ export type TopNavigatorParamsList = {
     NotebookScreen: undefined
     JoinTourScreen: undefined
     NotebookScreen2: undefined
+    PayScreen: undefined
 }
 
 // export type ModalNavigatorParamsList = {
