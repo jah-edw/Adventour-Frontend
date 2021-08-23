@@ -12,7 +12,7 @@ import {
   ImageSourcePropType,
   ImageBackground,
   TextInput,
-  ScrollView
+  KeyboardAvoidingView
 } from "react-native";
 import { TopNavigatorParamsList } from "../types/types";
 import { GeneralButton } from "../components/GeneralButton";
@@ -37,10 +37,10 @@ const JoinTourScreen: React.FC<JoinTourProps> = ({ navigation }) => {
       source={require("../assets/wallpaper.png")}
     >
       <SafeAreaView>
+      <KeyboardAvoidingView behavior='position' style={{height: height * 0.8}}>
         <View style={styles.logoContainer}>
           <Image style={styles.logo} source={require("../assets/logo.png")} />
         </View>
-        <ScrollView>
 
         <View style={styles.whiteCard}>
                     <Text style={styles.text}>
@@ -72,7 +72,7 @@ const JoinTourScreen: React.FC<JoinTourProps> = ({ navigation }) => {
           </View>
           <View style={styles.hiddenView}></View>
         </View>
-                </ScrollView>
+        </KeyboardAvoidingView>
       </SafeAreaView>
     </ImageBackground>
   );
@@ -85,7 +85,7 @@ const styles = StyleSheet.create({
     resizeMode: "cover",
   },
   whiteCard: {
-    height: height * 1.3,
+    height: height,
     backgroundColor: "#fff",
     borderRadius: 55,
     alignItems: "center",
