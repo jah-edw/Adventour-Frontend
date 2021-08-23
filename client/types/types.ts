@@ -20,6 +20,7 @@ export type TopNavigatorParamsList = {
     NotebookScreen: undefined
     JoinTourScreen: undefined
     NotebookScreen2: undefined
+    CaseFileScreen: undefined
 }
 
 // export type ModalNavigatorParamsList = {

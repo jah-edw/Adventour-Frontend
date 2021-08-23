@@ -33,7 +33,6 @@ export const CharacterClickable: React.FC<Props> = ({ title, img, navigation }) 
       dispatch(setClue());
       dispatch(getNextClue("The Charing Cross Charmer", clueNumber));
       setClicked(true);
-      navigation.navigate('Directions')
     }
   };
 
