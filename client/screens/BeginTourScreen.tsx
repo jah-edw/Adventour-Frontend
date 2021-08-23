@@ -53,7 +53,7 @@ const BeginTourScreen: React.FC<BeginTourProps> = ({ navigation }) => {
         </View>
         <View style={styles.whiteCard}>
           <Text style={styles.booking}>
-            Your booking has been confirmed! Please copy the password below &
+            Your booking has been confirmed! Please copy the code below &
             enter it somewhere later
           </Text>
 

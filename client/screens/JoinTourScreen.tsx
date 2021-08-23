@@ -36,10 +36,13 @@ const JoinTourScreen: React.FC<JoinTourProps> = ({ navigation }) => {
       source={require("../assets/wallpaper.png")}
     >
       <SafeAreaView>
-        <View style={styles.hiddenDiv}>
+        <View style={styles.logoContainer}>
           <Image style={styles.logo} source={require("../assets/logo.png")} />
         </View>
         <View style={styles.whiteCard}>
+                    <Text style={styles.text}>
+            Please enter the Tour code in the box below
+          </Text>
           <View style={styles.inputButton}>
             <TextInput
               placeholderTextColor="#DEDEDE"
@@ -64,6 +67,7 @@ const JoinTourScreen: React.FC<JoinTourProps> = ({ navigation }) => {
               }}
             />
           </View>
+          <View style={styles.hiddenView}></View>
         </View>
       </SafeAreaView>
     </ImageBackground>
@@ -82,8 +86,9 @@ const styles = StyleSheet.create({
     borderRadius: 55,
     alignItems: "center",
     marginTop: height / 89.6,
+    justifyContent: "space-between"
   },
-  hiddenDiv: {
+  logoContainer: {
     flexDirection: "column",
     justifyContent: "center",
     height: height / 8.96,
@@ -97,23 +102,17 @@ const styles = StyleSheet.create({
     width: width / 1.119,
   },
   button: {
-    flexDirection: "column",
-    justifyContent: "flex-end",
-    backgroundColor: "black",
+    position: "relative",
+    top: height/30
   },
   hiddenView: {
-    height: 320,
-    width: 290,
-    paddingTop: 30,
-    flexDirection: "column",
-    justifyContent: "flex-end",
+    height: height/6
   },
   inputButton: {
     width: width / 1.426,
     height: height / 16.836,
     borderRadius: 20,
     backgroundColor: "#B0C4DE",
-    marginTop: height / 30.866,
     flexDirection: "column",
     justifyContent: "center",
     alignItems: "center",
@@ -124,6 +123,12 @@ const styles = StyleSheet.create({
     fontSize: ratio / 18,
     alignSelf: "center",
     color: "black",
+  },
+    text: {
+    marginTop: height / 16,
+    fontSize: ratio / 20,
+    paddingLeft: width / 17.5,
+    paddingRight: width / 17.5,
   },
 });
 
