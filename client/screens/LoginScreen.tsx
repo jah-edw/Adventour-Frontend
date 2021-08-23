@@ -78,9 +78,9 @@ const LoginScreen: React.FC<LoginScreenProps> = ({ navigation }) => {
           onSubmit={ async (values) => {
             values = { ...values };
             dispatch(loginUser(values.username, values.password))
-            if (loggedInUser.username === values.username) {
+           
                 navigation.navigate('ExploreScreen');
-            }
+            
           }}
         >
           {({ handleChange, handleBlur, handleSubmit, values }) => (
@@ -117,8 +117,8 @@ const LoginScreen: React.FC<LoginScreenProps> = ({ navigation }) => {
                 <ButtonText google={true}>Sign in with Google</ButtonText>
               </StyledButton>
               <ExtraView>
-                <ExtraText>Not having an accout yet? </ExtraText>
-                <TextLink onPress={() => navigation.navigate('Signup')}>
+                <ExtraText>Don't have an account? Sign up! </ExtraText>
+                <TextLink onPress={() => navigation.navigate('RegisterScreen')}>
                   <TextLinkContent>Signup</TextLinkContent>
                 </TextLink>
               </ExtraView>
