@@ -1,18 +1,20 @@
 // DIRECTIONS
 
 import { StackNavigationProp } from "@react-navigation/stack";
-import React from "react";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import {
   StyleSheet,
   ImageBackground,
   ImageSourcePropType,
   SafeAreaView,
   View,
-  ScrollView
+  ScrollView,
+  Text,
 } from "react-native";
-import { CurrentGame } from "../components/CurrentGame";
 import { getWindow } from "../helpers/helper";
 import { TopNavigatorParamsList } from "../types/types";
+import { getNextClue } from "../store/actions/actions";
 
 interface GameScreenProps {
   navigation: StackNavigationProp<TopNavigatorParamsList, "GameScreen">;
@@ -20,6 +22,13 @@ interface GameScreenProps {
 }
 
 const GameScreen: React.FC<GameScreenProps> = () => {
+  const clue = useSelector((state: any) => state.gameReducer);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getNextClue("The Charing Cross Charmer", 1));
+  }, []);
+
   return (
     <ImageBackground
       style={styles.background}
@@ -28,7 +37,7 @@ const GameScreen: React.FC<GameScreenProps> = () => {
       <SafeAreaView>
         <View style={styles.whiteCard}>
           <ScrollView>
-          <CurrentGame />
+            <Text>{clue.direction}</Text>
           </ScrollView>
         </View>
       </SafeAreaView>

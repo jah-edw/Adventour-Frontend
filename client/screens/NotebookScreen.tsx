@@ -31,6 +31,7 @@ const NotebookScreen: React.FC<NotebookScreenProps> = ({ navigation }) => {
     getTourInfo(tour.id).then((info: any) => {
       info.weapons.forEach((weapon) => {
         weapon.clicked = false;
+        console.log(`weapon in nbs: `, weapon)
       })
       setTourInfo(info)
     });

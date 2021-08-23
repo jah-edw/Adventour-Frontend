@@ -2,6 +2,7 @@
 
 import { StackNavigationProp } from "@react-navigation/stack";
 import React from "react";
+import {useSelector} from 'react-redux';
 import {
   StyleSheet,
   ImageBackground,
@@ -9,8 +10,8 @@ import {
   SafeAreaView,
   View,
   ScrollView,
+  Text
 } from "react-native";
-import { CurrentGame } from "../components/CurrentGame";
 import { getWindow } from "../helpers/helper";
 import { TopNavigatorParamsList } from "../types/types";
 
@@ -20,6 +21,8 @@ interface CluesScreenProps {
 }
 
 const CluesScreen: React.FC<CluesScreenProps> = () => {
+  const clue = useSelector((state: any) => state.gameReducer);
+  
   return (
     <ImageBackground
       style={styles.background}
@@ -28,7 +31,7 @@ const CluesScreen: React.FC<CluesScreenProps> = () => {
       <SafeAreaView>
         <View style={styles.whiteCard}>
           <ScrollView>
-            <CurrentGame />
+            <Text>{clue.clue}</Text>
           </ScrollView>
         </View>
       </SafeAreaView>

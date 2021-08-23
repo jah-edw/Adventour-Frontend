@@ -5,6 +5,7 @@ import {
   getTourInfo,
   getRegisterInfo,
   getLoginUser,
+  getClue
 } from '../../APISERVICE/apiservice';
 
 export const setIndividualTour = (title) => {
@@ -29,7 +30,7 @@ export const setCreateBooking = (TourId, partySize, UserId = 1) => {
   };
 };
 
-export const getClue = (title, clueNumber) => {
+export const getNextClue = (title, clueNumber) => {
   return (dispatch) => {
     getClue(title, clueNumber).then((data) => {
       dispatch({
@@ -50,3 +51,12 @@ export const loginUser = (username, password) => {
     });
   };
 };
+
+
+export const setClue = () => {
+  return (dispatch) => {
+    dispatch({
+      type: 'INCREMENT',
+    })
+  }
+}

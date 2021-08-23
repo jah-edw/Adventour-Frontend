@@ -48,9 +48,21 @@ function userReducer(state = initialUserState, action) {
   }
 }
 
+const initialClueState = 2;
+function clueReducer(state = initialClueState, action) {
+  switch (action.type) {
+    case 'INCREMENT': {
+      return state + 1
+    }
+    default:
+      return state
+  }
+}
+
 export default combineReducers({
   tourReducer,
   bookingReducer,
   gameReducer,
-  userReducer
+  userReducer,
+  clueReducer
 });

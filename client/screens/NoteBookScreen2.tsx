@@ -1,7 +1,7 @@
 // SUSPECTS
 
 import { StackNavigationProp } from "@react-navigation/stack";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import React, { useState, useEffect } from "react";
 import {
   ImageBackground,
@@ -17,6 +17,8 @@ import { CharacterClickable } from "../components/CharacterClickable";
 import { getWindow } from "../helpers/helper";
 import { TopNavigatorParamsList } from "../types/types";
 import { getTourInfo } from "../APISERVICE/apiservice";
+import { getNextClue, setClue } from "../store/actions/actions";
+import { GeneralButton } from "../components/GeneralButton";
 
 interface NotebookScreen2Props {
   navigation: StackNavigationProp<TopNavigatorParamsList, "NotebookScreen2">;
@@ -25,6 +27,10 @@ interface NotebookScreen2Props {
 
 const NotebookScreen2: React.FC<NotebookScreen2Props> = ({ navigation }) => {
   const tour: any = useSelector((state) => state.tourReducer);
+  const clue: any = useSelector((state: any) => state.gameReducer);
+  const clueNumber: any = useSelector((state: any) => state.clueReducer);
+  const dispatch = useDispatch();
+
   const [tourInfo, setTourInfo] = useState({});
 
   useEffect(() => {
@@ -38,7 +44,7 @@ const NotebookScreen2: React.FC<NotebookScreen2Props> = ({ navigation }) => {
           <CharacterClickable
             title={character.name}
             img={character.image}
-            key={Math.random()*10}
+            key={Math.random() * 10}
           />
         );
       })
@@ -58,6 +64,14 @@ const NotebookScreen2: React.FC<NotebookScreen2Props> = ({ navigation }) => {
             <View style={styles.whiteCard}>
               <View style={styles.clickables}>{displayCharacters()}</View>
             </View>
+            <GeneralButton
+              title="dummy button"
+              onPress={() => {
+                dispatch(setClue());
+                dispatch(getNextClue("The Charing Cross Charmer", clueNumber));
+                console.log(`initialClue NOTEBK2: `, clueNumber);
+              }}
+            ></GeneralButton>
           </ScrollView>
         </View>
       </SafeAreaView>
