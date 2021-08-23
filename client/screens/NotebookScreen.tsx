@@ -28,7 +28,12 @@ const NotebookScreen: React.FC<NotebookScreenProps> = ({ navigation }) => {
   const [tourInfo, setTourInfo] = useState({});
 
   useEffect(() => {
-    getTourInfo(tour.id).then((info: any) => setTourInfo(info));
+    getTourInfo(tour.id).then((info: any) => {
+      info.weapons.forEach((weapon) => {
+        weapon.clicked = false;
+      })
+      setTourInfo(info)
+    });
   }, []);
 
   const displayWeapons = () => {
@@ -39,6 +44,7 @@ const NotebookScreen: React.FC<NotebookScreenProps> = ({ navigation }) => {
             title={weapon.number}
             img={weapon.image}
             key={Math.random()*10}
+            clicked={weapon.clicked}
           />
         );
       })
