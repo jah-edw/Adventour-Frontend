@@ -82,7 +82,7 @@ const RegisterScreen: React.FC<RegisterScreenProps> = ({ navigation }) => {
         <View style={styles.hiddenDiv}>
           <Image style={styles.logo} source={require("../assets/logo.png")} />
         </View>
-        <ScrollView>
+        {/* <ScrollView> */}
         <View style={styles.whiteCard}>
           <View style={styles.loginButtons}>
           <KeyboardAvoidingWrapper>
@@ -183,7 +183,7 @@ const RegisterScreen: React.FC<RegisterScreenProps> = ({ navigation }) => {
     </KeyboardAvoidingWrapper>
           </View>
         </View>
-            </ScrollView>
+            {/* </ScrollView> */}
       </SafeAreaView>
     </ImageBackground>
   );
@@ -216,7 +216,7 @@ const styles = StyleSheet.create({
     width: width / 1.15,
   },
   loginButtons: {
-    marginTop: height / 13.228,
+    // marginTop: height / 13.228,
   },
 });
 

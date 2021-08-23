@@ -12,6 +12,7 @@ import {
   ImageSourcePropType,
   ImageBackground,
   TextInput,
+  ScrollView
 } from "react-native";
 import { TopNavigatorParamsList } from "../types/types";
 import { GeneralButton } from "../components/GeneralButton";
@@ -39,6 +40,8 @@ const JoinTourScreen: React.FC<JoinTourProps> = ({ navigation }) => {
         <View style={styles.logoContainer}>
           <Image style={styles.logo} source={require("../assets/logo.png")} />
         </View>
+        <ScrollView>
+
         <View style={styles.whiteCard}>
                     <Text style={styles.text}>
             Please enter the Tour code in the box below
@@ -50,7 +53,7 @@ const JoinTourScreen: React.FC<JoinTourProps> = ({ navigation }) => {
               style={styles.inputText}
               placeholder="Paste your code here"
               keyboardType="numeric"
-            />
+              />
           </View>
           <View style={styles.button}>
             <GeneralButton
@@ -58,17 +61,18 @@ const JoinTourScreen: React.FC<JoinTourProps> = ({ navigation }) => {
               onPress={async () => {
                 let passwordChecker = await joinGame(passwordInput, 1);
                 passwordChecker.joined
-                  ? navigation.navigate("GameScreen")
-                  : console.log(
-                      `booking password & password Input: `,
-                      passwordChecker.joined,
-                      passwordInput
-                    );
-              }}
-            />
+                ? navigation.navigate("GameScreen")
+                : console.log(
+                  `booking password & password Input: `,
+                  passwordChecker.joined,
+                  passwordInput
+                  );
+                }}
+                />
           </View>
           <View style={styles.hiddenView}></View>
         </View>
+                </ScrollView>
       </SafeAreaView>
     </ImageBackground>
   );
@@ -81,7 +85,7 @@ const styles = StyleSheet.create({
     resizeMode: "cover",
   },
   whiteCard: {
-    height: height,
+    height: height * 1.3,
     backgroundColor: "#fff",
     borderRadius: 55,
     alignItems: "center",
