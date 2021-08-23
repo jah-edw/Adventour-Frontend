@@ -11,7 +11,6 @@ import {
   SafeAreaView,
   Text,
   View,
-  Button,
 } from "react-native";
 import { CharacterClickable } from "../components/CharacterClickable";
 import { getWindow } from "../helpers/helper";
@@ -27,14 +26,12 @@ interface NotebookScreen2Props {
 
 const NotebookScreen2: React.FC<NotebookScreen2Props> = ({ navigation }) => {
   const tour: any = useSelector((state) => state.tourReducer);
-  const clue: any = useSelector((state: any) => state.gameReducer);
-  const clueNumber: any = useSelector((state: any) => state.clueReducer);
-  const dispatch = useDispatch();
-
   const [tourInfo, setTourInfo] = useState({});
 
   useEffect(() => {
-    getTourInfo(tour.id).then((info: any) => setTourInfo(info));
+    getTourInfo(tour.id).then((info: any) => {
+      setTourInfo(info);
+    });
   }, []);
 
   const displayCharacters = () => {
@@ -59,21 +56,21 @@ const NotebookScreen2: React.FC<NotebookScreen2Props> = ({ navigation }) => {
       source={require("../assets/wallpaper.png")}
     >
       <SafeAreaView>
-        <View>
-          <ScrollView>
-            <View style={styles.whiteCard}>
-              <View style={styles.clickables}>{displayCharacters()}</View>
-            </View>
-            <GeneralButton
-              title="dummy button"
-              onPress={() => {
-                dispatch(setClue());
-                dispatch(getNextClue("The Charing Cross Charmer", clueNumber));
-                console.log(`initialClue NOTEBK2: `, clueNumber);
-              }}
-            ></GeneralButton>
-          </ScrollView>
-        </View>
+        <ScrollView>
+          <View style={styles.whiteCard}>
+            <View style={styles.clickables}>{displayCharacters()}</View>
+          </View>
+          {/* <GeneralButton
+                title="dummy button"
+                onPress={() => {
+                  dispatch(setClue());
+                  dispatch(
+                    getNextClue("The Charing Cross Charmer", clueNumber)
+                  );
+                  console.log(`initialClue NOTEBK2: `, clueNumber);
+                }}
+              ></GeneralButton> */}
+        </ScrollView>
       </SafeAreaView>
     </ImageBackground>
   );
@@ -86,7 +83,7 @@ const styles = StyleSheet.create({
     resizeMode: "contain",
   },
   whiteCard: {
-    height: 1000,
+    height: height,
     backgroundColor: "#fff",
     borderRadius: 55,
     alignItems: "center",

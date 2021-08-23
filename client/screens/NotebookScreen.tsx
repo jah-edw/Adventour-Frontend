@@ -29,10 +29,6 @@ const NotebookScreen: React.FC<NotebookScreenProps> = ({ navigation }) => {
 
   useEffect(() => {
     getTourInfo(tour.id).then((info: any) => {
-      info.weapons.forEach((weapon) => {
-        weapon.clicked = false;
-        console.log(`weapon in nbs: `, weapon)
-      })
       setTourInfo(info)
     });
   }, []);
@@ -45,7 +41,6 @@ const NotebookScreen: React.FC<NotebookScreenProps> = ({ navigation }) => {
             title={weapon.number}
             img={weapon.image}
             key={Math.random()*10}
-            clicked={weapon.clicked}
           />
         );
       })
@@ -79,7 +74,7 @@ const styles = StyleSheet.create({
     resizeMode: "contain",
   },
   whiteCard: {
-    height: 1000,
+    height: height,
     backgroundColor: "#fff",
     borderRadius: 55,
     alignItems: "center",

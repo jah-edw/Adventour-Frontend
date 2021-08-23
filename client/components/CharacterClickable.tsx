@@ -1,49 +1,56 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import {
   TouchableOpacity,
   StyleSheet,
   ImageSourcePropType,
   Image,
-  Text
+  Text,
 } from "react-native";
+import { useDispatch, useSelector } from "react-redux";
 import { getWindow } from "../helpers/helper";
 import { SubmitButton } from "./SubmitButton";
+import { setClue, getNextClue } from "../store/actions/actions";
 
 interface Props {
   title: string;
   img: ImageSourcePropType;
 }
 
-export const CharacterClickable: React.FC<Props> = ({ title, img, clicked }) => {
-  const [buttonHidden, setButtonHidden]  = useState(true);
+export const CharacterClickable: React.FC<Props> = ({ title, img }) => {
+  const [buttonHidden, setButtonHidden] = useState(true);
   const [opacity, setOpacity] = useState(true);
-  //const [clicked, setClicked] = useState(false)
-  const decideButtonStyle = () => 
-  buttonHidden === true? styles.hiddenButton : styles.shownButton;
-  const decideOpacity = () => 
-  opacity === true? styles.moreOpacity : styles.lessOpacity; 
-  const decideClicked = () => {
-    clicked === true? styles.shownButton : styles.hiddenButton;
-  }
-  const handleSubmit = (title: string) => {
-    return 'submit handled'
-  }
+  const [clicked, setClicked] = useState(false);
+  const decideButtonStyle = () =>
+    buttonHidden === true ? styles.hiddenButton : styles.shownButton;
+  const decideOpacity = () =>
+    opacity === true ? styles.moreOpacity : styles.lessOpacity;
+  const clueNumber: any = useSelector((state: any) => state.clueReducer);
+
+  const dispatch = useDispatch();
+
+  const handleSubmit = () => {
+    if (clicked === false) {
+      dispatch(setClue());
+      dispatch(getNextClue("The Charing Cross Charmer", clueNumber));
+      setClicked(true);
+    }
+  };
 
   return (
     <TouchableOpacity
-    onPress={()=> {
-    setButtonHidden(!buttonHidden);
-    setOpacity(!opacity);
-    }}
-    
+      onPress={() => {
+        if (clicked === false) {
+          setButtonHidden(!buttonHidden);
+          setOpacity(!opacity);
+        }
+      }}
     >
-
       <Text>{title}</Text>
-      <Image source={{ uri: img }} style={decideOpacity()}
-      ></Image>
-      <SubmitButton style={decideClicked()} 
-      onPress={handleSubmit(title)}
-      > </SubmitButton>
+      <Image source={{ uri: img }} style={decideOpacity()}></Image>
+      <SubmitButton
+        style={decideButtonStyle()}
+        onPress={handleSubmit}
+      ></SubmitButton>
     </TouchableOpacity>
   );
 };
@@ -55,15 +62,14 @@ const styles = StyleSheet.create({
     height: height / 5.836,
   },
   hiddenButton: {
-    display: 'none',
-
+    display: "none",
   },
   shownButton: {
-    position: 'absolute'
+    position: "absolute",
   },
   lessOpacity: {
     width: width / 2.4,
     height: height / 5.836,
-    opacity: 0.2
-  }
+    opacity: 0.2,
+  },
 });
