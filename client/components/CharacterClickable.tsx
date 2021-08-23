@@ -16,25 +16,24 @@ interface Props {
   img: ImageSourcePropType;
 }
 
-export const CharacterClickable: React.FC<Props> = ({ title, img }) => {
+export const CharacterClickable: React.FC<Props> = ({ title, img, eliminated, handleSubmit }) => {
   const [buttonHidden, setButtonHidden] = useState(true);
   const [opacity, setOpacity] = useState(true);
   const [clicked, setClicked] = useState(false);
   const decideButtonStyle = () =>
-    buttonHidden === true ? styles.hiddenButton : styles.shownButton;
+    !eliminated === true ? styles.hiddenButton : styles.shownButton;
   const decideOpacity = () =>
-    opacity === true ? styles.moreOpacity : styles.lessOpacity;
+    !eliminated === true ? styles.moreOpacity : styles.lessOpacity;
   const clueNumber: any = useSelector((state: any) => state.clueReducer);
-
+  const clue: any = useSelector((state: any) => state.gameReducer);
   const dispatch = useDispatch();
 
-  const handleSubmit = () => {
-    if (clicked === false) {
-      dispatch(setClue());
-      dispatch(getNextClue("The Charing Cross Charmer", clueNumber));
-      setClicked(true);
-    }
-  };
+  //   if (clicked === false) {
+  //     dispatch(setClue());
+  //     dispatch(getNextClue("The Charing Cross Charmer", clueNumber));
+  //     setClicked(true);
+  //   }
+  // };
 
   return (
     <TouchableOpacity
@@ -49,7 +48,8 @@ export const CharacterClickable: React.FC<Props> = ({ title, img }) => {
       <Image source={{ uri: img }} style={decideOpacity()}></Image>
       <SubmitButton
         style={decideButtonStyle()}
-        onPress={handleSubmit}
+        onPress={() => {
+          handleSubmit(title, eliminated)}}
       ></SubmitButton>
     </TouchableOpacity>
   );
