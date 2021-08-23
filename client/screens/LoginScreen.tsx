@@ -9,7 +9,7 @@ import {
   ImageBackground,
 } from "react-native";
 import {useDispatch, useSelector} from 'react-redux';
-import {registerUser} from '../store/actions/actions'
+import {loginUser} from '../store/actions/actions'
 import { StatusBar } from 'expo-status-bar';
 import MyTextInput from '../components/MyTextInput'
 import { Formik } from 'formik';
@@ -78,7 +78,9 @@ const LoginScreen: React.FC<LoginScreenProps> = ({ navigation }) => {
           onSubmit={ async (values) => {
             values = { ...values };
             dispatch(loginUser(values.username, values.password))
-            // navigation.navigate('ExploreScreen');
+            if (loggedInUser.username === values.username) {
+                navigation.navigate('ExploreScreen');
+            }
           }}
         >
           {({ handleChange, handleBlur, handleSubmit, values }) => (

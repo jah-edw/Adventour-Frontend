@@ -99,7 +99,7 @@ const RegisterScreen: React.FC<RegisterScreenProps> = ({ navigation }) => {
             }}
             onSubmit={ async (values) => {
               values = { ...values };
-              const newUser = getRegisterInfo(values.username, values.confirmPassword, values.email, values.dateOfBirth)
+              const newUser = await getRegisterInfo(values.username, values.confirmPassword, values.email, values.dateOfBirth)
               console.log(newUser);
 
               navigation.navigate('ExploreScreen');

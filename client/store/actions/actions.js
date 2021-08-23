@@ -3,7 +3,8 @@ import {
   getIndividualTour,
   getNextGameState,
   getTourInfo,
-  getRegisterInfo
+  getRegisterInfo,
+  getLoginUser,
 } from '../../APISERVICE/apiservice';
 
 export const setIndividualTour = (title) => {
@@ -41,7 +42,7 @@ export const getClue = (title, clueNumber) => {
 
 export const loginUser = (username, password) => {
   return (dispatch) => {
-    getLoginInfo(username, password).then((data) => {
+    getLoginUser(username, password).then((data) => {
       dispatch({
         type: 'LOGIN_USER',
         payload: data

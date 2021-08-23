@@ -1,4 +1,4 @@
-const BASE_URL = "http://10.10.22.214:";
+const BASE_URL = "http://10.10.22.64:";
 const PORT = 3001;
 
 export const getIndividualTour = (title: string): any => {
