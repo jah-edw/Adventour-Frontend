@@ -27,9 +27,9 @@ const CluesScreen: React.FC<CluesScreenProps> = () => {
 
   const displayHint = () => {
     if (hintPressed === true) {
-      return styles.hiddenHint 
+      return styles.visibleHint 
     } else {
-      return styles.visibleHint
+      return styles.hiddenHint;
     }
   }
 
