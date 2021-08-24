@@ -25,6 +25,8 @@ const CluesScreen: React.FC<CluesScreenProps> = () => {
   const clue = useSelector((state: any) => state.gameReducer);
   const [hintPressed, setHintPressed] = useState(false);
 
+
+
   const displayHint = () => {
     if (hintPressed === true) {
       return styles.visibleHint 

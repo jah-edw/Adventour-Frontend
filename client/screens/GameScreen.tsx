@@ -36,23 +36,30 @@ const GameScreen: React.FC<GameScreenProps> = () => {
     >
       <SafeAreaView>
         <View style={styles.whiteCard}>
-          <ScrollView>
+          <View style={styles.titleContainer}>
+            <Text style={styles.title}>Direction Number {clue.id}</Text>
+          </View>
+          <View style={styles.textContainer}>
             <Text style={styles.directionText}>{clue.direction}</Text>
-          </ScrollView>
+          </View>
         </View>
       </SafeAreaView>
     </ImageBackground>
+
+
   );
 };
 
-const { height } = getWindow();
+const { height, width, ratio } = getWindow();
 const styles = StyleSheet.create({
-  background: {
+
+
+    background: {
     flex: 1,
     resizeMode: "contain",
   },
   whiteCard: {
-    height: 1000,
+    height: height,
     backgroundColor: "#fff",
     borderRadius: 55,
     alignItems: "center",
@@ -60,7 +67,21 @@ const styles = StyleSheet.create({
     paddingTop: 50,
   },
   directionText: {
-    
+    fontFamily: 'System',
+    fontSize: ratio /22
+  },
+  textContainer: {
+    paddingLeft: ratio/7,
+    paddingRight: ratio/7,
+  },
+  title: {
+    fontSize: ratio/8,
+    marginBottom: height/30
+  },
+  titleContainer: {
+    flexDirection: 'row',
+    width: width * 0.8,
+    justifyContent: 'center'
   }
 });
 
