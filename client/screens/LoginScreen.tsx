@@ -69,9 +69,9 @@ const LoginScreen: React.FC<LoginScreenProps> = ({ navigation }) => {
           <StyledContainer>
       <StatusBar style='dark' />
       <InnerContainer>
-        <PageLogo resizeMode='cover' source={require('../assets/logo.png')} />
-        <PageTitle>Adventour</PageTitle>
-        <SubTitle>Account Login</SubTitle>
+        {/* <PageLogo resizeMode='cover' source={require('../assets/logo.png')} /> */}
+        <PageTitle style={styles.blueText}>Adventour</PageTitle>
+        <SubTitle style={styles.blueText}>Account Login</SubTitle>
 
         <Formik
           initialValues={{ username: '', password: '' }}
@@ -108,11 +108,11 @@ const LoginScreen: React.FC<LoginScreenProps> = ({ navigation }) => {
                 setHidePassword={setHidePassword}
               />
               <MsgBox>...</MsgBox>
-              <StyledButton onPress={handleSubmit}>
+              <StyledButton style={styles.loginButton} onPress={handleSubmit}>
                 <ButtonText>Login</ButtonText>
               </StyledButton>
               <Line />
-              <StyledButton google={true}>
+              <StyledButton style={styles.googleButton} google={true}>
                 <Fontisto name='google' size={25} color={primary} />
                 <ButtonText google={true}>Sign in with Google</ButtonText>
               </StyledButton>
@@ -159,8 +159,16 @@ const styles = StyleSheet.create({
     width: width / 1.15,
   },
   loginButtons: {
-    marginTop: height / 13.228,
   },
+  loginButton: {
+      backgroundColor:'blue'
+  },
+  googleButton: {
+      backgroundColor:'lightblue'
+  },
+  blueText: {
+      color: 'lightblue'
+  }
 });
 
 export default LoginScreen;

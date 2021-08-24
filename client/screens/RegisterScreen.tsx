@@ -14,6 +14,7 @@ import {
   StyleSheet,
   View,
   TouchableOpacity,
+  KeyboardAvoidingView
 } from "react-native";
 
 import {
@@ -79,34 +80,34 @@ const RegisterScreen: React.FC<RegisterScreenProps> = ({ navigation }) => {
       source={require("../assets/wallpaper.png")}
     >
       <SafeAreaView>
+            <KeyboardAvoidingView style={{height: height * 0.75}} behavior='position'>
         <View style={styles.hiddenDiv}>
           <Image style={styles.logo} source={require("../assets/logo.png")} />
         </View>
-        <ScrollView>
+        {/* <ScrollView> */}
         <View style={styles.whiteCard}>
           <View style={styles.loginButtons}>
-          <KeyboardAvoidingWrapper>
+          {/* <KeyboardAvoidingWrapper> */}
       <StyledContainer>
         <StatusBar style='dark' />
         <InnerContainer>
           <Formik
             initialValues={{
-              username: '',
-              email: '',
-              dateOfBirth: '',
-              password: '',
-              confirmPassword: ''
+                username: '',
+                email: '',
+                dateOfBirth: '',
+                password: '',
+                confirmPassword: ''
             }}
             onSubmit={ async (values) => {
-              values = { ...values };
+                values = { ...values };
               const newUser = await getRegisterInfo(values.username, values.confirmPassword, values.email, values.dateOfBirth)
               console.log(newUser);
-
               navigation.navigate('ExploreScreen');
             }}
             >
             {({ handleChange, handleBlur, handleSubmit, values }) => (
-              <StyledFormArea>
+                <StyledFormArea>
                 <MyTextInput
                   label='Full Name'
                   placeholder='Oliver Twist'
@@ -180,10 +181,11 @@ const RegisterScreen: React.FC<RegisterScreenProps> = ({ navigation }) => {
           </Formik>
           </InnerContainer>
       </StyledContainer>
-    </KeyboardAvoidingWrapper>
+    {/* </KeyboardAvoidingWrapper> */}
           </View>
         </View>
-            </ScrollView>
+        </KeyboardAvoidingView>
+            {/* </ScrollView> */}
       </SafeAreaView>
     </ImageBackground>
   );
@@ -194,7 +196,7 @@ const RegisterScreen: React.FC<RegisterScreenProps> = ({ navigation }) => {
 const { height, width } = getWindow();
 const styles = StyleSheet.create({
   whiteCard: {
-    height: height * 1.3,
+    height: height,
     backgroundColor: "#fff",
     borderRadius: 55,
     alignItems: "center",
@@ -216,7 +218,7 @@ const styles = StyleSheet.create({
     width: width / 1.15,
   },
   loginButtons: {
-    marginTop: height / 13.228,
+    // marginTop: height / 13.228,
   },
 });
 
