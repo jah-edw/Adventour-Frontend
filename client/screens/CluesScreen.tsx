@@ -27,7 +27,11 @@ const CluesScreen: React.FC<CluesScreenProps> = () => {
   console.log(clue)
 
   const displayHint = () => {
-    
+    hintPressed === true ? styles.visibleHint : styles.hiddenHint
+  }
+
+  const changeHint = () => {
+    setHintPressed(!hintPressed)
   }
 
 
@@ -45,10 +49,10 @@ const CluesScreen: React.FC<CluesScreenProps> = () => {
           </View>
           <View style={styles.hintAndButtonContainer}>
             <View style={styles.hintContainer}>
-              <Text style={styles.visibleHint}>{clue.hint}</Text>
+              <Text style={displayHint()}>{clue.hint}</Text>
             </View>
             <View style={styles.buttonContainer}>
-              <Button title='Need a hint?' />
+              <Button title='Need a hint?' onPress={() => setHintPressed(!hintPressed)} />
             </View>
           </View>
         </View>
