@@ -61,7 +61,7 @@ const JoinTourScreen: React.FC<JoinTourProps> = ({ navigation }) => {
               onPress={async () => {
                 let passwordChecker = await joinGame(passwordInput, 1);
                 passwordChecker.joined
-                ? navigation.navigate("GameScreen")
+                ? navigation.navigate("CaseFileScreen")
                 : console.log(
                   `booking password & password Input: `,
                   passwordChecker.joined,

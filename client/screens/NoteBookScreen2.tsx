@@ -27,12 +27,37 @@ interface NotebookScreen2Props {
 const NotebookScreen2: React.FC<NotebookScreen2Props> = ({ navigation }) => {
   const tour: any = useSelector((state) => state.tourReducer);
   const [tourInfo, setTourInfo] = useState({});
+  const clue: any = useSelector((state: any) => state.gameReducer);
 
   useEffect(() => {
     getTourInfo(tour.id).then((info: any) => {
-      setTourInfo(info);
+      info.characters.forEach((character) => {
+        character.eliminated = false;
+      }),
+      setTourInfo(info)
     });
   }, []);
+
+
+  const handleSubmit = (title, eliminated) => {
+    const answer = clue.answer;
+    console.log(`nbscreen 44, :`, title, answer, eliminated)
+
+    if (title === answer && eliminated === false) {
+      let state = [...tourInfo.characters]
+      tourInfo.characters.forEach((character) => {
+        if (character.name === answer) {
+          character.eliminated = true
+        }
+      })
+      setTourInfo((prevState) => {
+      return {...prevState,
+        ...state}
+      })
+
+    }
+
+  }
 
   const displayCharacters = () => {
     return tourInfo.characters ? (
@@ -42,6 +67,8 @@ const NotebookScreen2: React.FC<NotebookScreen2Props> = ({ navigation }) => {
             title={character.name}
             img={character.image}
             key={Math.random() * 10}
+            eliminated = {character.eliminated}
+            handleSubmit = {handleSubmit}
           />
         );
       })
@@ -60,16 +87,6 @@ const NotebookScreen2: React.FC<NotebookScreen2Props> = ({ navigation }) => {
           <View style={styles.whiteCard}>
             <View style={styles.clickables}>{displayCharacters()}</View>
           </View>
-          {/* <GeneralButton
-                title="dummy button"
-                onPress={() => {
-                  dispatch(setClue());
-                  dispatch(
-                    getNextClue("The Charing Cross Charmer", clueNumber)
-                  );
-                  console.log(`initialClue NOTEBK2: `, clueNumber);
-                }}
-              ></GeneralButton> */}
         </ScrollView>
       </SafeAreaView>
     </ImageBackground>
