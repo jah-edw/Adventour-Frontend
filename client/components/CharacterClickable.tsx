@@ -9,38 +9,34 @@ import {
 import { useDispatch, useSelector } from "react-redux";
 import { getWindow } from "../helpers/helper";
 import { SubmitButton } from "./SubmitButton";
-import { setClue, getNextClue } from "../store/actions/actions";
 
 interface Props {
   title: string;
   img: ImageSourcePropType;
+
 }
 
-export const CharacterClickable: React.FC<Props> = ({ title, img, eliminated, handleSubmit }) => {
-  const [buttonHidden, setButtonHidden] = useState(true);
+export const CharacterClickable: React.FC<Props> = ({
+  title,
+  img,
+  eliminated,
+  handleSubmit,
+}) => {
   const [opacity, setOpacity] = useState(true);
   const [clicked, setClicked] = useState(false);
   const decideButtonStyle = () =>
-    !eliminated === true ? styles.hiddenButton : styles.shownButton;
+  eliminated === true  || clicked === true ? styles.shownButton : styles.hiddenButton 
   const decideOpacity = () =>
-    !eliminated === true ? styles.moreOpacity : styles.lessOpacity;
+    eliminated === false ? styles.moreOpacity : styles.lessOpacity;
   // const clueNumber: any = useSelector((state: any) => state.clueReducer);
   // const clue: any = useSelector((state: any) => state.gameReducer);
   // const dispatch = useDispatch();
-
-  // const handleSubmit = () => {
-  //   if (clicked === false) {
-  //     dispatch(setClue());
-  //     dispatch(getNextClue("The Charing Cross Charmer", clueNumber));
-  //     setClicked(true);
-  //   }
-  // };
 
   return (
     <TouchableOpacity
       onPress={() => {
         if (clicked === false) {
-          setButtonHidden(!buttonHidden);
+          setClicked(true);
           setOpacity(!opacity);
         }
       }}
@@ -50,7 +46,8 @@ export const CharacterClickable: React.FC<Props> = ({ title, img, eliminated, ha
       <SubmitButton
         style={decideButtonStyle()}
         onPress={() => {
-          handleSubmit(title, eliminated)}}
+          handleSubmit(title, eliminated);
+        }}
       ></SubmitButton>
     </TouchableOpacity>
   );

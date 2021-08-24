@@ -41,6 +41,7 @@ const NotebookScreen2: React.FC<NotebookScreen2Props> = ({ navigation }) => {
 
   const handleSubmit = (title, eliminated) => {
     const answer = clue.answer;
+    console.log(`nbscreen 44, :`, title, answer, eliminated)
 
     if (title === answer && eliminated === false) {
       let state = [...tourInfo.characters]
@@ -86,16 +87,6 @@ const NotebookScreen2: React.FC<NotebookScreen2Props> = ({ navigation }) => {
           <View style={styles.whiteCard}>
             <View style={styles.clickables}>{displayCharacters()}</View>
           </View>
-          {/* <GeneralButton
-                title="dummy button"
-                onPress={() => {
-                  dispatch(setClue());
-                  dispatch(
-                    getNextClue("The Charing Cross Charmer", clueNumber)
-                  );
-                  console.log(`initialClue NOTEBK2: `, clueNumber);
-                }}
-              ></GeneralButton> */}
         </ScrollView>
       </SafeAreaView>
     </ImageBackground>

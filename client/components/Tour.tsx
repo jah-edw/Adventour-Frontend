@@ -72,12 +72,10 @@ const styles = StyleSheet.create({
   titleContainer: {
     flexDirection: "column",
     justifyContent: "flex-end",
-    height: height / 4.83,
+    height: height / 6.83,
     borderRadius: 35,
     width: width / 1.426,
     flexWrap: "wrap",
-    position: 'absolute',
-    // paddingLeft: 50
   },
   moreOpacity: {
     flex: 1,
@@ -92,13 +90,12 @@ const styles = StyleSheet.create({
   titleShown: {
     color: "white",
     fontSize: ratio / 19.8,
-    marginTop: height / 40,
+    paddingBottom: height/70,
     marginLeft: width / 50,
     fontWeight: "bold",
     textShadowOffset: { width: -10, height: 1 },
     textShadowColor: "black",
     textShadowRadius: 10,
-    // position: 'absolute'
   },
   hidden: {
     display: "none",
@@ -108,7 +105,7 @@ const styles = StyleSheet.create({
     width: width / 1.426,
     justifyContent: "flex-end",
     flexDirection: "row",
-    // position: "absolute"
+    position: "absolute"
   },
   shownButton: {
     height: ratio / 6,
@@ -118,7 +115,6 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.6,
     flexDirection: "column",
     justifyContent: "center",
-    // position: 'absolute'
   },
   hiddenButton: {
     display: "none",
@@ -128,8 +124,6 @@ const styles = StyleSheet.create({
     resizeMode: "cover",
     height: height / 4.63,
     width: width / 1.426,
-    // marginLeft: width / 28,
-    // marginRight: width / 28,
     opacity: 0.4,
     position: 'absolute'
   },
@@ -140,7 +134,6 @@ const styles = StyleSheet.create({
     width: width / 1.426,
     marginLeft: width / 28,
     marginRight: width / 28,
-    // backgroundColor: "black",
     justifyContent: 'flex-end',
   },
 });
