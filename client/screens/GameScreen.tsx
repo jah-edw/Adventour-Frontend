@@ -37,7 +37,7 @@ const GameScreen: React.FC<GameScreenProps> = () => {
       <SafeAreaView>
         <View style={styles.whiteCard}>
           <ScrollView>
-            <Text>{clue.direction}</Text>
+            <Text style={styles.directionText}>{clue.direction}</Text>
           </ScrollView>
         </View>
       </SafeAreaView>
@@ -59,6 +59,9 @@ const styles = StyleSheet.create({
     marginTop: height / 15,
     paddingTop: 50,
   },
+  directionText: {
+    
+  }
 });
 
 export default GameScreen;
