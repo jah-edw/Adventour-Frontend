@@ -24,10 +24,11 @@ export const CharacterClickable: React.FC<Props> = ({ title, img, eliminated, ha
     !eliminated === true ? styles.hiddenButton : styles.shownButton;
   const decideOpacity = () =>
     !eliminated === true ? styles.moreOpacity : styles.lessOpacity;
-  const clueNumber: any = useSelector((state: any) => state.clueReducer);
-  const clue: any = useSelector((state: any) => state.gameReducer);
-  const dispatch = useDispatch();
+  // const clueNumber: any = useSelector((state: any) => state.clueReducer);
+  // const clue: any = useSelector((state: any) => state.gameReducer);
+  // const dispatch = useDispatch();
 
+  // const handleSubmit = () => {
   //   if (clicked === false) {
   //     dispatch(setClue());
   //     dispatch(getNextClue("The Charing Cross Charmer", clueNumber));
