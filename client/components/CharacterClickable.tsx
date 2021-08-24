@@ -26,9 +26,18 @@ export const CharacterClickable: React.FC<Props> = ({
   const [opacity, setOpacity] = useState(true);
   const [clicked, setClicked] = useState(false);
   const decideButtonStyle = () =>
-  eliminated === true  || clicked === true ? styles.shownButton : styles.hiddenButton
+    clicked === true && eliminated === false ? styles.shownButton : styles.hiddenButton;
   const decideOpacity = () =>
     eliminated === false ? styles.moreOpacity : styles.lessOpacity;
+  
+  const decideX = () => {
+    if (eliminated === true) {
+      return styles.eliminated
+    } else {
+      return styles.notEliminated
+    }
+  }
+  
   // const clueNumber: any = useSelector((state: any) => state.clueReducer);
   // const clue: any = useSelector((state: any) => state.gameReducer);
   // const dispatch = useDispatch();
@@ -55,11 +64,12 @@ export const CharacterClickable: React.FC<Props> = ({
           handleSubmit(answer, eliminated);
         }}
       ></SubmitButton>
+      <Text style={decideX()}>X</Text>
     </TouchableOpacity>
   );
 };
 
-const { height, width } = getWindow();
+const { height, width, ratio } = getWindow();
 const styles = StyleSheet.create({
   moreOpacity: {
     width: width / 2.4,
@@ -80,6 +90,17 @@ const styles = StyleSheet.create({
     opacity: 0.2,
   },
   clickable: {
-    marginBottom: height * 0.05
+    marginBottom: height * 0.05,
+    justifyContent: 'center'
+  },
+  eliminated: {
+    position: 'absolute',
+    fontSize: ratio / 1.76,
+    paddingTop: height * 0.017,
+    paddingLeft: width * 0.04
+
+  },
+  notEliminated: {
+    display: "none",
   }
 });

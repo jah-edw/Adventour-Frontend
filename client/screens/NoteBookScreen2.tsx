@@ -60,6 +60,7 @@ const NotebookScreen2: React.FC<NotebookScreen2Props> = ({ navigation }) => {
       dispatch(setClue());
       if (clueNumber > tour.clues) {
         //navigate.navigate to gameOverScreen
+        Alert.alert('Well done detective, you solved the case!')
       } else {
         dispatch(getNextClue('TheCharingCrossCharmer', clueNumber))
       }
