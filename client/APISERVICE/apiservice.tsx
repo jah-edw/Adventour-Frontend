@@ -1,5 +1,5 @@
-const BASE_URL = "http://10.10.22.244:"
-const PORT = 3001;
+const BASE_URL = "http://10.10.22.214:"
+const PORT = 3000;
 
 export const getIndividualTour = (title: string): any => {
   return fetch(`${BASE_URL}${PORT}/getIndividualTour`, {
@@ -54,6 +54,8 @@ export const joinGame = (password: number, userId = 1): any => {
 };
 
 export const getClue = (title: string, clueNumber: number): any => {
+  console.log(`${BASE_URL}${PORT}/getNextClue`);
+
   return fetch(`${BASE_URL}${PORT}/getNextClue`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },

@@ -37,6 +37,7 @@ export const getNextClue = (title, clueNumber) => {
         type: 'GET_CLUE',
         payload: data
       });
+      console.log('data: ', data);
     });
   };
 };
@@ -52,11 +53,10 @@ export const loginUser = (username, password) => {
   };
 };
 
-
 export const setClue = () => {
   return (dispatch) => {
     dispatch({
-      type: 'INCREMENT',
-    })
-  }
-}
+      type: 'INCREMENT'
+    });
+  };
+};
