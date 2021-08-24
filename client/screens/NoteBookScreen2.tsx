@@ -11,6 +11,7 @@ import {
   SafeAreaView,
   Text,
   View,
+  Alert
 } from "react-native";
 import { CharacterClickable } from "../components/CharacterClickable";
 import { getWindow } from "../helpers/helper";
@@ -62,6 +63,8 @@ const NotebookScreen2: React.FC<NotebookScreen2Props> = ({ navigation }) => {
       } else {
         dispatch(getNextClue('TheCharingCrossCharmer', clueNumber))
       }
+    } else {
+      Alert.alert('Wrong answer detective, try again.')
     }
   }
 
@@ -107,7 +110,7 @@ const styles = StyleSheet.create({
     resizeMode: "contain",
   },
   whiteCard: {
-    height: height,
+    height: height * 1.5,
     backgroundColor: "#fff",
     borderRadius: 55,
     alignItems: "center",

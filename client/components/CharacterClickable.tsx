@@ -35,6 +35,7 @@ export const CharacterClickable: React.FC<Props> = ({
 
   return (
     <TouchableOpacity
+    style={styles.clickable}
       onPress={() => {
         if (clicked === false) {
           setClicked(true);
@@ -69,10 +70,16 @@ const styles = StyleSheet.create({
   },
   shownButton: {
     position: "absolute",
+    top: height * 0.13,
+    left: width * 0.03,
+
   },
   lessOpacity: {
     width: width / 2.4,
     height: height / 5.836,
     opacity: 0.2,
   },
+  clickable: {
+    marginBottom: height * 0.05
+  }
 });

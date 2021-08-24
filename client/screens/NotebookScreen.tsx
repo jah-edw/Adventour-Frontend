@@ -12,6 +12,7 @@ import {
   Text,
   View,
   Button,
+  Alert,
 } from "react-native";
 import { CharacterClickable } from "../components/CharacterClickable";
 import { getWindow } from "../helpers/helper";
@@ -64,6 +65,8 @@ const NotebookScreen: React.FC<NotebookScreenProps> = ({ navigation }) => {
       } else {
         dispatch(getNextClue('The Charing Cross Charmer', clueNumber))
       }
+    } else {
+      Alert.alert('Wrong answer detective, try again.')
     }
   }
 

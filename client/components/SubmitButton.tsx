@@ -18,7 +18,7 @@ export const SubmitButton: React.FC<Props> = ({ onPress, style }) => {
       onPress={onPress}
       style={style}
     >
-      <Text style={styles.buttonText}>X</Text>
+      <Text style={styles.buttonText}>Submit Answer</Text>
     </TouchableOpacity>
   );
 };
@@ -26,12 +26,13 @@ export const SubmitButton: React.FC<Props> = ({ onPress, style }) => {
 const { ratio } = getWindow();
 const styles = StyleSheet.create({
   buttonText: {
-    fontSize: ratio / 2,
+    fontSize: ratio / 20,
     alignSelf: "center",
-    color: "black",
+    color: "white",
+    backgroundColor: 'lightblue',
     textShadowOffset: { width: -1, height: 1 },
     textShadowColor: "black",
     textShadowRadius: 10,
-    paddingRight:5,
+    padding: 10,
   },
 });
