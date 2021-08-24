@@ -24,18 +24,16 @@ interface CluesScreenProps {
 const CluesScreen: React.FC<CluesScreenProps> = () => {
   const clue = useSelector((state: any) => state.gameReducer);
   const [hintPressed, setHintPressed] = useState(false);
-  console.log(clue)
 
   const displayHint = () => {
-    hintPressed === true ? styles.visibleHint : styles.hiddenHint
+    if (hintPressed === true) {
+      return styles.hiddenHint 
+    } else {
+      return styles.visibleHint
+    }
   }
 
-  const changeHint = () => {
-    setHintPressed(!hintPressed)
-  }
 
-
-  
   return (
     <ImageBackground
       style={styles.background}
@@ -52,7 +50,9 @@ const CluesScreen: React.FC<CluesScreenProps> = () => {
               <Text style={displayHint()}>{clue.hint}</Text>
             </View>
             <View style={styles.buttonContainer}>
-              <Button title='Need a hint?' onPress={() => setHintPressed(!hintPressed)} />
+              <Button title='Need a hint?' onPress={() => {
+                setHintPressed(!hintPressed)
+                }} />
             </View>
           </View>
         </View>
