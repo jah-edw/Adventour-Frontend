@@ -19,6 +19,7 @@ import { TopNavigatorParamsList } from "../types/types";
 import { getTourInfo } from "../APISERVICE/apiservice";
 import { getNextClue, setClue } from "../store/actions/actions";
 import { GeneralButton } from "../components/GeneralButton";
+import { createIconSetFromFontello } from "@expo/vector-icons";
 
 interface NotebookScreen2Props {
   navigation: StackNavigationProp<TopNavigatorParamsList, "NotebookScreen2">;
@@ -30,6 +31,7 @@ const NotebookScreen2: React.FC<NotebookScreen2Props> = ({ navigation }) => {
   const [tourInfo, setTourInfo] = useState({});
   const clue: any = useSelector((state: any) => state.gameReducer);
   const clueNumber: any = useSelector((state: any) => state.clueReducer);
+console.log(height, width, ratio)
 
   const dispatch = useDispatch();
 
@@ -84,7 +86,7 @@ const NotebookScreen2: React.FC<NotebookScreen2Props> = ({ navigation }) => {
         );
       })
     ) : (
-      <Text>'ehhhhhh'</Text>
+      <Text></Text>
     );
   };
 
@@ -104,19 +106,19 @@ const NotebookScreen2: React.FC<NotebookScreen2Props> = ({ navigation }) => {
   );
 };
 
-const { height } = getWindow();
+const { height, width, ratio } = getWindow();
 const styles = StyleSheet.create({
   background: {
     flex: 1,
     resizeMode: "contain",
   },
   whiteCard: {
-    height: height * 1.5,
+    height: height * 1.55,
     backgroundColor: "#fff",
     borderRadius: 55,
     alignItems: "center",
     marginTop: height / 15,
-    paddingTop: 50,
+    paddingTop: height/18.52,
   },
   clickables: {
     justifyContent: "space-evenly",

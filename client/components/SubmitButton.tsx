@@ -23,7 +23,7 @@ export const SubmitButton: React.FC<Props> = ({ onPress, style }) => {
   );
 };
 
-const { ratio } = getWindow();
+const { ratio, height, width } = getWindow();
 const styles = StyleSheet.create({
   buttonText: {
     fontSize: ratio / 20,
@@ -33,6 +33,6 @@ const styles = StyleSheet.create({
     textShadowOffset: { width: -1, height: 1 },
     textShadowColor: "black",
     textShadowRadius: 10,
-    padding: 10,
+    padding: ratio / 39.6328,
   },
 });

@@ -16,7 +16,10 @@ export const HorizontalSlider: React.FC<Props> = ({navigation}) => {
 
   useEffect(() => {
     getTours()
-    .then((tours:any) => setTours(tours) )
+    .then((tours:any) => {
+      tours.sort(() => (Math.random() > .5) ? 1 : -1)
+      setTours(tours)
+    })
   }, []);
 
   const displayTours = (tours: any) => {

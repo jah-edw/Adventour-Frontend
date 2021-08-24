@@ -97,7 +97,8 @@ const styles = StyleSheet.create({
     position: 'absolute',
     fontSize: ratio / 1.76,
     paddingTop: height * 0.017,
-    paddingLeft: width * 0.04
+    paddingLeft: width * 0.04,
+    color: 'gray'
 
   },
   notEliminated: {

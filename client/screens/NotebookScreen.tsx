@@ -114,12 +114,12 @@ const styles = StyleSheet.create({
     resizeMode: "contain",
   },
   whiteCard: {
-    height: height,
+    height: height * 0.8,
     backgroundColor: "#fff",
     borderRadius: 55,
     alignItems: "center",
     marginTop: height / 15,
-    paddingTop: 50,
+    paddingTop: height/18.52,
   },
   clickables: {
     justifyContent: "space-evenly",
