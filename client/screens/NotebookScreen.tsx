@@ -25,6 +25,7 @@ interface NotebookScreenProps {
   source: ImageSourcePropType;
 }
 
+
 const NotebookScreen: React.FC<NotebookScreenProps> = ({ navigation }) => {
   const tour: any = useSelector((state) => state.tourReducer);
   const [tourInfo, setTourInfo] = useState({});
@@ -32,7 +33,6 @@ const NotebookScreen: React.FC<NotebookScreenProps> = ({ navigation }) => {
   const clueNumber: any = useSelector((state: any) => state.clueReducer);
 
   const dispatch = useDispatch();
-
 
   useEffect(() => {
     getTourInfo(tour.id).then((info: any) => {
@@ -43,32 +43,28 @@ const NotebookScreen: React.FC<NotebookScreenProps> = ({ navigation }) => {
     });
   }, []);
 
-  const handleSubmit = (title, eliminated) => {
-    console.log('clueWeapons: ', clue);
-
-  //   const answer = clue.answer;
-  //   console.log(`nbscreen 44, :`, title, answer, eliminated)
-
-  //   if (title == answer && eliminated === false) {
-  //     let state = [...tourInfo.weapons]
-  //     tourInfo.weapons.forEach((weapon) => {
-  //       if (weapon.name === answer) {
-  //         weapon.eliminated = true
-  //       }
-  //     })
-  //     setTourInfo((prevState) => {
-  //     return {...prevState,
-  //       ...state}
-
-  //     })
-  //     dispatch(setClue());
-  //     if (clueNumber > tour.clues) {
-  //       //navigate.navigate to gameOverScreen
-  //     } else {
-  //       dispatch(getNextClue('TheCharingCrossCharmer', clueNumber))
-  //     }
-  //   }
-
+  const handleSubmit = (answer, eliminated) => {
+    const clueAnswer = clue.answer;
+    if (answer == clueAnswer && eliminated === false) {
+      let state = [...tourInfo.weapons]
+      tourInfo.weapons.forEach((weapon) => {
+        if (weapon.name === answer) {
+          weapon.eliminated = true
+        }
+      })
+      setTourInfo((prevState) => {
+      return {
+        ...prevState,
+        ...state
+      }
+      })
+      dispatch(setClue());
+      if (clueNumber > tour.clues) {
+        //navigate.navigate to gameOverScreen
+      } else {
+        dispatch(getNextClue('The Charing Cross Charmer', clueNumber))
+      }
+    }
   }
 
   const displayWeapons = () => {
@@ -80,6 +76,7 @@ const NotebookScreen: React.FC<NotebookScreenProps> = ({ navigation }) => {
             img={weapon.image}
             key={Math.random()*10}
             eliminated = {weapon.eliminated}
+            answer={weapon.name}
             handleSubmit = {handleSubmit}
           />
         );

@@ -42,11 +42,9 @@ const NotebookScreen2: React.FC<NotebookScreen2Props> = ({ navigation }) => {
   }, []);
 
 
-  const handleSubmit = (title, eliminated) => {
-    const answer = clue.answer;
-    console.log(`tour.chapter :`, tour.clues)
-
-    if (title === answer && eliminated === false) {
+  const handleSubmit = (answer, eliminated) => {
+    const clueAnswer = clue.answer;
+    if (answer === clueAnswer && eliminated === false) {
       let state = [...tourInfo.characters]
       tourInfo.characters.forEach((character) => {
         if (character.name === answer) {
@@ -54,21 +52,18 @@ const NotebookScreen2: React.FC<NotebookScreen2Props> = ({ navigation }) => {
         }
       })
       setTourInfo((prevState) => {
-      return {...prevState,
+      return {
+        ...prevState,
         ...state}
       })
       dispatch(setClue());
       if (clueNumber > tour.clues) {
         //navigate.navigate to gameOverScreen
       } else {
-        console.log('it works: ', clueNumber);
-
         dispatch(getNextClue('TheCharingCrossCharmer', clueNumber))
-        console.log("clueCharacter: ", clue);
-
       }
     }
-    }
+  }
 
   const displayCharacters = () => {
     return tourInfo.characters ? (
@@ -79,6 +74,7 @@ const NotebookScreen2: React.FC<NotebookScreen2Props> = ({ navigation }) => {
             img={character.image}
             key={Math.random() * 10}
             eliminated = {character.eliminated}
+            answer={character.name}
             handleSubmit = {handleSubmit}
           />
         );

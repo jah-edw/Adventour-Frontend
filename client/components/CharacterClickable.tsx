@@ -21,6 +21,7 @@ export const CharacterClickable: React.FC<Props> = ({
   img,
   eliminated,
   handleSubmit,
+  answer
 }) => {
   const [opacity, setOpacity] = useState(true);
   const [clicked, setClicked] = useState(false);
@@ -43,13 +44,14 @@ export const CharacterClickable: React.FC<Props> = ({
         }
       }}
     >
+
       <Text>{title}</Text>
       <Image source={{ uri: img }} style={decideOpacity()}></Image>
       <SubmitButton
         style={decideButtonStyle()}
         onPress={() => {
           setClicked(false);
-          handleSubmit(title, eliminated);
+          handleSubmit(answer, eliminated);
         }}
       ></SubmitButton>
     </TouchableOpacity>
