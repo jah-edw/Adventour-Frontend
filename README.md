@@ -21,6 +21,4 @@ https://cheesecakelabs.com/blog/efficient-way-structure-react-native-projects/
 
 https://www.youtube.com/watch?v=nQVCkqvU1uE
 
-                <Text>
-                  {tourInfo.weapons ? tourInfo.weapons[1].weapon : "no"}
-                </Text>
+https://www.freecodecamp.org/news/how-to-integrate-maps-in-react-native-using-react-native-maps-5745490fe055/
