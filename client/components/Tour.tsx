@@ -8,6 +8,7 @@ import {
   ImageBackground,
   TouchableOpacity,
   ImageSourcePropType,
+  Image
 } from "react-native";
 import { MoreInfoButton } from "./MoreInfoButton";
 import { getWindow } from "../helpers/helper";
@@ -47,8 +48,9 @@ export const Tour: React.FC<Props> = ({ title, img, id, navigation }) => {
       }}
     >
       <View style={styles.blackBack}>
-        <ImageBackground style={decideOpacity()} source={img}>
-          <View style={styles.hiddenDiv}>
+        <Image style={decideOpacity()} source={img}>
+            </Image>
+          <View style={styles.buttonContainer}>
             <MoreInfoButton
               onPress={() => {
                 dispatch(setIndividualTour(title));
@@ -57,10 +59,9 @@ export const Tour: React.FC<Props> = ({ title, img, id, navigation }) => {
               style={decideButtonStyle()}
             />
           </View>
-          <View style={styles.container}>
+          <View style={styles.titleContainer}>
             <Text style={decideStyle()}>{title}</Text>
           </View>
-        </ImageBackground>
       </View>
     </TouchableOpacity>
   );
@@ -68,19 +69,22 @@ export const Tour: React.FC<Props> = ({ title, img, id, navigation }) => {
 
 const { ratio, width, height } = getWindow();
 const styles = StyleSheet.create({
-  container: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-    maxHeight: height / 4.63,
+  titleContainer: {
+    flexDirection: "column",
+    justifyContent: "flex-end",
+    height: height / 4.83,
     borderRadius: 35,
-    maxWidth: width / 1.426,
+    width: width / 1.426,
     flexWrap: "wrap",
+    position: 'absolute',
+    // paddingLeft: 50
   },
   moreOpacity: {
     flex: 1,
     resizeMode: "cover",
     height: height / 4.63,
     width: width / 1.426,
+    position: 'absolute'
   },
   titleHidden: {
     display: "none",
@@ -94,14 +98,17 @@ const styles = StyleSheet.create({
     textShadowOffset: { width: -10, height: 1 },
     textShadowColor: "black",
     textShadowRadius: 10,
+    // position: 'absolute'
   },
   hidden: {
     display: "none",
   },
-  hiddenDiv: {
-    height: height / 7,
-    flexDirection: "row",
+  buttonContainer: {
+    height: height / 4.63,
+    width: width / 1.426,
     justifyContent: "flex-end",
+    flexDirection: "row",
+    // position: "absolute"
   },
   shownButton: {
     height: ratio / 6,
@@ -111,6 +118,7 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.6,
     flexDirection: "column",
     justifyContent: "center",
+    // position: 'absolute'
   },
   hiddenButton: {
     display: "none",
@@ -122,7 +130,8 @@ const styles = StyleSheet.create({
     width: width / 1.426,
     // marginLeft: width / 28,
     // marginRight: width / 28,
-    opacity: 0.7,
+    opacity: 0.4,
+    position: 'absolute'
   },
   blackBack: {
     flex: 1,
@@ -131,6 +140,7 @@ const styles = StyleSheet.create({
     width: width / 1.426,
     marginLeft: width / 28,
     marginRight: width / 28,
-    backgroundColor: "black",
+    // backgroundColor: "black",
+    justifyContent: 'flex-end',
   },
 });
