@@ -1,7 +1,7 @@
 // WEAPONS
 
 import { StackNavigationProp } from "@react-navigation/stack";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import React, { useState, useEffect } from "react";
 import {
   ImageBackground,
@@ -17,6 +17,8 @@ import { CharacterClickable } from "../components/CharacterClickable";
 import { getWindow } from "../helpers/helper";
 import { TopNavigatorParamsList } from "../types/types";
 import { getTourInfo } from "../APISERVICE/apiservice";
+import {getNextClue, setClue} from '../store/actions/actions'
+import { forModalPresentationIOS } from "@react-navigation/stack/lib/typescript/src/TransitionConfigs/CardStyleInterpolators";
 
 interface NotebookScreenProps {
   navigation: StackNavigationProp<TopNavigatorParamsList, "NotebookScreen">;
@@ -26,12 +28,48 @@ interface NotebookScreenProps {
 const NotebookScreen: React.FC<NotebookScreenProps> = ({ navigation }) => {
   const tour: any = useSelector((state) => state.tourReducer);
   const [tourInfo, setTourInfo] = useState({});
+  const clue: any = useSelector((state: any) => state.gameReducer);
+  const clueNumber: any = useSelector((state: any) => state.clueReducer);
+
+  const dispatch = useDispatch();
+
 
   useEffect(() => {
     getTourInfo(tour.id).then((info: any) => {
+      info.weapons.forEach((weapon) => {
+        weapon.eliminated = false;
+      }),
       setTourInfo(info)
     });
   }, []);
+
+  const handleSubmit = (title, eliminated) => {
+    console.log('clueWeapons: ', clue);
+
+  //   const answer = clue.answer;
+  //   console.log(`nbscreen 44, :`, title, answer, eliminated)
+
+  //   if (title == answer && eliminated === false) {
+  //     let state = [...tourInfo.weapons]
+  //     tourInfo.weapons.forEach((weapon) => {
+  //       if (weapon.name === answer) {
+  //         weapon.eliminated = true
+  //       }
+  //     })
+  //     setTourInfo((prevState) => {
+  //     return {...prevState,
+  //       ...state}
+
+  //     })
+  //     dispatch(setClue());
+  //     if (clueNumber > tour.clues) {
+  //       //navigate.navigate to gameOverScreen
+  //     } else {
+  //       dispatch(getNextClue('TheCharingCrossCharmer', clueNumber))
+  //     }
+  //   }
+
+  }
 
   const displayWeapons = () => {
     return tourInfo.weapons ? (
@@ -41,6 +79,8 @@ const NotebookScreen: React.FC<NotebookScreenProps> = ({ navigation }) => {
             title={weapon.number}
             img={weapon.image}
             key={Math.random()*10}
+            eliminated = {weapon.eliminated}
+            handleSubmit = {handleSubmit}
           />
         );
       })

@@ -28,6 +28,9 @@ const NotebookScreen2: React.FC<NotebookScreen2Props> = ({ navigation }) => {
   const tour: any = useSelector((state) => state.tourReducer);
   const [tourInfo, setTourInfo] = useState({});
   const clue: any = useSelector((state: any) => state.gameReducer);
+  const clueNumber: any = useSelector((state: any) => state.clueReducer);
+
+  const dispatch = useDispatch();
 
   useEffect(() => {
     getTourInfo(tour.id).then((info: any) => {
@@ -41,7 +44,7 @@ const NotebookScreen2: React.FC<NotebookScreen2Props> = ({ navigation }) => {
 
   const handleSubmit = (title, eliminated) => {
     const answer = clue.answer;
-    console.log(`nbscreen 44, :`, title, answer, eliminated)
+    console.log(`tour.chapter :`, tour.clues)
 
     if (title === answer && eliminated === false) {
       let state = [...tourInfo.characters]
@@ -54,10 +57,16 @@ const NotebookScreen2: React.FC<NotebookScreen2Props> = ({ navigation }) => {
       return {...prevState,
         ...state}
       })
+      dispatch(setClue());
+      if (clueNumber > tour.clues) {
+        //navigate.navigate to gameOverScreen
+      } else {``
+        dispatch(getNextClue('TheCharingCrossCharmer', clueNumber))
+        console.log("clueCharacter: ", clue);
 
+      }
     }
-
-  }
+    }
 
   const displayCharacters = () => {
     return tourInfo.characters ? (

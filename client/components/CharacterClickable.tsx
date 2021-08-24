@@ -25,7 +25,7 @@ export const CharacterClickable: React.FC<Props> = ({
   const [opacity, setOpacity] = useState(true);
   const [clicked, setClicked] = useState(false);
   const decideButtonStyle = () =>
-  eliminated === true  || clicked === true ? styles.shownButton : styles.hiddenButton 
+  eliminated === true  || clicked === true ? styles.shownButton : styles.hiddenButton
   const decideOpacity = () =>
     eliminated === false ? styles.moreOpacity : styles.lessOpacity;
   // const clueNumber: any = useSelector((state: any) => state.clueReducer);
@@ -38,6 +38,8 @@ export const CharacterClickable: React.FC<Props> = ({
         if (clicked === false) {
           setClicked(true);
           setOpacity(!opacity);
+        } else {
+          setClicked(false);
         }
       }}
     >
@@ -46,6 +48,7 @@ export const CharacterClickable: React.FC<Props> = ({
       <SubmitButton
         style={decideButtonStyle()}
         onPress={() => {
+          setClicked(false);
           handleSubmit(title, eliminated);
         }}
       ></SubmitButton>
