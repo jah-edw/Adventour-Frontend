@@ -43,12 +43,16 @@ export const getNextClue = (title, clueNumber) => {
 };
 
 export const loginUser = (username, password) => {
-  return (dispatch) => {
+  return (setAttemptedLoggedIn, dispatch) => {
     getLoginUser(username, password).then((data) => {
-      dispatch({
-        type: 'LOGIN_USER',
-        payload: data
-      });
+      if (data.userId) {
+        dispatch({
+          type: 'LOGIN_USER',
+          payload: data
+        });
+      } else {
+        setAttemptedLoggedIn(true);
+      }
     });
   };
 };

@@ -14,7 +14,8 @@ import {
   StyleSheet,
   View,
   TouchableOpacity,
-  KeyboardAvoidingView
+  KeyboardAvoidingView,
+  Alert
 } from "react-native";
 
 import {
@@ -73,7 +74,7 @@ const RegisterScreen: React.FC<RegisterScreenProps> = ({ navigation }) => {
     setDob(currentDate);
   };
   const newUser = useSelector((state) => state.userReducer);
-  console.log(newUser);
+  // console.log(newUser);
   return (
     <ImageBackground
       style={styles.background}
@@ -101,9 +102,14 @@ const RegisterScreen: React.FC<RegisterScreenProps> = ({ navigation }) => {
             }}
             onSubmit={ async (values) => {
                 values = { ...values };
-              const newUser = await getRegisterInfo(values.username, values.confirmPassword, values.email, values.dateOfBirth)
-              console.log(newUser);
-              navigation.navigate('ExploreScreen');
+              const response = await getRegisterInfo(values.username, values.confirmPassword, values.email, values.dateOfBirth)
+              console.log(response);
+              if (response.error) {
+                Alert.alert("Error occured during registration process. Please try again!")
+              } else {
+                Alert.alert("User successfully registered. You can proceed!")
+                navigation.navigate('LoginScreen');
+              }
             }}
             >
             {({ handleChange, handleBlur, handleSubmit, values }) => (

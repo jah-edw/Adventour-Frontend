@@ -1,5 +1,5 @@
-const BASE_URL = "http://10.10.22.64:"
-const PORT = 3001;
+const BASE_URL = "http://10.10.22.214:"
+const PORT = 3000;
 
 export const getIndividualTour = (title: string): any => {
   return fetch(`${BASE_URL}${PORT}/getIndividualTour`, {
