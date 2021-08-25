@@ -17,7 +17,7 @@ import { CharacterClickable } from "../components/CharacterClickable";
 import { getWindow } from "../helpers/helper";
 import { TopNavigatorParamsList } from "../types/types";
 import { getTourInfo } from "../APISERVICE/apiservice";
-import { getNextClue, setClue } from "../store/actions/actions";
+import { getNextClue, setClue, setHint } from "../store/actions/actions";
 import { GeneralButton } from "../components/GeneralButton";
 import { createIconSetFromFontello } from "@expo/vector-icons";
 
@@ -65,6 +65,7 @@ console.log(height, width, ratio)
         Alert.alert('Well done detective, you solved the case!')
       } else {
         dispatch(getNextClue('TheCharingCrossCharmer', clueNumber))
+        dispatch(setHint(false))
       }
     } else {
       Alert.alert('Wrong answer detective, try again.')

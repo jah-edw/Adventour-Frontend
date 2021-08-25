@@ -18,7 +18,7 @@ import { CharacterClickable } from "../components/CharacterClickable";
 import { getWindow } from "../helpers/helper";
 import { TopNavigatorParamsList } from "../types/types";
 import { getTourInfo } from "../APISERVICE/apiservice";
-import {getNextClue, setClue} from '../store/actions/actions'
+import {getNextClue, setClue, setHint} from '../store/actions/actions'
 import { forModalPresentationIOS } from "@react-navigation/stack/lib/typescript/src/TransitionConfigs/CardStyleInterpolators";
 
 interface NotebookScreenProps {
@@ -64,6 +64,7 @@ const NotebookScreen: React.FC<NotebookScreenProps> = ({ navigation }) => {
         //navigate.navigate to gameOverScreen
       } else {
         dispatch(getNextClue('The Charing Cross Charmer', clueNumber))
+        dispatch(setHint(false))
       }
     } else {
       Alert.alert('Wrong answer detective, try again.')

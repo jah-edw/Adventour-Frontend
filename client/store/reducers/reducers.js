@@ -59,10 +59,22 @@ function clueReducer(state = initialClueState, action) {
   }
 }
 
+const initialHintState = false;
+function hintReducer(state = initialHintState, action) {
+  switch (action.type) {
+    case 'HINT': {
+      return state = action.payload
+    }
+    default: 
+      return state
+  }
+}
+
 export default combineReducers({
   tourReducer,
   bookingReducer,
   gameReducer,
   userReducer,
-  clueReducer
+  clueReducer,
+  hintReducer
 });

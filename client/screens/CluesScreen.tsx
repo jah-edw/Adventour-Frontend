@@ -2,7 +2,7 @@
 
 import { StackNavigationProp } from "@react-navigation/stack";
 import React, { useState } from "react";
-import {useSelector} from 'react-redux';
+import {useSelector, useDispatch} from 'react-redux';
 import {
   StyleSheet,
   ImageBackground,
@@ -15,6 +15,8 @@ import {
 } from "react-native";
 import { getWindow } from "../helpers/helper";
 import { TopNavigatorParamsList } from "../types/types";
+import { setHint } from "../store/actions/actions";
+
 
 interface CluesScreenProps {
   navigation: StackNavigationProp<TopNavigatorParamsList, "GameScreen">;
@@ -22,8 +24,10 @@ interface CluesScreenProps {
 }
 
 const CluesScreen: React.FC<CluesScreenProps> = () => {
+  const dispatch = useDispatch();
   const clue = useSelector((state: any) => state.gameReducer);
-  const [hintPressed, setHintPressed] = useState(false);
+  const hintPressed = useSelector((state: any) => state.hintReducer);
+  // const [hintPressed, setHintPressed] = useState(false);
 
 
 
@@ -53,7 +57,7 @@ const CluesScreen: React.FC<CluesScreenProps> = () => {
             </View>
             <View style={styles.buttonContainer}>
               <Button title='Need a hint?' onPress={() => {
-                setHintPressed(!hintPressed)
+                dispatch(setHint(true))
                 }} />
             </View>
           </View>

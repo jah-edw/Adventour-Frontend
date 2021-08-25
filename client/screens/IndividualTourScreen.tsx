@@ -40,7 +40,7 @@ const IndividualTourScreen: React.FC<IndividualTourScreenProps> = ({
         <View style={styles.whiteCard}>
           <Image source={{ uri: tour.images }} style={styles.container} />
           <View style={styles.mapContainer}>
-            <Image style={styles.map} source={require("../assets/GoogleMapScreenShot.png")}/>
+            <Image style={styles.map} source={require("../assets/GoogleMapScreenShot2.png")}/>
           </View>
           <View style={styles.hiddenView}>
             <Text>{tour.description || "no"}</Text>
@@ -102,15 +102,14 @@ const styles = StyleSheet.create({
   mapContainer: {
     height: height / 8.5,
     width: width / 1.426,
-    borderColor: "black",
-    borderWidth: 2,
-    borderRadius: 15,
+    // borderRadius: 15,
     shadowOffset: { width: 5, height: 7 },
     shadowOpacity: 0.2,
     marginTop: 30,
     alignSelf: "center",
   },
   map: {
+    height: height / 8.5,
     width: width / 1.426,
 
   }
