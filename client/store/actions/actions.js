@@ -37,7 +37,6 @@ export const getNextClue = (title, clueNumber) => {
         type: 'GET_CLUE',
         payload: data
       });
-      console.log('data: ', data);
     });
   };
 };

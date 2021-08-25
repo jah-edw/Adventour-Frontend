@@ -74,7 +74,7 @@ const RegisterScreen: React.FC<RegisterScreenProps> = ({ navigation }) => {
     setDob(currentDate);
   };
   const newUser = useSelector((state) => state.userReducer);
-  // console.log(newUser);
+
   return (
     <ImageBackground
       style={styles.background}
@@ -103,7 +103,6 @@ const RegisterScreen: React.FC<RegisterScreenProps> = ({ navigation }) => {
             onSubmit={ async (values) => {
                 values = { ...values };
               const response = await getRegisterInfo(values.username, values.confirmPassword, values.email, values.dateOfBirth)
-              console.log(response);
               if (response.error) {
                 Alert.alert("Error occured during registration process. Please try again!")
               } else {

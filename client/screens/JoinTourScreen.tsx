@@ -12,7 +12,8 @@ import {
   ImageSourcePropType,
   ImageBackground,
   TextInput,
-  KeyboardAvoidingView
+  KeyboardAvoidingView,
+  Alert
 } from "react-native";
 import { TopNavigatorParamsList } from "../types/types";
 import { GeneralButton } from "../components/GeneralButton";
@@ -29,7 +30,6 @@ const JoinTourScreen: React.FC<JoinTourProps> = ({ navigation }) => {
   const booking: any = useSelector((state) => state.bookingReducer);
 
   const [passwordInput, setPasswordInput] = useState();
-  console.log(`booking in JoinTourScreen: `, booking);
 
   return (
     <ImageBackground
@@ -62,11 +62,7 @@ const JoinTourScreen: React.FC<JoinTourProps> = ({ navigation }) => {
                 let passwordChecker = await joinGame(passwordInput, 1);
                 passwordChecker.joined
                 ? navigation.navigate("CaseFileScreen")
-                : console.log(
-                  `booking password & password Input: `,
-                  passwordChecker.joined,
-                  passwordInput
-                  );
+                : Alert.alert('Login credentials cannot be verified, please try again.');
                 }}
                 />
           </View>

@@ -54,7 +54,6 @@ export const joinGame = (password: number, userId = 1): any => {
 };
 
 export const getClue = (title: string, clueNumber: number): any => {
-  console.log(`${BASE_URL}${PORT}/getNextClue`);
 
   return fetch(`${BASE_URL}${PORT}/getNextClue`, {
     method: "POST",
