@@ -63,6 +63,7 @@ console.log(height, width, ratio)
       if (clueNumber > tour.clues) {
         //navigate.navigate to gameOverScreen
         Alert.alert('Well done detective, you solved the case!')
+        navigation.navigate('FinishGame')
       } else {
         dispatch(getNextClue('TheCharingCrossCharmer', clueNumber))
         dispatch(setHint(false))
