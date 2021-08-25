@@ -48,18 +48,22 @@ const CluesScreen: React.FC<CluesScreenProps> = () => {
       <SafeAreaView>
         <View style={styles.whiteCard}>
           <Text style={styles.title}>Clue Number {clue.id}</Text>
-          <View style={styles.textContainer}>
-            <Text style={styles.clueText}>{clue.clue}</Text>
-          </View>
-          <View style={styles.hintAndButtonContainer}>
-            <View style={styles.hintContainer}>
-              <Text style={displayHint()}>{clue.hint}</Text>
-            </View>
-            <View style={styles.buttonContainer}>
-              <Button title='Need a hint?' onPress={() => {
-                dispatch(setHint(true))
-                }} />
-            </View>
+          <View style={styles.clueAndHintContainer}>
+            <ScrollView>
+              <View style={styles.textContainer}>
+                <Text style={styles.clueText}>{clue.clue}</Text>
+              </View>
+              <View style={styles.hintAndButtonContainer}>
+                <View style={styles.hintContainer}>
+                  <Text style={displayHint()}>{clue.hint}</Text>
+                </View>
+                <View style={styles.buttonContainer}>
+                  <Button title='Need a hint?' onPress={() => {
+                    dispatch(setHint(true))
+                    }} />
+                </View>
+              </View>
+            </ScrollView>
           </View>
         </View>
       </SafeAreaView>
@@ -95,7 +99,7 @@ const styles = StyleSheet.create({
   },
   hintAndButtonContainer: {
     justifyContent: "space-around",
-    height: height * 0.6
+    height: height * 0.6,
   },
   visibleHint: {
     fontFamily: 'System',
@@ -106,10 +110,15 @@ const styles = StyleSheet.create({
   },
   hintContainer: {
     flexDirection: 'row',
-    justifyContent: "center"
+    justifyContent: "center",
+    paddingLeft: ratio/7,
+    paddingRight: ratio/7,
   },
   buttonContainer: {
 
+  },
+  clueAndHintContainer: {
+    height: height * 0.65
   }
 });
 
