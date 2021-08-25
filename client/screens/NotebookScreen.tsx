@@ -115,7 +115,7 @@ const styles = StyleSheet.create({
     resizeMode: "contain",
   },
   whiteCard: {
-    height: height * 0.8,
+    height: height * 0.85,
     backgroundColor: "#fff",
     borderRadius: 55,
     alignItems: "center",

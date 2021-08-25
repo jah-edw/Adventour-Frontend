@@ -77,6 +77,7 @@ const styles = StyleSheet.create({
   moreOpacity: {
     width: width / 2.4,
     height: height / 5.836,
+    resizeMode: 'contain'
   },
   hiddenButton: {
     display: "none",
