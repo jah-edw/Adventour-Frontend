@@ -5,6 +5,7 @@ import {
   ImageSourcePropType,
   Image,
   Text,
+  View,
 } from "react-native";
 import { useDispatch, useSelector } from "react-redux";
 import { getWindow } from "../helpers/helper";
@@ -37,7 +38,7 @@ export const CharacterClickable: React.FC<Props> = ({
       return styles.notEliminated
     }
   }
-  
+
   // const clueNumber: any = useSelector((state: any) => state.clueReducer);
   // const clue: any = useSelector((state: any) => state.gameReducer);
   // const dispatch = useDispatch();
@@ -54,8 +55,10 @@ export const CharacterClickable: React.FC<Props> = ({
         }
       }}
     >
+      <View style={styles.titleContainer}>
 
-      <Text>{title}</Text>
+        <Text style={styles.title}>{title}</Text>
+      </View>
       <Image source={{ uri: img }} style={decideOpacity()}></Image>
       <SubmitButton
         style={decideButtonStyle()}
@@ -82,7 +85,6 @@ const styles = StyleSheet.create({
     position: "absolute",
     top: height * 0.13,
     left: width * 0.03,
-
   },
   lessOpacity: {
     width: width / 2.4,
@@ -103,5 +105,12 @@ const styles = StyleSheet.create({
   },
   notEliminated: {
     display: "none",
+  },
+  titleContainer: {
+    flexDirection: "row",
+    justifyContent: "center"
+  },
+  title: {
+    fontWeight: "bold",
   }
 });

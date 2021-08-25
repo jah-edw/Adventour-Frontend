@@ -74,6 +74,7 @@ console.log(height, width, ratio)
   const displayCharacters = () => {
     return tourInfo.characters ? (
       tourInfo.characters.map((character: any) => {
+        console.log(character.image)
         return (
           <CharacterClickable
             title={character.name}

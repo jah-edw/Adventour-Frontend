@@ -159,12 +159,14 @@ const styles = StyleSheet.create({
     width: width / 1.15,
   },
   loginButtons: {
+    paddingTop: height * 0.01
   },
   loginButton: {
       backgroundColor:'blue'
   },
   googleButton: {
-      backgroundColor:'lightblue'
+      backgroundColor:'lightblue',
+      justifyContent: "center"
   },
   blueText: {
       color: 'lightblue'

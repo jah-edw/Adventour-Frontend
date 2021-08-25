@@ -11,6 +11,7 @@ import BeginTourScreen from "../screens/BeginTourScreen";
 import JoinTourScreen from "../screens/JoinTourScreen";
 import CaseFileScreen from "../screens/CaseFileScreen";
 import PayScreen from '../screens/PayScreen'
+import FinishGame from '../screens/FinishGame'
 
 const MainStack = createStackNavigator();
 
@@ -51,6 +52,7 @@ export const MainNavigator: React.FC<Props> = () => {
         <Screen name="JoinTourScreen" component={JoinTourScreen} />
         <Screen name="CaseFileScreen" component={CaseFileScreen} />
         <Screen name="PayScreen" component={PayScreen} />
+        <Screen name="FinishGame" component={FinishGame} />
         
       </Group>
     </Navigator>
