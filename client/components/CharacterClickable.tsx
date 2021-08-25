@@ -100,7 +100,8 @@ const styles = StyleSheet.create({
     fontSize: ratio / 1.76,
     paddingTop: height * 0.017,
     paddingLeft: width * 0.04,
-    color: 'gray'
+    color: 'gray',
+    opacity: 0.5
 
   },
   notEliminated: {
