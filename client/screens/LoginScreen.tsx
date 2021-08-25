@@ -114,7 +114,9 @@ const LoginScreen: React.FC<LoginScreenProps> = ({ navigation }) => {
               <Line />
               <StyledButton style={styles.googleButton} google={true}>
                 <Fontisto name='google' size={25} color={primary} />
-                <ButtonText google={true}>Sign in with Google</ButtonText>
+                <View style={styles.googleTextContainer}>
+                  <ButtonText google={true}>Sign in with Google</ButtonText>
+                </View>
               </StyledButton>
               <ExtraView>
                 <ExtraText>Don't have an account? Sign up! </ExtraText>
@@ -166,10 +168,16 @@ const styles = StyleSheet.create({
   },
   googleButton: {
       backgroundColor:'lightblue',
-      justifyContent: "center"
+      justifyContent: "center",
+
   },
   blueText: {
       color: 'lightblue'
+  },
+  googleTextContainer: {
+    flexDirection: "column",
+    justifyContent: "center",
+    bottom: height * 0.004
   }
 });
 
