@@ -1,24 +1,72 @@
-# Adventour-Frontend
+### Welcome to Adventour!
 
-Frontend for Adventour
+## Table of Contents
 
-Troubleshooting
+1. Introduction
+2. Getting Started
+3. Features
+4. Future Features
+5. Technologies
 
-cd client/adventour before doing npm start, otherwise 'no gulpfile found'
+## Introduction
 
-Error:
-Cannot find module '@react-navigation/native' or its corresponding type declarations.
-Fix:
-From inside adventour, yarn add @react-navigation/native (same thing with npm did't work )
+Adventour aims to reinvent the traditional way of exploring new places. The app allows you to browse tours, the results can be filtered to a genre of your interest. The tours are an interactive way to experience the history and culture of a city.
 
-Error:
-"Unterminated regular expression literal"
-Fix:
-Make sure file is in .tsx
+The current tour presents users with a murder mystery styled treasure hunt, with clues and directions provided to help them discover historical landmarks across London's Westend while they hunt down the ellusive 'Charing Cross Charmer'.
 
-Nice article on app structure:
-https://cheesecakelabs.com/blog/efficient-way-structure-react-native-projects/
+With an easy-to-use UI and fluid sign-up process, Adventour is a great way to get out and explore!
 
-https://www.youtube.com/watch?v=nQVCkqvU1uE
+## Getting Started
 
-https://www.freecodecamp.org/news/how-to-integrate-maps-in-react-native-using-react-native-maps-5745490fe055/
+In order to run Adventour it is necessary to install and set-up Expo. Please refer to the documentation on the Expo website for further information. This can be run on any Windows or Apple PC. Additionally, postgreSQL is required in order to run the back-end database.
+
+1. Clone this repo & enter:
+
+```
+git clone https://github.com/jah-edw/Adventour-Frontend.git
+cd client
+```
+
+2. Run `npm install` to install project dependencies into your local repo.
+3. Run `npm start` to generate a QR code which can be read on your mobile (you will need to download the Expo Go mobile app)
+4. Clone the backend repo:
+
+```
+git clone https://github.com/NidalEllawala/Adventour-Backend.git
+```
+
+5. Run `npm install` to install project dependencies into your local repo.
+6. Create a local env. file and input local variables using the env-template file in the root of the folder as a guide.
+7. Make sure PostgreSQL is running.
+8. Run ` npm run dev:seed` to populate your database.
+9. Run ` node index.js` or `nodemon` to start the backend.
+10. Time to start exploring London!
+
+## Features
+
+- Login & Register
+- Browse tours
+- Book the tour
+- Password encryption
+- Take the tour
+
+## Future Features
+
+- More tours!
+- Clues/Directions delivered by character in AR
+- Sign in through Google & Facebook
+- User option to create tours
+- Check and leave reviews
+- Implement Google API for maps
+
+## Technologies
+
+- TypeScript
+- JavaScript
+- PostgreSQL
+- Sequelize
+- React Native
+- Redux
+- Expo
+- Express
+- Node.js
