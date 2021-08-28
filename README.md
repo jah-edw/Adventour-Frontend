@@ -10,9 +10,9 @@
 
 ## Introduction
 
-[<Img src="./client/assets/characters.png" width="200px"/>][]
-[<Img src="./client/assets/explore.png" width="200px"/>][]
-[<Img src="./client/assets/login.png" width="200px"/>][]
+<Img src="./client/assets/characters.png" width="200px"/>
+<Img src="./client/assets/explore.png" width="200px"/>
+<Img src="./client/assets/login.png" width="200px"/>
 
 Adventour aims to reinvent the traditional way of exploring new places. The app allows you to browse tours, the results can be filtered to a genre of your interest. The tours are an interactive way to experience the history and culture of a city.
 
