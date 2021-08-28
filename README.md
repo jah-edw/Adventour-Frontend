@@ -70,3 +70,10 @@ git clone https://github.com/NidalEllawala/Adventour-Backend.git
 - Expo
 - Express
 - Node.js
+
+## Collaborators
+
+@NidalEllawala
+@Daniel-CC-97
+@mariusobreja
+@jah-edw
