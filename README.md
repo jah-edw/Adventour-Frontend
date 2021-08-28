@@ -10,6 +10,10 @@
 
 ## Introduction
 
+[<Img src="./client/assets/characters.png" width="100px"/>]
+[<Img src="./client/assets/explore.png" width="100px"/>]
+[<Img src="./client/assets/login.png" width="100px"/>]
+
 Adventour aims to reinvent the traditional way of exploring new places. The app allows you to browse tours, the results can be filtered to a genre of your interest. The tours are an interactive way to experience the history and culture of a city.
 
 The current tour presents users with a murder mystery styled treasure hunt, with clues and directions provided to help them discover historical landmarks across London's Westend while they hunt down the ellusive 'Charing Cross Charmer'.
@@ -73,7 +77,7 @@ git clone https://github.com/NidalEllawala/Adventour-Backend.git
 
 ## Collaborators
 
-@NidalEllawala
-@Daniel-CC-97
-@mariusobreja
-@jah-edw
+- @NidalEllawala
+- @Daniel-CC-97
+- @mariusobreja
+- @jah-edw
