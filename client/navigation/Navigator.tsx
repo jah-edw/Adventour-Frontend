@@ -20,7 +20,7 @@ interface Props {}
 export const MainNavigator: React.FC<Props> = () => {
   const { Navigator, Screen, Group } = MainStack;
   return (
-    <Navigator initialRouteName="FinishGame">
+    <Navigator initialRouteName="HomeScreen">
       <Group
         screenOptions={{
           headerShown: false,
