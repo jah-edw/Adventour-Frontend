@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import { StackNavigationProp } from "@react-navigation/stack";
 import {
   SafeAreaView,
@@ -7,6 +7,7 @@ import {
   View,
   StyleSheet,
   ImageBackground,
+  Alert
 } from "react-native";
 import {useDispatch, useSelector} from 'react-redux';
 import {loginUser} from '../store/actions/actions'
@@ -53,7 +54,15 @@ const LoginScreen: React.FC<LoginScreenProps> = ({ navigation }) => {
   const dispatch = useDispatch();
   const [hidePassword, setHidePassword] = useState(true);
   const loggedInUser = useSelector((state) => state.userReducer);
-  console.log(loggedInUser);
+  let [attemptedLoggedIn, setAttemptedLoggedIn] = useState(false);
+  useEffect(() => {
+    if (loggedInUser.userId) {
+      navigation.navigate('ExploreScreen');
+    } else if (attemptedLoggedIn && !loggedInUser.userId){
+      Alert.alert("Username or password hasn't been recognised. Please try again!")
+      setAttemptedLoggedIn(false);
+    }
+  }, [attemptedLoggedIn, loggedInUser])
   return (
     <ImageBackground
       style={styles.background}
@@ -77,10 +86,7 @@ const LoginScreen: React.FC<LoginScreenProps> = ({ navigation }) => {
           initialValues={{ username: '', password: '' }}
           onSubmit={ async (values) => {
             values = { ...values };
-            dispatch(loginUser(values.username, values.password))
-           
-                navigation.navigate('ExploreScreen');
-            
+            loginUser(values.username, values.password)(setAttemptedLoggedIn,dispatch);
           }}
         >
           {({ handleChange, handleBlur, handleSubmit, values }) => (

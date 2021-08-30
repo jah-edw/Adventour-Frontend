@@ -40,7 +40,7 @@ const initialUserState = {};
 function userReducer(state = initialUserState, action) {
   switch (action.type) {
     case 'LOGIN_USER': {
-      if (action.payload) return action.payload
+      if (action.payload) return action.payload;
       else return state;
     }
     default:
@@ -52,10 +52,10 @@ const initialClueState = 2;
 function clueReducer(state = initialClueState, action) {
   switch (action.type) {
     case 'INCREMENT': {
-      return state + 1
+      return state + 1;
     }
     default:
-      return state
+      return state;
   }
 }
 

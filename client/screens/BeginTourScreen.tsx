@@ -31,7 +31,6 @@ interface BeginTourProps {
 
 const BeginTourScreen: React.FC<BeginTourProps> = ({ navigation }) => {
   const booking: any = useSelector((state) => state.bookingReducer);
-  console.log(`password: `, booking.password);
 
   const copyToClipboard = () => {
     Clipboard.setString(booking.password.toString());

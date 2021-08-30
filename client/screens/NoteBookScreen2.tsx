@@ -31,7 +31,6 @@ const NotebookScreen2: React.FC<NotebookScreen2Props> = ({ navigation }) => {
   const [tourInfo, setTourInfo] = useState({});
   const clue: any = useSelector((state: any) => state.gameReducer);
   const clueNumber: any = useSelector((state: any) => state.clueReducer);
-console.log(height, width, ratio)
 
   const dispatch = useDispatch();
 

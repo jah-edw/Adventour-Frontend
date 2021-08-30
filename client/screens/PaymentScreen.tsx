@@ -51,17 +51,14 @@ const PaymentScreen: React.FC<PaymentScreenProps> = ({ navigation }) => {
                   setPartySize(number)
                   setValue(number)
                 }}
-                // onLimitReached={(isMax,msg) => console.log(isMax,msg)}
                 totalWidth={240}
                 totalHeight={50}
                 maxValue={8}
                 initValue={value}
                 minValue={1}
                 rounded={true}
-                // rightButtonBackgroundColor='blue'
                 textColor='white'
               />
-              {console.log(`partysixe: `, partySize)}
             </View>
           </View>
           <View style={styles.button}>
@@ -71,7 +68,6 @@ const PaymentScreen: React.FC<PaymentScreenProps> = ({ navigation }) => {
                 const partySizeNumber = Number(partySize);
                 dispatch(setCreateBooking(tour.id, partySizeNumber));
                 navigation.navigate("PayScreen");
-                console.log(`paymentscreen: `);
               }}
             />
           </View>
