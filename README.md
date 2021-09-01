@@ -10,7 +10,7 @@
 
 ## Introduction
 
-[<Img src="./client/assets/IMG_2879.png" width="200px"/>][adventour]
+[<Img src="./client/assets/IMG_2876.png" width="200px"/>][adventour]
 [<Img src="./client/assets/IMG_2879.png" width="200px"/>][adventour]
 [<Img src="./client/assets/IMG_2881.png" width="200px"/>][adventour]
 [<Img src="./client/assets/individualtour.png" width="200px"/>][adventour]
